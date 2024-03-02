@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className="bg-dark mt-auto">
-      <section className="navbar navbar-expand-sm navbar-dark justify-content-center">
+      <div className="navbar navbar-expand-sm navbar-dark justify-content-center">
         <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link" href="https://github.com/kyoriku">GitHub</a>
@@ -15,7 +15,7 @@ const Footer = () => {
             <a className="nav-link" href="https://www.youtube.com/@arcaneviva">YouTube</a>
           </li>
         </ul>
-      </section>
+      </div>
     </footer>
   );
 }
