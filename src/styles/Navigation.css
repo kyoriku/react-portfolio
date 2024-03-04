@@ -1,0 +1,22 @@
+.nav-link {
+  padding: 0;
+}
+
+.navbar-nav li:first-child {
+  padding: 0px 8px;
+}
+
+.navbar-nav li ~ li {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0px 8px;
+}
+
+@media screen and (max-width: 575px) {
+  .nav-link {
+    width: 150px;
+    padding: 8px 24px;
+  }
+  .navbar-nav li ~ li {
+    border-left: none;
+  }
+}
