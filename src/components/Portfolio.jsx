@@ -16,7 +16,7 @@ const Portfolio = () => {
       githubLink: 'https://github.com/kyoriku/text-editor',
     },
     {
-      title: 'Rendezview',
+      title: 'RendezView',
       image: Rendezview,
       deployedLink: 'https://rendezviews-6983bdd1f9ce.herokuapp.com/',
       githubLink: 'https://github.com/kyoriku/RendezView',
