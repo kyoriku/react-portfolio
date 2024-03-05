@@ -55,10 +55,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="container my-4 py-4 col-md-6 card">
+    <div className="container py-4 col-md-6">
       <h1 className="text-center">Contact</h1>
-      {submitStatus && <div className="alert alert-success">{submitStatus}</div>}
-      <form onSubmit={handleFormSubmit}>
+      <form className="card p-3" onSubmit={handleFormSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Name
@@ -111,6 +110,7 @@ const Contact = () => {
           Submit
         </button>
       </form>
+      {submitStatus && <div className="mt-3 alert alert-success">{submitStatus}</div>}
     </div>
   );
 };
