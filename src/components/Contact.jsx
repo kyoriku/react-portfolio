@@ -9,10 +9,6 @@ const Contact = () => {
   const [messageError, setMessageError] = useState('');
   const [submitStatus, setSubmitStatus] = useState('');
 
-  const isValidEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
-
   const handleNameChange = (e) => {
     const newName = e.target.value;
     setName(newName);
@@ -23,26 +19,29 @@ const Contact = () => {
     const newEmail = e.target.value;
     setEmail(newEmail);
     setEmailError(!newEmail ? 'Email is required' : '');
+  };
 
-  };
-  
-  const handleInvalidEmail = () => {
-    setEmailError(!isValidEmail(email) ? 'Invalid email address' : '');
-  };
-  
   const handleMessageChange = (e) => {
     const newMessage = e.target.value;
     setMessage(newMessage);
     setMessageError(!newMessage ? 'Message is required' : '');
   };
 
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleInvalidEmail = () => {
+    setEmailError(!email ? 'Email is required' : !isValidEmail(email) ? 'Invalid email address' : '');
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-  
+
     setNameError(!name ? 'Name is required' : '');
     setEmailError(!email ? 'Email is required' : !isValidEmail(email) ? 'Invalid email address' : '');
     setMessageError(!message ? 'Message is required' : '');
-  
+
     if (name && email && isValidEmail(email) && message) {
       setSubmitStatus('Form submitted successfully!');
       console.log('Form submitted with data:', { name, email, message });
