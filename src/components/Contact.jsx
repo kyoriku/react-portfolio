@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/Contact.css';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -57,7 +58,7 @@ const Contact = () => {
   return (
     <div className="container py-4 col-md-6">
       <h1 className="text-center">Contact</h1>
-      <form className="card p-3" onSubmit={handleFormSubmit}>
+      <form className="card p-3 mt-3" onSubmit={handleFormSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Name
