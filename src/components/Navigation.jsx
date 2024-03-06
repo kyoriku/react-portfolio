@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Navigation.css';
+import React, { useState } from 'react'; // Importing React to use JSX
+import { Link } from 'react-router-dom'; // Importing Link to use anchor tags for routing
+import 'bootstrap/dist/css/bootstrap.min.css'; // Importing Bootstrap CSS to style component
+import '../styles/Navigation.css'; // Importing CSS file to style component
 
+// Functional component to display navigation bar
 const Navigation = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false);   // State to keep track of whether the navigation bar is expanded
 
+  // Function to handle the toggle of the navigation bar
   const handleToggle = () => {
-    setExpanded(!expanded);
+    setExpanded(!expanded); // Setting the expanded state to the opposite of its current value
   };
 
+  // Returning the navigation bar with links to different sections of the application
   return (
     <nav className='navbar navbar-dark navbar-expand-sm'>
       <Link className='navbar-brand ms-3' to='/' onClick={() => setExpanded(false)}>Austin Graham</Link>
@@ -36,4 +39,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Navigation; // Exporting the Navigation component to be used in other parts of the application

@@ -1,8 +1,10 @@
-import React from 'react';
-import ArmoredCore from '../assets/images/armoredcore.jpg';
-import '../styles/About.css';
+import React from 'react'; // Importing React to use JSX
+import ArmoredCore from '../assets/images/armoredcore.jpg'; // Importing image to display profile picture
+import '../styles/About.css'; // Importing CSS file to style component
 
+// Functional component to display about me section
 const About = () => {
+  // Returning the about me section with profile picture and information
   return (
     <section className='container py-4'>
       <div className='container row m-auto'>
@@ -25,4 +27,4 @@ const About = () => {
   );
 }
 
-export default About;
+export default About; // Exporting the About component to be used in other parts of the application

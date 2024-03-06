@@ -1,6 +1,8 @@
-import React from 'react';
+import React from 'react'; // Importing React to use JSX
 
+// Functional component to display footer
 const Footer = () => {
+  // Returning the footer with social media links
   return (
     <footer className="bg-dark mt-auto">
       <div className="navbar navbar-expand-sm navbar-dark justify-content-center">
