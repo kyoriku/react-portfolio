@@ -1,16 +1,24 @@
-import React from 'react';
+import React from 'react'; // Importing React to use JSX
+
+// Importing icons to display front end proficiencies
 import HTML from '../assets/icons/html.jpg';
 import CSS from '../assets/icons/css.jpg';
 import JavaScript from '../assets/icons/javascript.jpg';
 import jQuery from '../assets/icons/jquery.jpg';
 import ReactJs from '../assets/icons/reactjs.jpg';
 import Bootstrap from '../assets/icons/bootstrap.jpg';
+
+// Importing icons to display back end proficiencies
+import API from '../assets/icons/api.jpg';
 import Node from '../assets/icons/nodejs.jpg';
 import Express from '../assets/icons/expressjs.jpg';
 import MySQL from '../assets/icons/mysql.jpg';
 import MongoDb from '../assets/icons/mongodb.jpg';
+import GraphQL from '../assets/icons/graphql.jpg';
 
+// Functional component to display front end and back end proficiencies
 const Skills = () => {
+  // Array of objects containing front end technologies
   const frontEndSkills = [
     {
       skill: 'HTML',
@@ -44,7 +52,13 @@ const Skills = () => {
     }
   ];
 
+  // Array of objects containing back end technologies
   const backEndSkills = [
+    {
+      skill: 'APIs', 
+      image: API,
+      alt: 'APIs'
+    },
     {
       skill: 'Node.js', 
       image: Node,
@@ -64,9 +78,15 @@ const Skills = () => {
       skill: 'MongoDB',
       image: MongoDb,
       alt: 'MongoDB'
+    },
+    {
+      skill: 'GraphQL',
+      image: GraphQL,
+      alt: 'GraphQL'
     }
   ];
 
+  // Return the JSX of the Skills component
   return (
     <section>
       <h3>Front end Proficiencies</h3>
@@ -89,4 +109,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Skills; // Exporting the Skills component to be used in other components
