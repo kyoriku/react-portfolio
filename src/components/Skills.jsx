@@ -55,12 +55,12 @@ const Skills = () => {
   // Array of objects containing back end technologies
   const backEndSkills = [
     {
-      skill: 'APIs', 
+      skill: 'APIs',
       image: API,
       alt: 'APIs'
     },
     {
-      skill: 'Node.js', 
+      skill: 'Node.js',
       image: Node,
       alt: 'Node.js'
     },
@@ -86,14 +86,14 @@ const Skills = () => {
     }
   ];
 
-  // Return the JSX of the Skills component
+  // Returning the lists of front end and back end proficiencies with icons and alt text
   return (
     <section>
       <h3>Front end Proficiencies</h3>
       <ul>
         {frontEndSkills.map(({ skill, image, alt }, index) => (
           <li key={index}>
-            <p className='m-0'>{skill} <img src={image} alt={alt} height='25' width='25'/></p>
+            <p className='m-0'>{skill} <img src={image} alt={alt} height='25' width='25' /></p>
           </li>
         ))}
       </ul>
@@ -101,7 +101,7 @@ const Skills = () => {
       <ul>
         {backEndSkills.map(({ skill, image, alt }, index) => (
           <li key={index}>
-            <p className='m-0'>{skill} <img src={image} alt={alt} height='25' width='25'/></p>
+            <p className='m-0'>{skill} <img src={image} alt={alt} height='25' width='25' /></p>
           </li>
         ))}
       </ul>

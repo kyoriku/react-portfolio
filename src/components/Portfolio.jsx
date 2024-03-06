@@ -1,5 +1,7 @@
-import React from 'react';
-import Project from './Project';
+import React from 'react'; // Importing React to use JSX
+import Project from './Project'; // Importing Project component to display project information
+
+// Importing images to display project information
 import TextEditor from '../assets/images/text-editor.jpg';
 import Rendezview from '../assets/images/rendezview.jpg';
 import TechBlog from '../assets/images/tech-blog-cms.jpg';
@@ -7,6 +9,7 @@ import FilmFinder from '../assets/images/film-finder.jpg';
 import WeatherDashboard from '../assets/images/weather-dashboard.jpg';
 import CodeQuiz from '../assets/images/coding-quiz.jpg';
 
+// Functional component to display portfolio
 const Portfolio = () => {
   const projects = [
     {
@@ -47,6 +50,7 @@ const Portfolio = () => {
     },
   ];
 
+  // Returning the portfolio section with project information
   return (
     <section className='container py-4'>
       <h1 className='portfolio-text text-center'>Portfolio</h1>
