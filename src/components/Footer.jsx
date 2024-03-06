@@ -22,4 +22,4 @@ const Footer = () => {
   );
 }
 
-export default Footer;
+export default Footer; // Exporting the Footer component to be used in other parts of the application

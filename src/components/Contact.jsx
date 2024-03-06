@@ -72,7 +72,7 @@ const Contact = () => {
   return (
     <div className="container py-4 col-md-6">
       <h1 className="text-center">Contact</h1>
-      <p className='px-3'>The form feature is currently unavailable. You can contact me directly by emailing  <a href="mailto:devkyoriku@gmail.com">devkyoriku@gmail.com</a></p>
+      <p className='px-3'>The form feature is currently unavailable. You can contact me directly by emailing <a href="mailto:devkyoriku@gmail.com">devkyoriku@gmail.com</a></p>
       <form className="card p-3 mt-3" onSubmit={handleFormSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">

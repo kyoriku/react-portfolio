@@ -11,4 +11,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header; // Exporting the Header component to be used in other parts of the application
