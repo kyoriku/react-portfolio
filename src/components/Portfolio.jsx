@@ -1,11 +1,11 @@
 import React from 'react';
 import Project from './Project';
-import TextEditor from '../assets/text-editor.jpg';
-import Rendezview from '../assets/rendezview.jpg';
-import TechBlog from '../assets/tech-blog-cms.jpg';
-import FilmFinder from '../assets/film-finder.jpg';
-import WeatherDashboard from '../assets/weather-dashboard.jpg';
-import CodeQuiz from '../assets/coding-quiz.jpg';
+import TextEditor from '../assets/images/text-editor.jpg';
+import Rendezview from '../assets/images/rendezview.jpg';
+import TechBlog from '../assets/images/tech-blog-cms.jpg';
+import FilmFinder from '../assets/images/film-finder.jpg';
+import WeatherDashboard from '../assets/images/weather-dashboard.jpg';
+import CodeQuiz from '../assets/images/coding-quiz.jpg';
 
 const Portfolio = () => {
   const projects = [

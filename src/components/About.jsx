@@ -1,5 +1,5 @@
 import React from 'react';
-import ArmoredCore from '../assets/armoredcore.jpg';
+import ArmoredCore from '../assets/images/armoredcore.jpg';
 import '../styles/About.css';
 
 const About = () => {
@@ -11,7 +11,7 @@ const About = () => {
           <img src={ArmoredCore} alt='Profile picture' className='about-image' width='375' height='375' />
         </div>
         <div className='col-md-8 d-flex align-items-center'>
-          <p className='about p-3'>Hello! I'm Austin, an aspiring full-stack web developer excited to embark
+          <p className='card p-3'>Hello! I'm Austin, an aspiring full-stack web developer excited to embark
             on a journey to transform my passion for coding into impactful digital solutions. I specialize in
             front-end technologies, showcasing proficiency in HTML, CSS, and JavaScript. Lately, I've been
             exploring back-end technology, honing my skills in Node.js, Express.js, as well as databases such
