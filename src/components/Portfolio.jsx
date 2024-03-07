@@ -52,7 +52,7 @@ const Portfolio = () => {
 
   // Returning the portfolio section with project information
   return (
-    <section className='container py-4'>
+    <section className='container py-4 mb-4'>
       <h1 className='portfolio-text text-center'>Portfolio</h1>
       <section className='row text-center'>
         {projects.map((project, index) => (

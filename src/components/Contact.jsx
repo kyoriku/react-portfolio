@@ -70,9 +70,9 @@ const Contact = () => {
 
   // Returning the contact form with input fields for name, email, and message
   return (
-    <div className="container py-4 col-md-6">
+    <div className="container py-4 col-md-6 mb-4">
       <h1 className="text-center">Contact</h1>
-      <p className='px-3'>The form feature is currently unavailable. You can contact me directly by emailing <a href="mailto:devkyoriku@gmail.com">devkyoriku@gmail.com</a></p>
+      <p className='px-3'>The form feature is currently unavailable. You can contact me directly by emailing <a href="mailto:devkyoriku@gmail.com">devkyoriku@gmail.com</a></p> {/* Note to self: remove this when the form feature is available */}
       <form className="card p-3 mt-3" onSubmit={handleFormSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">

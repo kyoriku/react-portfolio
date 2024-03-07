@@ -6,7 +6,7 @@ import '../styles/About.css'; // Importing CSS file to style component
 const About = () => {
   // Returning the about me section with profile picture and information
   return (
-    <section className='container py-4'>
+    <section className='container py-4 mb-4'>
       <div className='container row m-auto'>
         <h1 className='mb-4 text-center'>About me</h1>
         <div className='col-md-4 d-flex justify-content-center'>

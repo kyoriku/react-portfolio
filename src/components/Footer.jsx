@@ -1,22 +1,23 @@
 import React from 'react'; // Importing React to use JSX
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import '../styles/Footer.css'; // Importing CSS file to style component
 
 // Functional component to display footer
 const Footer = () => {
   // Returning the footer with social media links
   return (
-    <footer className="bg-dark mt-auto">
-      <div className="navbar navbar-expand-sm navbar-dark justify-content-center">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a className="nav-link" href="https://github.com/kyoriku" target="_blank">GitHub</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="https://www.linkedin.com/in/austingraham1/" target="_blank">LinkedIn</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="https://www.youtube.com/@arcaneviva" target="_blank">YouTube</a>
-          </li>
-        </ul>
+    <footer className="text-center mt-auto footer bg-dark">
+      <div className="py-2">
+        <a href="https://github.com/kyoriku" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faGithub} className="icon" />
+        </a>
+        <a href="https://www.linkedin.com/in/austingraham1/" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faLinkedin} className="icon" />
+        </a>
+        <a href="https://www.youtube.com/@arcaneviva" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faYoutube} className="icon" />
+        </a>
       </div>
     </footer>
   );

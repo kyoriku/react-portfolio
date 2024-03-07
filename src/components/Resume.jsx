@@ -9,10 +9,10 @@ const Resume = () => {
     <section className='container mb-4 py-4 col-md-6 contact'>
       <h1 className='text-center'>Resume</h1>
       <div className='card p-3 mt-3'>
-        <a href={ResumeDownload} download className=' d-flex justify-content-center text-decoration-none mb-2'>
-          <button className='btn btn-dark mb-2'>Download Resume</button>
-        </a>
         <Skills />
+        <a href={ResumeDownload} download className='d-flex justify-content-center text-decoration-none'>
+          <button className='btn btn-primary'>Download Resume</button>
+        </a>
       </div>
     </section>
   );
