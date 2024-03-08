@@ -1,11 +1,11 @@
 import React from 'react'; // Importing React to use JSX
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Importing FontAwesomeIcon component to use icons
+import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'; // Importing icons from Font Awesome library
 import '../styles/Footer.css'; // Importing CSS file to style component
 
 // Functional component to display footer
 const Footer = () => {
-  // Returning the footer with social media links
+  // Returning the footer with links to GitHub, LinkedIn, and Youtube as icons from Font Awesome library 
   return (
     <footer className="text-center mt-auto footer bg-dark">
       <div className="py-2">

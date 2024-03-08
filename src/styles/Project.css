@@ -1,4 +1,10 @@
 .card {
-  border-radius: 20px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 20px; /* Add some roundness to the card */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the card */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* Add a slight lift effect on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
 }

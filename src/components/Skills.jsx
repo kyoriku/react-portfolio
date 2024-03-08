@@ -89,7 +89,7 @@ const Skills = () => {
   // Returning the lists of front end and back end proficiencies with icons and alt text
   return (
     <section>
-      <h3>Front end Proficiencies</h3>
+      <h3>Front-end Proficiencies</h3>
       <ul>
         {frontEndSkills.map(({ skill, image, alt }, index) => (
           <li key={index}>
@@ -97,7 +97,7 @@ const Skills = () => {
           </li>
         ))}
       </ul>
-      <h3>Back end Proficiencies</h3>
+      <h3>Back-end Proficiencies</h3>
       <ul>
         {backEndSkills.map(({ skill, image, alt }, index) => (
           <li key={index}>

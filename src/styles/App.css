@@ -10,3 +10,16 @@
   flex-direction: column;
   min-height: 100vh;
 }
+
+body {
+  background-color: #8DA9C4 ;
+  /* color: #EEF4ED; */
+}
+
+.card {
+  border-radius: 20px;
+  box-shadow: 0 0 10px #0B2545;
+  background: linear-gradient(180deg, #134074, #13315C 50%, #0B2545);
+  border: none;
+  color: #EEF4ED;
+}
