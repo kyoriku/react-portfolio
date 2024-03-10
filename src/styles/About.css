@@ -1,3 +1,12 @@
 .about-image {
   border-radius: 50%;
 }
+
+@media screen and (max-width: 575px) {
+  .about-image {
+    margin-bottom: 24px;
+  }
+  .about-mobile {
+    padding: 0px;
+  }
+}

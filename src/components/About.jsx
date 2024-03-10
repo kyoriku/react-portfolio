@@ -12,7 +12,7 @@ const About = () => {
         <div className='col-md-4 d-flex justify-content-center'>
           <img src={ArmoredCore} alt='Profile picture' className='about-image' width='375' height='375' />
         </div>
-        <div className='col-md-8 d-flex align-items-center'>
+        <div className='col-md-8 d-flex align-items-center about-mobile'>
           <p className='card p-3'>Hello! I'm Austin, an aspiring full-stack web developer excited to embark
             on a journey to transform my passion for coding into impactful digital solutions. I specialize in
             front-end technologies, showcasing proficiency in HTML, CSS, and JavaScript. Lately, I've been

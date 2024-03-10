@@ -12,8 +12,10 @@
 }
 
 body {
-  background-color: #8DA9C4 ;
-  /* color: #EEF4ED; */
+  background-image: url("../assets/images/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
 }
 
 .card {
