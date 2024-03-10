@@ -83,6 +83,7 @@ const Contact = () => {
             className="form-control"
             id="name"
             placeholder="Enter Your Name"
+            autoComplete='name'
             value={name}
             onChange={handleNameChange}
             onBlur={handleNameChange}
@@ -99,6 +100,7 @@ const Contact = () => {
             className="form-control"
             id="email"
             placeholder="Enter Your Email Address"
+            autoComplete='email'
             value={email}
             onChange={handleEmailChange}
             onBlur={handleInvalidEmail}
