@@ -67,10 +67,10 @@ To install this project locally, follow these steps:
   This will create a production-ready build of the portfolio, optimized for performance and ready to be deployed to your hosting provider.
 
 ### Screenshots
-![about-page](public/screenshots/about-page.png)
-![portfolio-page](public/screenshots/portfolio-page.png)
-![contact-page](public/screenshots/contact-page.png)
-![resume-page](public/screenshots/resume-page.png)
+![about-page](public/screenshots/about-page.jpg)
+![portfolio-page](public/screenshots/portfolio-page.jpg)
+![contact-page](public/screenshots/contact-page.jpg)
+![resume-page](public/screenshots/resume-page.jpg)
 
 ## License
 This application is covered by the [MIT](https://opensource.org/licenses/MIT) license.
