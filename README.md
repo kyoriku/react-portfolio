@@ -33,7 +33,7 @@ Thank you for visiting my portfolio, and I look forward to connecting with you!
 - [Questions](#questions)
 
 ## Deployment
-The React Portfolio is deployed on Netlify You can access the live application [here](https://austin-react-portfolio.netlify.app/).
+The React Portfolio is deployed on Netlify. You can access the live application [here](https://kyoriku-react-portfolio.netlify.app/).
 
 ## Installation
 To install this project locally, follow these steps:
