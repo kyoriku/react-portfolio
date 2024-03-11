@@ -7,7 +7,7 @@ export default function ErrorPage() {
   console.error(error);
 
   return (
-    <div className='app-container'>
+    <section className='app-container'>
       <Header />
       <div className="m-5 p-5 text-center" id="error-page">
         <h1 >Oops!</h1>
@@ -17,6 +17,6 @@ export default function ErrorPage() {
         </p>
       </div>
       <Footer />
-    </div>
+    </section>
   );
 }
