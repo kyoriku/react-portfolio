@@ -1,12 +1,12 @@
 .about-image {
-  border-radius: 50%;
+  border-radius: 50%; /* Add roundness to the image */
 }
 
-@media screen and (max-width: 575px) {
-  .about-image {
-    margin-bottom: 24px;
+@media screen and (max-width: 575px) { /* Adjust styles for smaller screens */
+  .about-image { 
+    margin-bottom: 24px; /* Add some space between the image and the text */
   }
   .about-mobile {
-    padding: 0px;
+    padding: 0px; /* Remove padding */
   }
 }

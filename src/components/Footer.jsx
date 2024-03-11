@@ -7,7 +7,7 @@ import '../styles/Footer.css'; // Importing CSS file to style component
 const Footer = () => {
   // Returning the footer with links to GitHub, LinkedIn, and Youtube as icons from Font Awesome library 
   return (
-    <footer className="text-center mt-auto footer bg-dark">
+    <footer className="text-center mt-auto footer">
       <div className="py-2">
         <a href="https://github.com/kyoriku" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faGithub} className="icon" />

@@ -1,15 +1,19 @@
 .icon {
-  background-color: #EEF4ED;
-  border-radius: 50%;
-  color: #134074;
-  height: 32px;
-  width: 32px;
-  margin-inline: 8px;
-  padding: 4px;
-  vertical-align: middle;
+  background-color: #EEF4ED; /* Set background color */
+  border-radius: 50%; /* Add roundness to the icon */
+  color: #134074; /* Set text color */
+  height: 32px; /* Set height */
+  width: 32px; /* Set width */
+  margin-inline: 8px; /* Add some space between icons */
+  padding: 4px; /* Add some padding */
+  vertical-align: middle; /* Align icon vertically */
 }
 
 .icon:hover {
-  background-color: #8DA9C4;
-  color: #13315C;
+  background-color: #8DA9C4; /* Change background color on hover */
+  color: #13315C; /* Change text color on hover */
+}
+
+.footer {
+  background-color: #0B2545; /* Set background color */
 }

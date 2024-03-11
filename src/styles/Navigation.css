@@ -1,22 +1,43 @@
 .nav-link {
-  padding: 0;
+  padding: 0; /* Remove default padding */
 }
 
 .navbar-nav li:first-child {
-  padding: 0px 8px;
+  padding: 0px 8px; /* Add padding to the first list item */
 }
 
 .navbar-nav li ~ li {
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 0px 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3); /* Add border between list items */
+  padding: 0px 8px; /* Add padding to the rest of the list items */
 }
 
-@media screen and (max-width: 575px) {
+.navbar {
+  background-color: #0B2545; /* Set background color */
+}
+
+.navbar-brand,
+.nav-link {
+  color: #EEF4ED; /* Set text color */
+}
+
+.navbar-toggler  {
+  background-color: #134074; /* Set background color */
+  border-color: #8DA9C4; /* Set border color */
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus,
+.nav-link:hover,
+.nav-link:focus {
+  color: #8DA9C4; /* Change text color on hover/focus */
+}
+
+@media screen and (max-width: 575px) { /* Adjust styles for smaller screens */
   .nav-link {
     width: 150px;
-    padding: 8px 24px;
+    padding: 8px 24px; /* Add padding */
   }
   .navbar-nav li ~ li {
-    border-left: none;
+    border-left: none; /* Remove border between list items */
   }
 }
