@@ -1,6 +1,6 @@
 import React from 'react'; // Importing React to use JSX
 import Skills from './Skills'; // Importing Skills component to display front end and back end proficiencies
-import ResumeDownload from '../assets/documents/Austin Graham Resume 2024.docx.pdf'; // Importing resume file to download
+import ResumeDownload from '../assets/documents/Austin Graham Resume 2024.pdf'; // Importing resume file to download
 
 // Functional component to display resume
 const Resume = () => {
