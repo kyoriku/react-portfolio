@@ -22,16 +22,16 @@ const Navigation = () => {
       <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`}>
         <ul className='navbar-nav ms-auto'>
           <li className='nav-item'>
-            <Link className='nav-link' to='/' onClick={() => setExpanded(false)}>About Me</Link>
+            <Link className='nav-link' to='/' onClick={() => setExpanded(false)}>About</Link>
           </li>
           <li className='nav-item'>
             <Link className='nav-link' to='/portfolio' onClick={() => setExpanded(false)}>Portfolio</Link>
           </li>
           <li className='nav-item'>
-            <Link className='nav-link' to='/contact' onClick={() => setExpanded(false)}>Contact</Link>
+            <Link className='nav-link' to='/resume' onClick={() => setExpanded(false)}>Resume</Link>
           </li>
           <li className='nav-item'>
-            <Link className='nav-link' to='/resume' onClick={() => setExpanded(false)}>Resume</Link>
+            <Link className='nav-link' to='/contact' onClick={() => setExpanded(false)}>Contact</Link>
           </li>
         </ul>
       </div>

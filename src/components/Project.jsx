@@ -5,17 +5,33 @@ import '../styles/Project.css'; // Importing CSS file to style component
 const Project = ({ title, image, deployedLink, githubLink }) => {
   // Returning the project information with title, image, and links
   return (
-    <article className='col-md-4 p-2'>
+    <article className='project-card-container'>
       <section className='card project-card'>
         <div className='project-title'>
           <h3 className='m-2'>{title}</h3>
         </div>
-        <img src={image} alt={title} />
+        <div className='project-image-container'>
+          <img
+            src={image}
+            alt={title}
+            className='project-image'
+          />
+        </div>
         <div className='project-links py-1'>
-          <a href={deployedLink} target='_blank' rel='noopener noreferrer' className='btn btn-primary m-1'>
+          <a
+            href={deployedLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='btn btn-primary m-1'
+          >
             Deployed Application
           </a>
-          <a href={githubLink} target='_blank' rel='noopener noreferrer' className='btn btn-secondary m-1'>
+          <a
+            href={githubLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='btn btn-secondary m-1'
+          >
             GitHub Repository
           </a>
         </div>
