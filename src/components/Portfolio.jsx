@@ -1,5 +1,6 @@
-import React from 'react'; // Importing React to use JSX
-import Project from './Project'; // Importing Project component to display project information
+import React from 'react';
+import { motion } from 'framer-motion';
+import Project from './Project';
 
 // Importing images to display project information
 import AdminAccess from '../assets/images/adminaccess.jpg';
@@ -14,6 +15,25 @@ import WorkDayScheduler from '../assets/images/work-day-scheduler.jpg';
 import CodeQuiz from '../assets/images/coding-quiz.jpg';
 import PasswordGenerator from '../assets/images/password-generator.jpg';
 import HTMLPortfolio from '../assets/images/portfolio.jpg';
+
+// Animation variants for heading and project cards
+const headingVariants = {
+  hidden: { opacity: 0, y: -25 }, // Slide in from the top
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+};
+
+const containerVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.025, // Stagger each card animation
+    },
+  },
+};
 
 // Functional component to display portfolio
 const Portfolio = () => {
@@ -52,61 +72,80 @@ const Portfolio = () => {
       title: 'Tech Blog',
       image: TechBlog,
       deployedLink: 'https://techblogcms-1e5c1470e624.herokuapp.com/',
-      githubLink: 'https://github.com/kyoriku/tech-blog'
+      githubLink: 'https://github.com/kyoriku/tech-blog',
     },
     {
       title: 'Note Taker',
       image: NoteTaker,
       deployedLink: 'https://murmuring-mesa-04318-2e971da9f7a1.herokuapp.com/',
-      githubLink: 'https://github.com/kyoriku/note-taker'
+      githubLink: 'https://github.com/kyoriku/note-taker',
     },
     {
       title: 'Weather Dashboard',
       image: WeatherDashboard,
       deployedLink: 'https://kyoriku.github.io/weather-dashboard/',
-      githubLink: 'https://github.com/kyoriku/weather-dashboard'
+      githubLink: 'https://github.com/kyoriku/weather-dashboard',
     },
     {
       title: 'Work Day Scheduler',
       image: WorkDayScheduler,
       deployedLink: 'https://kyoriku.github.io/work-day-scheduler/',
-      githubLink: 'https://github.com/kyoriku/work-day-scheduler'
+      githubLink: 'https://github.com/kyoriku/work-day-scheduler',
     },
     {
       title: 'Coding Quiz',
       image: CodeQuiz,
       deployedLink: 'https://kyoriku.github.io/code-quiz/',
-      githubLink: 'https://github.com/kyoriku/code-quiz'
+      githubLink: 'https://github.com/kyoriku/code-quiz',
     },
     {
       title: 'Password Generator',
       image: PasswordGenerator,
       deployedLink: 'https://kyoriku.github.io/password-generator/',
-      githubLink: 'https://github.com/kyoriku/password-generator'
+      githubLink: 'https://github.com/kyoriku/password-generator',
     },
     {
       title: 'HTML Portfolio',
       image: HTMLPortfolio,
       deployedLink: 'https://kyoriku.github.io/portfolio/',
-      githubLink: 'https://github.com/kyoriku/portfolio'
+      githubLink: 'https://github.com/kyoriku/portfolio',
     },
   ];
 
-  // Returning the portfolio section with project information
   return (
     <section className='container py-4 mb-4'>
-      <h1 className='portfolio-text text-center'>Portfolio</h1>
-      <section className='row text-center'>
+      {/* Animate heading to come from the top */}
+      <motion.h1
+        className='portfolio-text text-center'
+        variants={headingVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        Portfolio
+      </motion.h1>
+
+      {/* Animate project cards with stagger effect */}
+      <motion.section
+        className='row text-center'
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {projects.map((project, index) => (
-          <Project
+          <motion.div
             key={index}
-            title={project.title}
-            image={project.image}
-            deployedLink={project.deployedLink}
-            githubLink={project.githubLink}
-          />
+            variants={cardVariants} // Animation for each card
+            className="col-lg-4 col-md-6 mb-4" // Ensure proper layout with columns
+          >
+            <Project
+              title={project.title}
+              image={project.image}
+              deployedLink={project.deployedLink}
+              githubLink={project.githubLink}
+            />
+          </motion.div>
         ))}
-      </section>
+      </motion.section>
     </section>
   );
 };

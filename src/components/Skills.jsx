@@ -1,4 +1,6 @@
 import React from 'react'; // Importing React to use JSX
+import { motion } from 'framer-motion'; // Importing motion from framer-motion for animations
+import '../styles/Skills.css'; // Importing CSS file to style component
 
 // Importing icons to display front end proficiencies
 import HTML from '../assets/icons/html.jpg';
@@ -15,6 +17,17 @@ import Express from '../assets/icons/expressjs.jpg';
 import MySQL from '../assets/icons/mysql.jpg';
 import MongoDb from '../assets/icons/mongodb.jpg';
 import GraphQL from '../assets/icons/graphql.jpg';
+
+// Animation variants for skill items
+const skillVariantsLeft = {
+  hidden: { opacity: 0, x: -25 }, // Slide in from the left
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+};
+
+const skillVariantsRight = {
+  hidden: { opacity: 0, x: 25 }, // Slide in from the right
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+};
 
 // Functional component to display front end and back end proficiencies
 const Skills = () => {
@@ -41,7 +54,7 @@ const Skills = () => {
       alt: 'jQuery'
     },
     {
-      skill: 'React',
+      skill: 'React.js',
       image: ReactJs,
       alt: 'React'
     },
@@ -89,22 +102,51 @@ const Skills = () => {
   // Returning the lists of front end and back end proficiencies with icons and alt text
   return (
     <section>
-      <h3>Front-end Proficiencies</h3>
-      <ul>
+      <motion.h3
+        className="text-center" // Add CSS classes as needed
+        variants={skillVariantsLeft} // Animate the front-end heading from the left
+        initial="hidden"
+        animate="visible"
+      >
+        Front-end Proficiencies
+      </motion.h3>
+      <div className='skills-container'>
         {frontEndSkills.map(({ skill, image, alt }, index) => (
-          <li key={index}>
-            <p className='m-0'>{skill} <img src={image} alt={alt} height='25' width='25' /></p>
-          </li>
+          <motion.div
+            key={index}
+            className='skill-item'
+            variants={skillVariantsLeft} // Animate each skill item from the left
+            initial="hidden"
+            animate="visible"
+          >
+            <img src={image} alt={alt} height='50' width='50' />
+            <p className='skill-label'>{skill}</p>
+          </motion.div>
         ))}
-      </ul>
-      <h3>Back-end Proficiencies</h3>
-      <ul>
+      </div>
+
+      <motion.h3
+        className="text-center" // Add CSS classes as needed
+        variants={skillVariantsRight} // Animate the back-end heading from the right
+        initial="hidden"
+        animate="visible"
+      >
+        Back-end Proficiencies
+      </motion.h3>
+      <div className='skills-container'>
         {backEndSkills.map(({ skill, image, alt }, index) => (
-          <li key={index}>
-            <p className='m-0'>{skill} <img src={image} alt={alt} height='25' width='25' /></p>
-          </li>
+          <motion.div
+            key={index}
+            className='skill-item'
+            variants={skillVariantsRight} // Animate each skill item from the right
+            initial="hidden"
+            animate="visible"
+          >
+            <img src={image} alt={alt} height='50' width='50' />
+            <p className='skill-label'>{skill}</p>
+          </motion.div>
         ))}
-      </ul>
+      </div>
     </section>
   );
 };

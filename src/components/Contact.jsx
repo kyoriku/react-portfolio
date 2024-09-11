@@ -1,5 +1,18 @@
 import React, { useState } from 'react'; // Importing React to use JSX
+import { motion } from 'framer-motion'; // Importing motion from framer-motion for animations
 import '../styles/Contact.css'; // Importing CSS file to style component
+
+// Animation variant for the heading
+const headingVariants = {
+  hidden: { opacity: 0, y: -25 }, // Slide in from the top
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+};
+
+// Animation variant for the form
+const formVariants = {
+  hidden: { opacity: 0 }, // Fully transparent
+  visible: { opacity: 1, transition: { duration: 0.3, ease: "easeInOut" } }, // Fade in
+};
 
 // Functional component to display contact form
 const Contact = () => {
@@ -71,9 +84,22 @@ const Contact = () => {
   // Returning the contact form with input fields for name, email, and message
   return (
     <section className="container py-4 col-md-6 mb-4">
-      <h1 className="text-center">Contact</h1>
-      <p className='px-3'>The form feature is currently unavailable. You can contact me directly by emailing <a href="mailto:devkyoriku@gmail.com">devkyoriku@gmail.com</a></p> {/* Note to self: remove this when the form feature is available */}
-      <form className="card p-3 mt-3" onSubmit={handleFormSubmit}>
+      <motion.h1
+        className="text-center"
+        variants={headingVariants} // Animate the heading (previously defined variant)
+        initial="hidden"
+        animate="visible"
+      >
+        Contact
+      </motion.h1>
+      <p className='px-3 alert alert-danger'>The form feature is currently unavailable. You can contact me directly by emailing <a href="mailto:devkyoriku@gmail.com">devkyoriku@gmail.com</a></p> {/* Note to self: remove this when the form feature is available */}
+      <motion.form
+        className="card p-3 mt-3"
+        variants={formVariants} // Animate the form
+        initial="hidden"
+        animate="visible"
+        onSubmit={handleFormSubmit}
+      >
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Name
@@ -127,7 +153,7 @@ const Contact = () => {
         <button type="submit" className="btn btn-primary" onSubmit={handleFormSubmit}>
           Submit
         </button>
-      </form>
+      </motion.form>
       {submitStatus && <div className="mt-3 alert alert-danger">{submitStatus}</div>} {/* Note to self: change alert-danger to alert-success when the form feature is available */}
     </section>
   );

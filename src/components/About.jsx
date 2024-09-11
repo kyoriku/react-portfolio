@@ -1,29 +1,62 @@
 import React from 'react'; // Importing React to use JSX
+import { motion } from 'framer-motion'; // Importing motion from framer-motion for animations
 import ArmoredCore from '../assets/images/armoredcore.jpg'; // Importing image to display profile picture
 import '../styles/About.css'; // Importing CSS file to style component
+
+// Animation variants for the heading, image, and text
+const headingVariants = {
+  hidden: { opacity: 0, y: -25 }, // Slide in from the top
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, x: -100 }, // Slide in from the left
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+};
+
+const textVariants = {
+  hidden: { opacity: 0, x: 100 }, // Slide in from the right
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+};
 
 // Functional component to display about me section
 const About = () => {
   // Returning the about me section with profile picture and information
   return (
-    <section className='container py-4 mb-4'>
-      <div className='row m-auto'>
-        <h1 className='mb-4 text-center'>About me</h1>
-        <div className='col-md-4 d-flex justify-content-center'>
-          <img src={ArmoredCore} alt='Profile picture' className='about-image' width='375' height='375' />
-        </div>
-        <div className='col-md-8 d-flex align-items-center about-mobile'>
-          <p className='card p-3'>Hello! I'm Austin, an aspiring full-stack web developer excited to embark
-            on a journey to transform my passion for coding into impactful digital solutions. I specialize in
-            front-end technologies, showcasing proficiency in HTML, CSS, and JavaScript. Lately, I've been
-            exploring back-end technology, honing my skills in Node.js, Express.js, as well as databases such
-            as MySQL and MongoDB. Currently, I'm dedicated to expanding my skill set by learning React. My
-            approach to web development combines a creative mindset with a problem-solving attitude. I enjoy
-            the process of turning ideas into functional, user-friendly applications. Though I'm new to the
-            professional scene, I'm committed to staying on top of the latest web development trends.</p>
-        </div>
-      </div>
-    </section>
+    <motion.section
+      className='container py-4 mb-4'
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className='row m-auto'>
+        <motion.h1
+          className='mb-4 text-center'
+          variants={headingVariants} // Animate from the top
+        >
+          About
+        </motion.h1>
+        <motion.div
+          className='col-md-4 d-flex justify-content-center'
+          variants={imageVariants} // Image comes from the left
+        >
+          <motion.img
+            src={ArmoredCore}
+            alt='Profile picture'
+            className='about-image'
+            width='300'
+            height='300'
+          />
+        </motion.div>
+        <motion.div
+          className='col-md-8 d-flex align-items-center about-mobile'
+          variants={textVariants} // Text comes from the right
+        >
+          <p className='card p-3'>
+            Hello! I'm Austin, a Junior Full Stack Web Developer based in Toronto with a strong foundation in both front-end and back-end technologies. I'm proficient in HTML, CSS, JavaScript, Node.js, Express.js, and databases like MySQL and MongoDB. Currently, I'm focusing on advancing my React skills and applying Agile and Scrum methodologies to my projects. My approach to web development blends creativity with a problem-solving mindset, enabling me to build functional and user-friendly applications. With experience in web development and project management, I'm motivated to contribute to dynamic teams and stay at the forefront of industry trends.
+          </p>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 }
 
