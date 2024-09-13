@@ -15,7 +15,7 @@ const Resume = () => {
   return (
     <section className='container mb-4 py-4 col-md-6 contact'>
       <motion.h1
-        className='text-center'
+        className='text-center mb-4'
         variants={headingVariants} // Animate the heading
         initial="hidden"
         animate="visible"

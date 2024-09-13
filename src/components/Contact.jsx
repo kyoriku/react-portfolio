@@ -85,7 +85,7 @@ const Contact = () => {
   return (
     <section className="container py-4 col-md-6 mb-4">
       <motion.h1
-        className="text-center"
+        className="text-center mb-4"
         variants={headingVariants} // Animate the heading (previously defined variant)
         initial="hidden"
         animate="visible"
@@ -142,7 +142,7 @@ const Contact = () => {
             className="form-control"
             id="message"
             placeholder="Enter Your Message"
-            rows="6"
+            rows="4"
             value={message}
             onChange={handleMessageChange}
             onBlur={handleMessageChange}
