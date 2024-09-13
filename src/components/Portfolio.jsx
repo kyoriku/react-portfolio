@@ -116,7 +116,7 @@ const Portfolio = () => {
     <section className='container py-4 mb-4'>
       {/* Animate heading to come from the top */}
       <motion.h1
-        className='portfolio-text text-center'
+        className='portfolio-text text-center mb-4'
         variants={headingVariants}
         initial="hidden"
         animate="visible"
@@ -135,7 +135,7 @@ const Portfolio = () => {
           <motion.div
             key={index}
             variants={cardVariants} // Animation for each card
-            className="col-lg-4 col-md-6 mb-4" // Ensure proper layout with columns
+            className="col-lg-4 col-md-6 card-margin" // Ensure proper layout with columns
           >
             <Project
               title={project.title}

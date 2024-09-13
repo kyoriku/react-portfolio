@@ -18,22 +18,24 @@ const Project = ({ title, image, deployedLink, githubLink }) => {
           />
         </div>
         <div className='project-links py-1'>
-          <a
-            href={deployedLink}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='btn btn-primary m-1'
-          >
-            Deployed Application
-          </a>
-          <a
-            href={githubLink}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='btn btn-secondary m-1'
-          >
-            GitHub Repository
-          </a>
+          <div className='d-flex px-1'>
+            <a
+              href={deployedLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='btn btn-primary m-1 btn-equal-width'
+            >
+              Live Demo
+            </a>
+            <a
+              href={githubLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='btn btn-secondary m-1 btn-equal-width'
+            >
+              GitHub
+            </a>
+          </div>
         </div>
       </section>
     </article>
