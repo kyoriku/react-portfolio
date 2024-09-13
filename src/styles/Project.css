@@ -35,5 +35,11 @@
 }
 
 .card-margin {
-  margin-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .card-margin {
+    margin-bottom: 12px;
+  }
 }
