@@ -36,11 +36,7 @@
 }
 
 .card-margin {
-  margin-bottom: 24px;
-}
-
-@media (max-width: 768px) {
-  .card-margin {
-    margin-bottom: 12px;
-  }
+  margin-bottom: 12px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
