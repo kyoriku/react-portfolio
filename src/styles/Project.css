@@ -21,6 +21,7 @@
 
 .project-image-container {
   width: 100%;
+  height: 100%; /* Set fixed height for image container */
   overflow: hidden; /* Ensure images don't overflow the container */
 }
 
