@@ -1,12 +1,39 @@
-.about-image {
-  border-radius: 50%; /* Add roundness to the image */
+body {
+  background-image: url("../assets/images/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  color: #EEF4ED;
 }
 
-@media screen and (max-width: 575px) { /* Adjust styles for smaller screens */
-  .about-image { 
-    margin-bottom: 24px; /* Add some space between the image and the text */
-  }
-  .about-mobile {
-    padding: 0px; /* Remove padding */
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #134074, #13315C 50%, #0B2545);
+  border: none;
+  color: #EEF4ED;
+  overflow: hidden;
+}
+
+.about-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border: 5px solid #EEF4ED;
+  box-shadow: 0 0 15px rgba(238, 244, 237, 0.3);
+}
+
+h1, h2, h3 {
+  color: #EEF4ED;
+}
+
+.card-subtitle {
+  color: #B8DBD9;
+}
+
+@media (max-width: 767px) {
+  .about-image {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
   }
 }

@@ -10,8 +10,8 @@ const headingVariants = {
 
 // Animation variant for the form
 const formVariants = {
-  hidden: { opacity: 0 }, // Fully transparent
-  visible: { opacity: 1, transition: { duration: 0.3, ease: "easeInOut" } }, // Fade in
+  hidden: { opacity: 0, y: 25 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
 };
 
 // Functional component to display contact form
@@ -90,9 +90,9 @@ const Contact = () => {
         initial="hidden"
         animate="visible"
       >
-        Contact
+        Contact Me
       </motion.h1>
-      <p className='px-3 alert alert-danger'>The form feature is currently unavailable. You can contact me directly by emailing <a href="mailto:devkyoriku@gmail.com">devkyoriku@gmail.com</a></p> {/* Note to self: remove this when the form feature is available */}
+      <p className='px-3 alert alert-danger'>The form is currently unavailable. You can contact me directly by emailing <a href="mailto:devkyoriku@gmail.com">devkyoriku@gmail.com</a></p> {/* Note to self: remove this when the form is available */}
       <motion.form
         className="card p-3 mt-3"
         variants={formVariants} // Animate the form
@@ -150,11 +150,11 @@ const Contact = () => {
           ></textarea>
           {messageError && <div id="messageError" className="text-danger">{messageError}</div>}
         </div>
-        <button type="submit" className="btn btn-primary" onSubmit={handleFormSubmit}>
+        <button type="submit" className="btn btn-primary custom-btn" onSubmit={handleFormSubmit}>
           Submit
         </button>
       </motion.form>
-      {submitStatus && <div className="mt-3 alert alert-danger">{submitStatus}</div>} {/* Note to self: change alert-danger to alert-success when the form feature is available */}
+      {submitStatus && <div className="mt-3 alert alert-danger">{submitStatus}</div>} {/* Note to self: change alert-danger to alert-success when the form is available */}
     </section>
   );
 };

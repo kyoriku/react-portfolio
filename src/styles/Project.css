@@ -1,49 +1,26 @@
-.card {
-  border-radius: 10px; /* Add some roundness to the card */
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the card */
-  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
+.custom-btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.project-card:hover {
-  transform: translateY(-2px); /* Add a slight lift effect on hover */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+.custom-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* opacity: 0.9; */
+  filter: brightness(90%);
 }
 
-.project-card-container {
-  display: flex;
-  justify-content: center;
+.btn-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient for the live demo button */
+  border: none;
 }
 
-.project-card {
-  width: 100%; /* Ensure card takes full width of container */
-  max-width: 400px; /* Limit card width to 400px */
+.btn-secondary {
+  background: linear-gradient(135deg, #6c757d, #5a6268); /* Gradient for the GitHub button */
+  border: none;
 }
 
-.project-image-container {
-  width: 100%;
-  height: 100%; /* Set fixed height for image container */
-  overflow: hidden; /* Ensure images don't overflow the container */
-}
-
-.project-image {
-  width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  object-fit: cover; /* Ensure image covers the area without distortion */
-}
-
-.btn-equal-width {
-  flex: 1; /* Ensures both buttons take equal space */
-}
-
-.card-margin {
-  margin-bottom: 12px;
-  padding-left: 6px;
-  padding-right: 6px;
-}
-
-@media (max-width: 768px) {
-  .card-margin {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-}
+/* .btn-primary:hover, .btn-secondary:hover {
+  opacity: 0.9;
+} */
