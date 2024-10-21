@@ -1,63 +1,57 @@
-import React from 'react'; // Importing React to use JSX
-import { motion } from 'framer-motion'; // Importing motion from framer-motion for animations
-import ArmoredCore from '../assets/images/armoredcore.jpg'; // Importing image to display profile picture
-import '../styles/About.css'; // Importing CSS file to style component
+import React from 'react';
+import { motion } from 'framer-motion';
+import ArmoredCore from '../assets/images/armoredcore.jpg';
+import { MapPin } from 'lucide-react';
+import '../styles/About.css';
 
-// Animation variants for the heading, image, and text
 const headingVariants = {
-  hidden: { opacity: 0, y: -25 }, // Slide in from the top
+  hidden: { opacity: 0, y: -25 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
 };
 
-const imageVariants = {
-  hidden: { opacity: 0, x: -100 }, // Slide in from the left
-  visible: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+const contentVariants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
 };
 
-const textVariants = {
-  hidden: { opacity: 0, x: 100 }, // Slide in from the right
-  visible: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeInOut" } },
-};
-
-// Functional component to display about me section
 const About = () => {
-  // Returning the about me section with profile picture and information
   return (
     <motion.section
-      className='container py-4 mb-4'
+      className="container py-4"
       initial="hidden"
       animate="visible"
     >
-      <motion.div className='row m-auto'>
-        <motion.h1
-          className='mb-4 text-center'
-          variants={headingVariants} // Animate from the top
-        >
-          About
-        </motion.h1>
-        <motion.div
-          className='col-md-4 d-flex justify-content-center'
-          variants={imageVariants} // Image comes from the left
-        >
-          <motion.img
-            src={ArmoredCore}
-            alt='Profile picture'
-            className='about-image'
-            width='300'
-            height='300'
-          />
-        </motion.div>
-        <motion.div
-          className='col-md-8 d-flex align-items-center about-mobile'
-          variants={textVariants} // Text comes from the right
-        >
-          <p className='card p-3'>
-            Hello! I'm Austin, a Junior Full Stack Web Developer based in Toronto with a strong foundation in both front-end and back-end technologies. I'm proficient in HTML, CSS, JavaScript, Node.js, Express.js, and databases like MySQL and MongoDB. Currently, I'm focusing on advancing my React skills and applying Agile and Scrum methodologies to my projects. My approach to web development blends creativity with a problem-solving mindset, enabling me to build functional and user-friendly applications. With experience in web development and project management, I'm motivated to contribute to dynamic teams and stay at the forefront of industry trends.
-          </p>
-        </motion.div>
+      <motion.h1
+        className="text-center mb-4"
+        variants={headingVariants}
+      >
+        About Me
+      </motion.h1>
+
+      <motion.div
+        className="row g-0 align-items-center"
+        variants={contentVariants}
+      >
+        <div className="col-md-4 d-flex justify-content-center align-items-center px-3">
+          <img src={ArmoredCore} alt="Profile picture" className="about-image img-fluid rounded-circle" />
+        </div>
+        <div className="col-md-8">
+          <div className="card">
+            <div className="card-body">
+              <h2 className="card-title mb-3">Austin Graham</h2>
+              <h3 className="card-subtitle mb-3">Full Stack Developer</h3>
+              <p className="card-text mb-3 d-flex align-items-center">
+                <MapPin size={18} className="me-2" /> Toronto, Canada
+              </p>
+              <p className="card-text">
+                I specialize in full-stack development, proficient in HTML, CSS, JavaScript, Node.js, Express.js, MySQL, and MongoDB. Currently improving my React skills and applying Agile methodologies.
+              </p>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </motion.section>
   );
 }
 
-export default About; // Exporting the About component to be used in other parts of the application
+export default About;
