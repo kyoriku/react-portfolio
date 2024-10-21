@@ -22,9 +22,15 @@ const Resume = () => {
       </motion.h1>
       <div className=''>
         <Skills />
-        <a href={ResumeDownload} target="_blank" rel="noopener noreferrer" className='d-flex justify-content-center text-decoration-none'>
-          <button className='btn btn-primary custom-btn' style={{ width: '160px', objectFit: 'cover' }} >
-            <FileText className="mr-2" size={18} /> View Resume
+        <a
+          href={ResumeDownload}
+          target="_blank"
+          rel="noopener noreferrer"
+          className='d-flex justify-content-center text-decoration-none'
+        >
+          <button className='btn btn-primary custom-btn btn-lg d-flex align-items-center'>
+            <FileText className="me-2" size={22} />
+            View Resume
           </button>
         </a>
       </div>

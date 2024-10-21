@@ -17,7 +17,7 @@ const contentVariants = {
 const About = () => {
   return (
     <motion.section
-      className="container py-4"
+      className="container py-4 mb-4"
       initial="hidden"
       animate="visible"
     >

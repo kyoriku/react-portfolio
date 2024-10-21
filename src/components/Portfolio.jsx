@@ -79,7 +79,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section className="container py-4">
+    <section className="container py-4 mb-4">
       <motion.h1
         className="text-center mb-4 "
         variants={headingVariants}

@@ -70,7 +70,7 @@ const SkillSection = ({ title, skills }) => (
     <hr className='mx-3 my-0' />
     <div className="card-body">
       <motion.div
-        className="row row-cols-3 row-cols-sm-6 g-3"
+        className="row row-cols-3 row-cols-lg-6 g-3"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
