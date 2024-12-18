@@ -48,6 +48,12 @@ const Contact = () => {
     setEmailError(!email ? 'Email is required' : !isValidEmail(email) ? 'Invalid email address' : '');
   };
 
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -59,15 +65,17 @@ const Contact = () => {
     if (name && email && isValidEmail(email) && message) {
       setIsSubmitting(true);
       try {
-        const formData = new FormData();
-        formData.append('form-name', 'contact');
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('message', message);
+        const formData = {
+          "form-name": "contact",
+          name,
+          email,
+          message,
+        };
 
-        await fetch('/', {
-          method: 'POST',
-          body: formData,
+        await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode(formData)
         });
 
         setSubmitStatus('Form submitted successfully! I will get back to you soon.');
@@ -103,16 +111,14 @@ const Contact = () => {
         animate="visible"
         onSubmit={handleFormSubmit}
         name="contact"
+        method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
       >
-        {/* Required hidden inputs for Netlify Forms */}
         <input type="hidden" name="form-name" value="contact" />
-        <p hidden>
-          <label>
-            Don't fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
+        <div hidden>
+          <input name="bot-field" />
+        </div>
 
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
@@ -129,6 +135,7 @@ const Contact = () => {
             onChange={handleNameChange}
             onBlur={handleNameChange}
             aria-describedby="nameError"
+            required
           />
           {nameError && <div id="nameError" className="text-danger">{nameError}</div>}
         </div>
@@ -147,6 +154,7 @@ const Contact = () => {
             onChange={handleEmailChange}
             onBlur={handleInvalidEmail}
             aria-describedby="emailError"
+            required
           />
           {emailError && <div id="emailError" className="text-danger">{emailError}</div>}
         </div>
@@ -158,12 +166,13 @@ const Contact = () => {
             className="form-control"
             id="message"
             name="message"
-            placeholder="Type your message here. I'll get back to you as soon as possible!"
+            placeholder="Type your message here"
             rows="4"
             value={message}
             onChange={handleMessageChange}
             onBlur={handleMessageChange}
             aria-describedby="messageError"
+            required
           ></textarea>
           {messageError && <div id="messageError" className="text-danger">{messageError}</div>}
         </div>
