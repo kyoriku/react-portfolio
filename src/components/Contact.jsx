@@ -21,6 +21,7 @@ const Contact = () => {
   const [messageError, setMessageError] = useState('');
   const [submitStatus, setSubmitStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [botField, setBotField] = useState('');
 
   const handleNameChange = (e) => {
     const newName = e.target.value;
@@ -70,6 +71,7 @@ const Contact = () => {
           name,
           email,
           message,
+          "bot-field": document.querySelector('input[name="bot-field"]').value
         };
 
         await fetch("/", {
@@ -116,9 +118,11 @@ const Contact = () => {
         netlify-honeypot="bot-field"
       >
         <input type="hidden" name="form-name" value="contact" />
-        <div hidden>
-          <input name="bot-field" />
-        </div>
+        <p className="hidden">
+          <label>
+            Don't fill this out if you're human: <input name="bot-field" onChange={(e) => setBotField(e.target.value)} value={botField} />
+          </label>
+        </p>
 
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
@@ -166,7 +170,7 @@ const Contact = () => {
             className="form-control"
             id="message"
             name="message"
-            placeholder="Type your message here"
+            placeholder="Type your message here. I'll get back to you as soon as possible!"
             rows="4"
             value={message}
             onChange={handleMessageChange}
