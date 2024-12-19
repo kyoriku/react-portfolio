@@ -5,10 +5,10 @@ import Navigation from './Navigation'; // Importing Navigation component to disp
 const Header = () => {
   // Returning the header with navigation bar
   return (
-    <header className='bg-dark sticky-top'>
+    <header>
       <Navigation />
     </header>
   );
 };
 
-export default Header; // Exporting the Header component to be used in other parts of the application
+export default Header;

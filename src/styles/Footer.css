@@ -1,19 +1,32 @@
-.icon {
-  background-color: #EEF4ED; /* Set background color */
-  border-radius: 50%; /* Add roundness to the icon */
-  color: #134074; /* Set text color */
-  height: 32px; /* Set height */
-  width: 32px; /* Set width */
-  margin-inline: 8px; /* Add some space between icons */
-  padding: 4px; /* Add some padding */
-  vertical-align: middle; /* Align icon vertically */
-}
-
-.icon:hover {
-  background-color: #8DA9C4; /* Change background color on hover */
-  color: #13315C; /* Change text color on hover */
-}
-
 .footer {
-  background-color: #0B2545; /* Set background color */
+  background: linear-gradient(to right, #0a192f 0%, #112240 100%);
+  border-top: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #64ffda 0%, #63b3ed 100%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icon svg {
+  width: 30px;
+  height: 30px;
+  color: #0a192f;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 255, 218, 0.3);
 }

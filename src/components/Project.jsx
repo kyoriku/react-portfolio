@@ -1,32 +1,99 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
-import '../styles/Project.css';
+import '../styles/Project.css';  // Make sure this path is correct
+
+// Import your existing tech icons
+import HTML from '../assets/icons/html.jpg';
+import CSS from '../assets/icons/css.jpg';
+import JavaScript from '../assets/icons/javascript.jpg';
+import jQuery from '../assets/icons/jquery.jpg';
+import ReactJs from '../assets/icons/reactjs.jpg';
+import Bootstrap from '../assets/icons/bootstrap.jpg';
+import API from '../assets/icons/api.jpg';
+import Node from '../assets/icons/nodejs.jpg';
+import Express from '../assets/icons/expressjs.jpg';
+import MySQL from '../assets/icons/mysql.jpg';
+import MongoDb from '../assets/icons/mongodb.jpg';
+import GraphQL from '../assets/icons/graphql.jpg';
+import Sequelize from '../assets/icons/sequelize.jpg';
+import Handlebars from '../assets/icons/handlebars.jpg';
+
+// Create an object to map technology names to their icons
+const techIcons = {
+  'HTML': HTML,
+  'CSS': CSS,
+  'JavaScript': JavaScript,
+  'jQuery': jQuery,
+  'React': ReactJs,
+  'Bootstrap': Bootstrap,
+  'Node.js': Node,
+  'Express': Express,
+  'MySQL': MySQL,
+  'MongoDB': MongoDb,
+  'GraphQL': GraphQL,
+  'Sequelize': Sequelize,
+  'Handlebars': Handlebars,
+  'TMDb API': API,
+  'Watchmode API': API,
+  'OpenWeather API': API,
+};
 
 const Project = ({ title, image, deployedLink, githubLink, technologies, description }) => {
   return (
     <motion.div
-      className="card h-100 shadow-sm"
+      className="project-card"
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
     >
-      <img src={image} alt={title} className="card-img-top" style={{ height: '200px', objectFit: 'cover' }} height='200' />
-      <div className="card-body d-flex flex-column">
-        <h5 className="card-title">{title}</h5>
-        <hr className='mt-0 mb-2' />
-        <p className="card-text mb-2">{description}</p>
-        <div className="mb-2">
-          {technologies.map((tech, index) => (
-            <span key={index} className="badge bg-secondary me-1 mb-1">{tech}</span>
-          ))}
+      <div className="project-image-container">
+        <img src={image} alt={title} className="project-image" />
+        <div className="image-overlay"></div>
+      </div>
+
+      <div className="project-content">
+        <h3 className="project-title">{title}</h3>
+        <div className="skill-divider mt-0 mb-2"></div>
+        <p className="project-description">{description}</p>
+
+        <div className="tech-stack">
+          {technologies.map((tech, index) => {
+            return (
+              <div key={index} className="tech-badge">
+                {techIcons[tech] && (
+                  <img
+                    src={techIcons[tech]}
+                    alt={tech}
+                    className="tech-icon"
+                    onError={(e) => {
+                      console.log('Image failed to load:', tech);
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                )}
+                <span>{tech}</span>
+              </div>
+            );
+          })}
         </div>
-        <div className="mt-auto d-flex gap-1">
-          <a href={deployedLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary d-flex align-items-center justify-content-center w-100 custom-btn">
-            <ExternalLink size={18} className="me-1" />
-            Live Demo
+
+        <div className="project-links">
+          <a
+            href={deployedLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link demo-link"
+          >
+            <ExternalLink size={18} />
+            <span>Live Demo</span>
           </a>
-          <a href={githubLink} target="_blank" rel="noopener noreferrer" className="btn btn-secondary d-flex align-items-center justify-content-center w-100 custom-btn">
-            <Github size={18} className="me-1" />
-            GitHub
+          <a
+            href={githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link github-link"
+          >
+            <Github size={18} />
+            <span>GitHub</span>
           </a>
         </div>
       </div>

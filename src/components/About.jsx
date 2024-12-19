@@ -6,47 +6,55 @@ import '../styles/About.css';
 
 const headingVariants = {
   hidden: { opacity: 0, y: -25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
 };
 
 const contentVariants = {
   hidden: { opacity: 0, y: 25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
 };
 
 const About = () => {
   return (
     <motion.section
-      className="container py-4 mb-4"
+      className="about-section container py-5"
       initial="hidden"
       animate="visible"
     >
       <motion.h1
-        className="text-center mb-4"
+        className="text-center mb-5 gradient-text"
         variants={headingVariants}
       >
         About Me
       </motion.h1>
 
       <motion.div
-        className="row g-0 align-items-center"
+        className="row g-4 align-items-center"
         variants={contentVariants}
       >
-        <div className="col-md-4 d-flex justify-content-center align-items-center px-3">
-          <img src={ArmoredCore} alt="Profile picture" className="about-image img-fluid rounded-circle" />
+        <div className="col-md-4 text-center">
+          <div className="profile-image-container">
+            <img
+              src={ArmoredCore}
+              alt="Profile picture"
+              className="about-image img-fluid"
+            />
+            <div className="image-overlay"></div>
+          </div>
         </div>
+
         <div className="col-md-8">
-          <div className="card">
-            <div className="card-body">
-              <h2 className="card-title mb-3">Austin Graham</h2>
-              <h3 className="card-subtitle mb-3">Full Stack Developer</h3>
-              <p className="card-text mb-3 d-flex align-items-center">
-                <MapPin size={18} className="me-2" /> Toronto, Canada
-              </p>
-              <p className="card-text">
-                I specialize in full-stack development, proficient in HTML, CSS, JavaScript, Node.js, Express.js, MySQL, and MongoDB. Currently improving my React skills and applying Agile methodologies.
-              </p>
-            </div>
+          <div className="content-card">
+            <h2 className="card-title mb-3">Austin Graham</h2>
+            <h3 className="card-subtitle mb-4">Full Stack Developer</h3>
+            <p className="location mb-4">
+              <MapPin size={18} className="location-icon" /> Toronto, Canada
+            </p>
+            <p className="card-text">
+              I specialize in full-stack development, proficient in HTML, CSS, JavaScript,
+              Node.js, Express.js, MySQL, and MongoDB. Currently improving my React skills
+              and applying Agile methodologies.
+            </p>
           </div>
         </div>
       </motion.div>

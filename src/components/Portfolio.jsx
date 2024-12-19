@@ -7,23 +7,24 @@ import TechBlog from '../assets/images/tech-blog-cms.jpg';
 import FilmFinder from '../assets/images/filmfinder.jpg';
 import WeatherDashboard from '../assets/images/weather-dashboard.jpg';
 import CodeQuiz from '../assets/images/coding-quiz.jpg';
+import '../styles/Portfolio.css';
 
 const headingVariants = {
   hidden: { opacity: 0, y: -25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
 };
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.05 }
+    transition: { staggerChildren: 0.1 }
   },
 };
 
 const itemVariants = {
-  hidden: { y: 10, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.3, ease: "easeInOut" } },
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
 };
 
 const Portfolio = () => {
@@ -79,12 +80,14 @@ const Portfolio = () => {
   ];
 
   return (
-    <section className="container py-4 mb-4">
+    <motion.section
+      className="portfolio-section container py-5"
+      initial="hidden"
+      animate="visible"
+    >
       <motion.h1
-        className="text-center mb-4 "
+        className="text-center mb-5 gradient-text"
         variants={headingVariants}
-        initial="hidden"
-        animate="visible"
       >
         My Portfolio
       </motion.h1>
@@ -92,8 +95,6 @@ const Portfolio = () => {
       <motion.div
         className="row g-4"
         variants={containerVariants}
-        initial="hidden"
-        animate="visible"
       >
         {projects.map((project, index) => (
           <motion.div
@@ -105,7 +106,7 @@ const Portfolio = () => {
           </motion.div>
         ))}
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 

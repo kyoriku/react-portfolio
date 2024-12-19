@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Send } from 'lucide-react';
 import '../styles/Contact.css';
 
 const headingVariants = {
   hidden: { opacity: 0, y: -25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
 };
 
 const formVariants = {
   hidden: { opacity: 0, y: 25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
 };
 
 const Contact = () => {
@@ -66,6 +67,7 @@ const Contact = () => {
     if (name && email && isValidEmail(email) && message) {
       setIsSubmitting(true);
       try {
+        throw new Error('Test error'); // Uncomment to test error handling
         const formData = {
           "form-name": "contact",
           name,
@@ -80,7 +82,7 @@ const Contact = () => {
           body: encode(formData)
         });
 
-        setSubmitStatus('Form submitted successfully! I will get back to you soon.');
+        setSubmitStatus('Message sent successfully! I will get back to you soon.');
         // Clear form
         setName('');
         setEmail('');
@@ -97,103 +99,119 @@ const Contact = () => {
   };
 
   return (
-    <section className="container py-4 col-md-6 mb-4">
+    <motion.section
+      className="contact-section container py-5"
+      initial="hidden"
+      animate="visible"
+    >
       <motion.h1
-        className="text-center mb-4"
+        className="text-center mb-5 gradient-text"
         variants={headingVariants}
-        initial="hidden"
-        animate="visible"
       >
         Contact Me
       </motion.h1>
-      <motion.form
-        className="card p-3 mt-3"
-        variants={formVariants}
-        initial="hidden"
-        animate="visible"
-        onSubmit={handleFormSubmit}
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <p className="hidden">
-          <label>
-            Don't fill this out if you're human: <input name="bot-field" onChange={(e) => setBotField(e.target.value)} value={botField} />
-          </label>
-        </p>
 
-        <div className="mb-3">
-          <label htmlFor="name" className="form-label">
-            Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            name="name"
-            placeholder="Enter your name"
-            autoComplete='name'
-            value={name}
-            onChange={handleNameChange}
-            onBlur={handleNameChange}
-            aria-describedby="nameError"
-            required
-          />
-          {nameError && <div id="nameError" className="text-danger">{nameError}</div>}
-        </div>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            name="email"
-            placeholder="Enter your email address"
-            autoComplete='email'
-            value={email}
-            onChange={handleEmailChange}
-            onBlur={handleInvalidEmail}
-            aria-describedby="emailError"
-            required
-          />
-          {emailError && <div id="emailError" className="text-danger">{emailError}</div>}
-        </div>
-        <div className="mb-3">
-          <label htmlFor="message" className="form-label">
-            Message
-          </label>
-          <textarea
-            className="form-control"
-            id="message"
-            name="message"
-            placeholder="Type your message here. I'll get back to you as soon as possible!"
-            rows="4"
-            value={message}
-            onChange={handleMessageChange}
-            onBlur={handleMessageChange}
-            aria-describedby="messageError"
-            required
-          ></textarea>
-          {messageError && <div id="messageError" className="text-danger">{messageError}</div>}
-        </div>
-        <button 
-          type="submit" 
-          className="btn btn-primary custom-btn" 
-          disabled={isSubmitting}
+      <motion.div
+        className="contact-container"
+        variants={formVariants}
+      >
+        <form
+          className="contact-form"
+          onSubmit={handleFormSubmit}
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
         >
-          {isSubmitting ? 'Submitting...' : 'Submit'}
-        </button>
-      </motion.form>
-      {submitStatus && (
-        <div className={`mt-3 alert ${submitStatus.includes('error') ? 'alert-danger' : 'alert-success'}`}>
-          {submitStatus}
+          <input type="hidden" name="form-name" value="contact" />
+          <p className="hidden">
+            <label>
+              Don't fill this out if you're human: <input name="bot-field" onChange={(e) => setBotField(e.target.value)} value={botField} />
+            </label>
+          </p>
+
+          <div className="form-group">
+            <div className="label-container">
+              <label htmlFor="name" className="form-label">
+                Name <span className="required">*</span>
+              </label>
+              {nameError && <span className="inline-error">{nameError}</span>}
+            </div>
+            <input
+              type="text"
+              className="form-input"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              autoComplete="name"
+              value={name}
+              onChange={handleNameChange}
+              onBlur={handleNameChange}
+              aria-describedby="nameError"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <div className="label-container">
+              <label htmlFor="email" className="form-label">
+                Email <span className="required">*</span>
+              </label>
+              {emailError && <span className="inline-error">{emailError}</span>}
+            </div>
+            <input
+              type="email"
+              className="form-input"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              autoComplete="email"
+              value={email}
+              onChange={handleEmailChange}
+              onBlur={handleInvalidEmail}
+              aria-describedby="emailError"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <div className="label-container">
+              <label htmlFor="message" className="form-label">
+                Message <span className="required">*</span>
+              </label>
+              {messageError && <span className="inline-error">{messageError}</span>}
+            </div>
+            <textarea
+              className="form-input"
+              id="message"
+              name="message"
+              placeholder="Type your message here. I'll get back to you as soon as possible!"
+              rows="4"
+              value={message}
+              onChange={handleMessageChange}
+              onBlur={handleMessageChange}
+              aria-describedby="messageError"
+              required
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            className="submit-button"
+            disabled={isSubmitting}
+          >
+            <Send size={18} />
+            <span>{isSubmitting ? 'Submitting...' : 'Send Message'}</span>
+          </button>
+        </form>
+
+        <div className={`status-message-container ${submitStatus ? 'show' : ''}`}>
+          <div className={`status-message ${submitStatus.includes('error') ? 'error' : 'success'} ${submitStatus ? 'show' : ''}`}>
+            {submitStatus}
+          </div>
         </div>
-      )}
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
