@@ -1,26 +1,34 @@
-import React from 'react'; // Importing React to use JSX
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Importing FontAwesomeIcon component to use icons
-import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'; // Importing icons from Font Awesome library
-import '../styles/Footer.css'; // Importing CSS file to style component
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import '../styles/Footer.css';
 
-// Functional component to display footer
 const Footer = () => {
-  // Returning the footer with links to GitHub, LinkedIn, and Youtube as icons from Font Awesome library 
+  const socialLinks = [
+    { icon: faGithub, href: "https://github.com/kyoriku" },
+    { icon: faLinkedin, href: "https://www.linkedin.com/in/austingraham1/" },
+    { icon: faYoutube, href: "https://www.youtube.com/@arcaneviva" }
+  ];
+
   return (
-    <footer className="text-center mt-auto footer">
-      <div className="py-2">
-        <a href="https://github.com/kyoriku" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faGithub} className="icon" />
-        </a>
-        <a href="https://www.linkedin.com/in/austingraham1/" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faLinkedin} className="icon" />
-        </a>
-        <a href="https://www.youtube.com/@arcaneviva" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faYoutube} className="icon" />
-        </a>
+    <footer className="footer mt-auto">
+      <div className="container py-3">
+        <div className="social-links">
+          {socialLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+            >
+              <FontAwesomeIcon icon={link.icon} />
+            </a>
+          ))}
+        </div>
       </div>
     </footer>
   );
-}
+};
 
-export default Footer; // Exporting the Footer component to be used in other parts of the application
+export default Footer;

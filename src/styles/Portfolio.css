@@ -1,0 +1,11 @@
+.portfolio-section {
+  color: #EEF4ED;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #64ffda 0%, #63b3ed 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
