@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
+import { Send, CheckCircle, XCircle } from 'lucide-react';
 import '../styles/Contact.css';
 
 const headingVariants = {
@@ -67,7 +67,7 @@ const Contact = () => {
     if (name && email && isValidEmail(email) && message) {
       setIsSubmitting(true);
       try {
-        throw new Error('Test error'); // Uncomment to test error handling
+        // throw new Error('Test error'); // Uncomment to test error handling
         const formData = {
           "form-name": "contact",
           name,
@@ -207,7 +207,12 @@ const Contact = () => {
 
         <div className={`status-message-container ${submitStatus ? 'show' : ''}`}>
           <div className={`status-message ${submitStatus.includes('error') ? 'error' : 'success'} ${submitStatus ? 'show' : ''}`}>
-            {submitStatus}
+            {submitStatus.includes('error') ? (
+              <XCircle className="status-icon" size={20} />
+            ) : (
+              <CheckCircle className="status-icon" size={20} />
+            )}
+            <span>{submitStatus}</span>
           </div>
         </div>
       </motion.div>

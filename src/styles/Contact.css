@@ -167,3 +167,15 @@ textarea.form-input {
     justify-content: center;
   }
 }
+
+.status-message {
+  /* ... existing styles ... */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.status-icon {
+  flex-shrink: 0;
+}
