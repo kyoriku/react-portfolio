@@ -100,12 +100,12 @@ const Contact = () => {
 
   return (
     <motion.section
-      className="contact-section container py-5"
+      className="contact-section container py-3"
       initial="hidden"
       animate="visible"
     >
       <motion.h1
-        className="text-center mb-5 gradient-text"
+        className="text-center mb-3 gradient-text"
         variants={headingVariants}
       >
         Contact Me
@@ -132,8 +132,8 @@ const Contact = () => {
 
           <div className="form-group">
             <div className="label-container">
-              <label htmlFor="name" className="form-label">
-                Name <span className="required">*</span>
+              <label htmlFor="name" className="form-label mb-1">
+                Name 
               </label>
               {nameError && <span className="inline-error">{nameError}</span>}
             </div>
@@ -154,8 +154,8 @@ const Contact = () => {
 
           <div className="form-group">
             <div className="label-container">
-              <label htmlFor="email" className="form-label">
-                Email <span className="required">*</span>
+              <label htmlFor="email" className="form-label mb-1">
+                Email 
               </label>
               {emailError && <span className="inline-error">{emailError}</span>}
             </div>
@@ -176,8 +176,8 @@ const Contact = () => {
 
           <div className="form-group">
             <div className="label-container">
-              <label htmlFor="message" className="form-label">
-                Message <span className="required">*</span>
+              <label htmlFor="message" className="form-label mb-1">
+                Message 
               </label>
               {messageError && <span className="inline-error">{messageError}</span>}
             </div>
@@ -186,7 +186,7 @@ const Contact = () => {
               id="message"
               name="message"
               placeholder="Type your message here. I'll get back to you as soon as possible!"
-              rows="4"
+              // rows="4"
               value={message}
               onChange={handleMessageChange}
               onBlur={handleMessageChange}

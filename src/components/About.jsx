@@ -22,10 +22,9 @@ const About = () => {
       animate="visible"
     >
       <motion.h1
-        className="text-center mb-5 gradient-text"
+        className="text-center mb-3 mb-md-5 gradient-text heading-spacer" 
         variants={headingVariants}
       >
-        About Me
       </motion.h1>
 
       <motion.div

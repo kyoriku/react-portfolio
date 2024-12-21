@@ -9,3 +9,20 @@
   color: transparent;
   font-weight: 600;
 }
+
+/* .project-grid {
+  --bs-gutter-y: 0.75rem; 
+  --bs-gutter-x: 1.5rem;   
+}
+
+@media (min-width: 768px) { 
+  .project-grid {
+    --bs-gutter-y: 1.5rem; 
+  }
+} */
+
+@media (max-width: 768px) {  /* Mobile only */
+  .project-grid {
+    --bs-gutter-y: 0.75rem !important;
+  }
+}
