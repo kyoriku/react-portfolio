@@ -18,7 +18,7 @@
 .contact-form {
   background: linear-gradient(135deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.8) 100%);
   border-radius: 15px;
-  padding: 2rem;
+  padding: 1rem;
   border: 1px solid rgba(100, 255, 218, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
@@ -29,7 +29,7 @@
 
 .form-label {
   display: block;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
   color: #64ffda;
   font-weight: 500;
 }
@@ -109,7 +109,7 @@ textarea.form-input {
 }
 
 .status-message {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
@@ -169,7 +169,6 @@ textarea.form-input {
 }
 
 .status-message {
-  /* ... existing styles ... */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -178,4 +177,8 @@ textarea.form-input {
 
 .status-icon {
   flex-shrink: 0;
+}
+
+textarea.form-input {
+  display: block;
 }

@@ -40,7 +40,7 @@ body::before {
 .content-card {
   background: linear-gradient(135deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.8) 100%);
   border-radius: 15px;
-  padding: 2rem;
+  padding: 1.5rem;
   border: 1px solid rgba(100, 255, 218, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
@@ -69,4 +69,14 @@ body::before {
 .card-text {
   color: #EEF4ED;
   line-height: 1.6;
+}
+
+.heading-spacer {
+  height: 0;
+}
+
+@media (min-width: 768px) {
+  .heading-spacer {
+    height: 32px;
+  }
 }

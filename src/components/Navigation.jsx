@@ -38,7 +38,7 @@ const Navigation = () => {
           <ul className="navbar-nav ms-auto">
             {[
               { name: 'About', path: '/' },
-              { name: 'Portfolio', path: '/portfolio' },
+              { name: 'Projects', path: '/projects' },
               { name: 'Resume', path: '/resume' },
               { name: 'Contact', path: '/contact' }
             ].map((item) => (

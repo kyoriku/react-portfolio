@@ -18,15 +18,15 @@ const contentVariants = {
 const Resume = () => {
   return (
     <motion.section
-      className='resume-section container py-5'
+      className='resume-section container py-3'
       initial="hidden"
       animate="visible"
     >
       <motion.h1
-        className='text-center mb-5 gradient-text'
+        className='text-center mb-3 gradient-text'
         variants={headingVariants}
       >
-        My Skills & Experience
+        Skills & Experience
       </motion.h1>
 
       <motion.div

@@ -81,19 +81,19 @@ const Portfolio = () => {
 
   return (
     <motion.section
-      className="portfolio-section container py-5"
+      className="portfolio-section container py-3 pb-4"
       initial="hidden"
       animate="visible"
     >
       <motion.h1
-        className="text-center mb-5 gradient-text"
+        className="text-center mb-3 gradient-text"
         variants={headingVariants}
       >
-        My Portfolio
+        Projects
       </motion.h1>
 
       <motion.div
-        className="row g-4"
+        className="row g-3 project-grid"
         variants={containerVariants}
       >
         {projects.map((project, index) => (
