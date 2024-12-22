@@ -57,3 +57,13 @@
   background-color: #64ffda;
   color: #64ffda !important;
 }
+
+/* Add this new selector to handle hover state */
+.navbar-nav:hover .nav-link.active::after {
+  width: 0;
+}
+
+/* Modify the hover state for the current link */
+.navbar-nav:hover .nav-link:hover::after {
+  width: 100%;
+}

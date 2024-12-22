@@ -10,9 +10,9 @@
 [![Node.js](https://img.shields.io/badge/Node.js-393?style=for-the-badge&logo=nodedotjs&logoColor=fff)](https://nodejs.org/en)
 [![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)](https://www.netlify.com/)
 
-
 ## Table of Contents
 - [Description](#description)
+  - [Features](#features)
   - [Deployed Site](#deployed-site)
 - [Screenshots](#screenshots)
 - [Installation](#installation)
@@ -23,18 +23,32 @@
 ## Description
 Welcome to my React portfolio! Here, I showcase my latest projects and skills as a web developer. Built with React, this dynamic single-page application highlights my technical expertise and offers a modern browsing experience.
 
-I've designed this portfolio with recruiters in mind, emphasizing my experience in creating single-page applications. Its sleek design and intuitive navigation ensure a seamless experience across all devices, allowing you to easily explore my work and get in touch for collaborations.
+I've designed this portfolio with both recruiters and user experience in mind, featuring:
+- Responsive design optimized for all devices
+- Intuitive navigation with visual feedback
+- Integrated contact form with validation
+- SEO optimization for better visibility
+- Custom branding elements
 
 By leveraging React, I demonstrate my proficiency in a leading JavaScript library. This portfolio reflects my personality, creativity, and passion for web development.
 
 Thank you for visiting!
 
+### Features
+- Mobile-responsive design ensuring a seamless experience across all devices
+- Interactive contact form with real-time validation and form submission
+- Project showcase with tech stack icons and live demo links
+- Custom favicon and consistent branding throughout
+- Social media meta tags for optimal sharing
+- Smooth animations and transitions
+- Clean, modern user interface
+
 ### Deployed Site
-[React Portfolio on Netlify](https://kyoriku-react-portfolio.netlify.app/)
+View my portfolio at [www.austingraham.ca](https://www.austingraham.ca)
 
 ## Screenshots
 ![about](public/screenshots/about.jpg)
-![portfolio](public/screenshots/portfolio.jpg)
+![portfolio](public/screenshots/projects.jpg)
 ![resume](public/screenshots/resume.jpg)
 ![contact](public/screenshots/contact.jpg)
 
@@ -58,7 +72,7 @@ To install this project locally, follow these steps:
 **Running Locally**
 - To run the project locally, use the following command:
   ```bash
-  npm start
+  npm run dev
   ```
   This will start the development server and open the portfolio in your default web browser.
 

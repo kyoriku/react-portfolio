@@ -158,9 +158,7 @@ textarea.form-input {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .contact-form {
-    padding: 1.5rem;
-  }
+
   
   .submit-button {
     width: 100%;
