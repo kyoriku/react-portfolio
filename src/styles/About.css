@@ -80,3 +80,9 @@ body::before {
     height: 32px;
   }
 }
+
+@media (max-width: 768px) {
+  .content-card {
+    padding: 1rem;
+  }
+}
