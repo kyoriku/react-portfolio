@@ -30,7 +30,7 @@ const skillsData = {
   backend: [
     { name: 'APIs', icon: API },
     { name: 'Node.js', icon: Node },
-    { name: 'Express.js', icon: Express },
+    { name: 'Express', icon: Express },
     { name: 'MySQL', icon: MySQL },
     { name: 'MongoDB', icon: MongoDb },
     { name: 'GraphQL', icon: GraphQL },

@@ -1,64 +1,60 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import ArmoredCore from '../assets/images/armoredcore.jpg';
+import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
+import ArmoredCore from '../assets/images/armoredcore.jpg';
 import '../styles/About.css';
 
-const headingVariants = {
-  hidden: { opacity: 0, y: -25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
+const ANIMATION_CONFIG = {
+  hidden: { opacity: 0, y: 25 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } }
 };
 
-const contentVariants = {
-  hidden: { opacity: 0, y: 25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
-};
+const ProfileImage = () => (
+  <aside className="col-md-4 text-center">
+    <figure className="profile-image-container">
+      <img src={ArmoredCore} alt="Austin Graham - Full Stack Developer based in Toronto" 
+        className="about-image img-fluid" width="280" height="280" loading="eager" 
+        decoding="async" fetchpriority="high" />
+    </figure>
+  </aside>
+);
+
+const Biography = () => (
+  <div className="col-md-8">
+    <article className="content-card">
+      <header>
+        <h1 id="about-heading" className="card-title mb-3 fs-2 fs-md-1">Austin Graham</h1>
+        <h2 className="card-subtitle mb-4 fs-3 fs-md-2">Full Stack Developer</h2>
+      </header>
+      <address className="location mb-4" aria-label="Location">
+        <MapPin size={22} className="location-icon me-2" aria-hidden="true" role="none" />
+        <span>Toronto, Canada</span>
+      </address>
+      <section className="bio">
+        <h3 className="visually-hidden">Biography</h3>
+        <p className="card-text">
+          I specialize in full-stack development, proficient in HTML, CSS, JavaScript,
+          Node.js, Express, MySQL, and MongoDB. Currently improving my React skills
+          and applying Agile methodologies.
+        </p>
+      </section>
+    </article>
+  </div>
+);
 
 const About = () => {
+  const animations = useReducedMotion() ? {} : ANIMATION_CONFIG;
   return (
-    <motion.section
-      className="about-section container py-5"
-      initial="hidden"
-      animate="visible"
-    >
-      <motion.h1
-        className="text-center mb-3 mb-md-5 gradient-text heading-spacer" 
-        variants={headingVariants}
-      >
-      </motion.h1>
-
-      <motion.div
-        className="row g-4 align-items-center"
-        variants={contentVariants}
-      >
-        <div className="col-md-4 text-center">
-          <div className="profile-image-container">
-            <img
-              src={ArmoredCore}
-              alt="Profile picture"
-              className="about-image img-fluid"
-            />
-            <div className="image-overlay"></div>
-          </div>
-        </div>
-
-        <div className="col-md-8">
-          <div className="content-card">
-            <h2 className="card-title mb-3">Austin Graham</h2>
-            <h3 className="card-subtitle mb-4">Full Stack Developer</h3>
-            <p className="location mb-4">
-              <MapPin size={18} className="location-icon" /> Toronto, Canada
-            </p>
-            <p className="card-text">
-              I specialize in full-stack development, proficient in HTML, CSS, JavaScript,
-              Node.js, Express.js, MySQL, and MongoDB. Currently improving my React skills
-              and applying Agile methodologies.
-            </p>
-          </div>
-        </div>
+    <section className="about-wrapper" aria-labelledby="about-heading">
+      <motion.div className="about-section container py-5" 
+        initial="hidden" animate="visible" variants={animations}>
+        <motion.div className="row g-4 align-items-center" variants={animations}>
+          <ProfileImage />
+          <Biography />
+        </motion.div>
       </motion.div>
-    </motion.section>
+    </section>
   );
-}
+};
 
 export default About;
