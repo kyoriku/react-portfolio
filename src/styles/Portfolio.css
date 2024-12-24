@@ -9,9 +9,3 @@
   color: transparent;
   font-weight: 600;
 }
-
-/* @media (max-width: 768px) { 
-  .project-grid {
-    --bs-gutter-y: 0.75rem !important;
-  }
-} */
