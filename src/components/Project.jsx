@@ -1,103 +1,126 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
-import '../styles/Project.css';  // Make sure this path is correct
+import '../styles/Project.css';
 
-// Import your existing tech icons
-import HTML from '../assets/icons/html.jpg';
-import CSS from '../assets/icons/css.jpg';
-import JavaScript from '../assets/icons/javascript.jpg';
-import jQuery from '../assets/icons/jquery.jpg';
-import ReactJs from '../assets/icons/reactjs.jpg';
-import Bootstrap from '../assets/icons/bootstrap.jpg';
-import API from '../assets/icons/api.jpg';
-import Node from '../assets/icons/nodejs.jpg';
-import Express from '../assets/icons/expressjs.jpg';
-import MySQL from '../assets/icons/mysql.jpg';
-import MongoDb from '../assets/icons/mongodb.jpg';
-import GraphQL from '../assets/icons/graphql.jpg';
-import Sequelize from '../assets/icons/sequelize.jpg';
-import Handlebars from '../assets/icons/handlebars.jpg';
-
-// Create an object to map technology names to their icons
 const techIcons = {
-  'HTML': HTML,
-  'CSS': CSS,
-  'JavaScript': JavaScript,
-  'jQuery': jQuery,
-  'React': ReactJs,
-  'Bootstrap': Bootstrap,
-  'Node.js': Node,
-  'Express': Express,
-  'MySQL': MySQL,
-  'MongoDB': MongoDb,
-  'GraphQL': GraphQL,
-  'Sequelize': Sequelize,
-  'Handlebars': Handlebars,
-  'TMDb API': API,
-  'Watchmode API': API,
-  'OpenWeather API': API,
+  'HTML': '/icons/html.jpg',
+  'CSS': '/icons/css.jpg',
+  'JavaScript': '/icons/javascript.jpg',
+  'jQuery': '/icons/jquery.jpg',
+  'React': '/icons/reactjs.jpg',
+  'Bootstrap': '/icons/bootstrap.jpg',
+  'Node.js': '/icons/nodejs.jpg',
+  'Express': '/icons/expressjs.jpg',
+  'MySQL': '/icons/mysql.jpg',
+  'MongoDB': '/icons/mongodb.jpg',
+  'GraphQL': '/icons/graphql.jpg',
+  'Sequelize': '/icons/sequelize.jpg',
+  'Handlebars': '/icons/handlebars.jpg',
+  'TMDb API': '/icons/api.jpg',
+  'Watchmode API': '/icons/api.jpg',
+  'OpenWeather API': '/icons/api.jpg',
 };
 
-const Project = ({ title, image, deployedLink, githubLink, technologies, description }) => {
-  return (
-    <motion.div
-      className="project-card"
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+const TechStack = ({ technologies, projectTitle }) => (
+  <section
+    className="tech-stack"
+    aria-label={`Technologies used in ${projectTitle}`}
+    aria-description={`Built with ${technologies.join(', ')}`}
+  >
+    {technologies.map((tech, index) => (
+      <figure key={index} className="tech-badge m-0">
+        {techIcons[tech] && (
+          <img
+            src={techIcons[tech]}
+            alt={`${tech} icon`}
+            className="tech-icon"
+            width="24"
+            height="24"
+            loading="lazy"
+            onError={(e) => {
+              console.error('Image failed to load:', tech);
+              e.target.style.display = 'none';
+            }}
+          />
+        )}
+        <figcaption>{tech}</figcaption>
+      </figure>
+    ))}
+  </section>
+);
+
+const ProjectLinks = ({ deployedLink, githubLink }) => (
+  <footer className="project-links">
+    <a
+      href={deployedLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="project-link demo-link"
+      aria-label="View Live Demo"
     >
-      <div className="project-image-container">
-        <img src={image} alt={title} className="project-image" />
-        <div className="image-overlay"></div>
-      </div>
+      <ExternalLink size={18} aria-hidden="true" />
+      <span>Live Demo</span>
+    </a>
+    <a
+      href={githubLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="project-link github-link"
+      aria-label="View Source Code on GitHub"
+    >
+      <Github size={18} aria-hidden="true" />
+      <span>GitHub</span>
+    </a>
+  </footer>
+);
+
+const Project = ({ title, image, deployedLink, githubLink, technologies, description }) => {
+  const [imageError, setImageError] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+
+  const hoverAnimation = shouldReduceMotion
+    ? {}
+    : { y: -5, transition: { duration: 0.2 } };
+
+  return (
+    <motion.article
+      className="project-card"
+      whileHover={hoverAnimation}
+    >
+      <figure className="project-image-container m-0">
+        <img
+          src={image}
+          alt={`Screenshot of ${title}`}
+          className="project-image"
+          width="100%"
+          height="auto"
+          loading="lazy"
+          onError={() => setImageError(true)}
+          aria-hidden={imageError}
+        />
+        {imageError && (
+          <div className="image-error" role="alert">
+            Unable to load project image
+          </div>
+        )}
+        <div className="image-overlay" role="presentation"></div>
+      </figure>
 
       <div className="project-content">
-        <h3 className="project-title">{title}</h3>
-        <div className="skill-divider mt-0 mb-2"></div>
-        <p className="project-description">{description}</p>
+        <header>
+          <h3 className="project-title">{title}</h3>
+          <div className="skill-divider mt-0 mb-2" role="presentation"></div>
+        </header>
 
-        <div className="tech-stack">
-          {technologies.map((tech, index) => {
-            return (
-              <div key={index} className="tech-badge">
-                {techIcons[tech] && (
-                  <img
-                    src={techIcons[tech]}
-                    alt={tech}
-                    className="tech-icon"
-                    onError={(e) => {
-                      console.log('Image failed to load:', tech);
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                )}
-                <span>{tech}</span>
-              </div>
-            );
-          })}
-        </div>
+        <section className="project-description">
+          <p>{description}</p>
+        </section>
 
-        <div className="project-links">
-          <a
-            href={deployedLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link demo-link"
-          >
-            <ExternalLink size={18} />
-            <span>Live Demo</span>
-          </a>
-          <a
-            href={githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link github-link"
-          >
-            <Github size={18} />
-            <span>GitHub</span>
-          </a>
-        </div>
+        <TechStack technologies={technologies} projectTitle={title} />
+        <ProjectLinks deployedLink={deployedLink} githubLink={githubLink} />
       </div>
-    </motion.div>
+    </motion.article>
   );
 };
 
