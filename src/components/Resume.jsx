@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText } from 'lucide-react';
 import Skills from './Skills';
-import ResumeDownload from '../assets/documents/Austin_Graham_Resume_2024.pdf';
 import '../styles/Resume.css';
 
 const headingVariants = {
@@ -37,7 +36,7 @@ const Resume = () => {
 
         <div className="resume-download-container">
           <a
-            href={ResumeDownload}
+            href="/documents/Austin_Graham_Resume_2025.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className='resume-button'
