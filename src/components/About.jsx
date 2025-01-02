@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
-import ArmoredCore from '../assets/images/armoredcore.jpg';
 import '../styles/About.css';
 
 const ANIMATION_CONFIG = {
@@ -12,8 +11,8 @@ const ANIMATION_CONFIG = {
 const ProfileImage = () => (
   <aside className="col-md-4 text-center">
     <figure className="profile-image-container">
-      <img src={ArmoredCore} alt="Austin Graham - Full Stack Developer based in Toronto" 
-        className="about-image img-fluid" width="280" height="280" loading="eager" 
+      <img src='/images/armoredcore.jpg' alt="Austin Graham - Full Stack Developer based in Toronto"
+        className="about-image img-fluid" width="280" height="280" loading="eager"
         decoding="async" fetchpriority="high" />
     </figure>
   </aside>
@@ -46,7 +45,7 @@ const About = () => {
   const animations = useReducedMotion() ? {} : ANIMATION_CONFIG;
   return (
     <section className="about-wrapper" aria-labelledby="about-heading">
-      <motion.div className="about-section container py-5" 
+      <motion.div className="about-section container py-5"
         initial="hidden" animate="visible" variants={animations}>
         <motion.div className="row g-4 align-items-center" variants={animations}>
           <ProfileImage />
