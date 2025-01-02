@@ -1,9 +1,24 @@
+/* Navbar container */
 .navbar {
   background: linear-gradient(to right, #0a192f 0%, #112240 100%);
-  border-bottom: 1px solid rgba(100, 255, 218, 0.1);
   padding: 1rem 0;
+  position: relative;
+  z-index: 1000;
 }
 
+/* Persistent border using pseudo-element */
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(100, 255, 218, 0.1);
+  z-index: 1000;
+}
+
+/* Brand styles */
 .navbar-brand {
   color: #EEF4ED;
   font-weight: 600;
@@ -14,6 +29,7 @@
   color: #64ffda;
 }
 
+/* Navigation links */
 .nav-link {
   color: #EEF4ED;
   margin: 0 1rem;
@@ -25,6 +41,7 @@
   color: #64ffda;
 }
 
+/* Underline animation for nav links */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -40,30 +57,151 @@
   width: 100%;
 }
 
-.custom-toggler {
-  border-color: rgba(100, 255, 218, 0.5);
-}
-
-.custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(100, 255, 218, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.navbar .nav-item .nav-link.active, .navbar-brand.active {
+/* Active states */
+.navbar .nav-item .nav-link.active,
+.navbar-brand.active {
   color: #64ffda !important;
 }
 
 .navbar .nav-item .nav-link.active::after {
   width: 100%;
   background-color: #64ffda;
-  color: #64ffda !important;
 }
 
-/* Add this new selector to handle hover state */
+/* Hover states for nav items */
 .navbar-nav:hover .nav-link.active::after {
   width: 0;
 }
 
-/* Modify the hover state for the current link */
 .navbar-nav:hover .nav-link:hover::after {
   width: 100%;
+}
+
+/* Hamburger menu styles */
+.custom-toggler {
+  border: none;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background: transparent;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.custom-toggler:focus,
+.custom-toggler:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.custom-toggler:focus .hamburger-lines {
+  opacity: 0.8;
+}
+
+.custom-toggler:active {
+  transform: scale(0.95);
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: none;
+}
+
+/* Hamburger lines container */
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 100%;
+  position: relative;
+}
+
+/* Individual hamburger lines */
+.line {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #64ffda;
+  transition: transform 0.2s ease-in-out, opacity 0.1s ease-in-out;
+}
+
+/* Hamburger to X animation */
+.custom-toggler.is-active .line1 {
+  transform: translateY(11px) rotate(45deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+.custom-toggler.is-active .line2 {
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.custom-toggler.is-active .line3 {
+  transform: translateY(-11px) rotate(-45deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Mobile menu styles */
+.navbar-menu {
+  display: flex;
+}
+
+@media (max-width: 767.98px) {
+  .navbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, #0a192f 0%, #112240 100%);
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-1px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+  }
+
+  .navbar-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navbar-nav {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition-delay: 0.1s;
+  }
+
+  .navbar-menu.show .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    padding: 0.5rem 0;
+    margin: 0 0.5rem;
+  }
+
+  /* Fix for nav items to appear properly in mobile menu */
+  .navbar-nav {
+    margin: 0;
+  }
+
+  /* Ensure hamburger is visible above content */
+  .custom-toggler {
+    z-index: 1001;
+  }
 }

@@ -1,19 +1,52 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom'; // Add useLocation
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Navigation.css';
 
 const Navigation = () => {
   const [expanded, setExpanded] = useState(false);
-  const location = useLocation(); // Get current location
+  const location = useLocation();
+  const menuRef = useRef(null);
+  const toggleRef = useRef(null);
 
-  // Helper function to check if link is active
-  const isActive = (path) => {
-    if (path === '/') {
-      return location.pathname === '/';
-    }
-    return location.pathname === path;
+  // Handle all clicks on the page
+  useEffect(() => {
+    const handleClick = (e) => {
+      // If menu is not expanded, don't do anything
+      if (!expanded) return;
+
+      // Check if click is outside both menu and toggle button
+      const isOutsideMenu = menuRef.current && !menuRef.current.contains(e.target);
+      const isOutsideToggle = toggleRef.current && !toggleRef.current.contains(e.target);
+
+      if (isOutsideMenu && isOutsideToggle) {
+        setExpanded(false);
+      }
+    };
+
+    // Add click handler to document
+    document.addEventListener('click', handleClick);
+
+    // Cleanup
+    return () => document.removeEventListener('click', handleClick);
+  }, [expanded]);
+
+  // Close menu on route change
+  useEffect(() => {
+    setExpanded(false);
+  }, [location.pathname]);
+
+  const handleToggle = (e) => {
+    e.stopPropagation(); // Prevent the document click handler from firing
+    setExpanded(!expanded);
   };
+
+  const navItems = [
+    { name: 'About', path: '/' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Resume', path: '/resume' },
+    { name: 'Contact', path: '/contact' }
+  ];
 
   return (
     <nav className="navbar navbar-expand-md">
@@ -27,24 +60,27 @@ const Navigation = () => {
         </Link>
 
         <button
-          className="navbar-toggler custom-toggler"
+          ref={toggleRef}
+          className={`navbar-toggler custom-toggler ${expanded ? 'is-active' : ''}`}
           type="button"
-          onClick={() => setExpanded(!expanded)}
+          onClick={handleToggle}
         >
-          <span className="navbar-toggler-icon"></span>
+          <div className="hamburger-lines">
+            <span className="line line1"></span>
+            <span className="line line2"></span>
+            <span className="line line3"></span>
+          </div>
         </button>
 
-        <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`}>
+        <div
+          ref={menuRef}
+          className={`navbar-menu ${expanded ? 'show' : ''}`}
+        >
           <ul className="navbar-nav ms-auto">
-            {[
-              { name: 'About', path: '/' },
-              { name: 'Projects', path: '/projects' },
-              { name: 'Resume', path: '/resume' },
-              { name: 'Contact', path: '/contact' }
-            ].map((item) => (
+            {navItems.map((item) => (
               <li key={item.name} className="nav-item">
                 <Link
-                  className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
+                  className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
                   to={item.path}
                   onClick={() => setExpanded(false)}
                 >
