@@ -57,10 +57,10 @@ const ProjectLinks = ({ deployedLink, githubLink }) => (
       target="_blank"
       rel="noopener noreferrer"
       className="project-link demo-link"
-      aria-label="View Live Demo"
+      aria-label="View Website"
     >
       <ExternalLink size={18} aria-hidden="true" />
-      <span>Live Demo</span>
+      <span>View Site</span>
     </a>
     <a
       href={githubLink}
@@ -70,7 +70,7 @@ const ProjectLinks = ({ deployedLink, githubLink }) => (
       aria-label="View Source Code on GitHub"
     >
       <Github size={18} aria-hidden="true" />
-      <span>GitHub</span>
+      <span>Source Code</span>
     </a>
   </footer>
 );

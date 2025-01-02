@@ -30,6 +30,8 @@
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 1.5rem;
   justify-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .skill-item {
@@ -73,6 +75,19 @@
 
 .skill-item:hover .skill-icon {
   transform: scale(1.1);
+}
+
+.skill-icon-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
 }
 
 /* Responsive adjustments */

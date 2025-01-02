@@ -1,97 +1,108 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import '../styles/Skills.css';
-
-// Importing icons for front end proficiencies
-import HTML from '../assets/icons/html.jpg';
-import CSS from '../assets/icons/css.jpg';
-import JavaScript from '../assets/icons/javascript.jpg';
-import jQuery from '../assets/icons/jquery.jpg';
-import Reactjs from '../assets/icons/reactjs.jpg';
-import Bootstrap from '../assets/icons/bootstrap.jpg';
-
-// Importing icons for back end proficiencies
-import API from '../assets/icons/api.jpg';
-import Node from '../assets/icons/nodejs.jpg';
-import Express from '../assets/icons/expressjs.jpg';
-import MySQL from '../assets/icons/mysql.jpg';
-import MongoDb from '../assets/icons/mongodb.jpg';
-import GraphQL from '../assets/icons/graphql.jpg';
 
 const skillsData = {
   frontend: [
-    { name: 'HTML', icon: HTML },
-    { name: 'CSS', icon: CSS },
-    { name: 'JavaScript', icon: JavaScript },
-    { name: 'jQuery', icon: jQuery },
-    { name: 'React', icon: Reactjs },
-    { name: 'Bootstrap', icon: Bootstrap },
+    { name: 'HTML', icon: '/icons/html.jpg', description: 'HTML5 markup language' },
+    { name: 'CSS', icon: '/icons/css.jpg', description: 'CSS3 styling' },
+    { name: 'JavaScript', icon: '/icons/javascript.jpg', description: 'JavaScript programming' },
+    { name: 'jQuery', icon: '/icons/jquery.jpg', description: 'jQuery library' },
+    { name: 'React', icon: '/icons/reactjs.jpg', description: 'React framework' },
+    { name: 'Bootstrap', icon: '/icons/bootstrap.jpg', description: 'Bootstrap framework' }
   ],
   backend: [
-    { name: 'APIs', icon: API },
-    { name: 'Node.js', icon: Node },
-    { name: 'Express', icon: Express },
-    { name: 'MySQL', icon: MySQL },
-    { name: 'MongoDB', icon: MongoDb },
-    { name: 'GraphQL', icon: GraphQL },
-  ],
+    { name: 'APIs', icon: '/icons/api.jpg', description: 'RESTful APIs' },
+    { name: 'Node.js', icon: '/icons/nodejs.jpg', description: 'Node.js runtime' },
+    { name: 'Express', icon: '/icons/expressjs.jpg', description: 'Express.js framework' },
+    { name: 'MySQL', icon: '/icons/mysql.jpg', description: 'MySQL database' },
+    { name: 'MongoDB', icon: '/icons/mongodb.jpg', description: 'MongoDB database' },
+    { name: 'GraphQL', icon: '/icons/graphql.jpg', description: 'GraphQL query language' }
+  ]
 };
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.05 }
+const animationConfig = {
+  container: { 
+    hidden: { opacity: 0 }, 
+    visible: { opacity: 1, transition: { staggerChildren: 0.05 } } 
   },
+  item: { 
+    hidden: { y: 10, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 200, damping: 10, duration: 0.3 } }
+  }
 };
 
-const itemVariants = {
-  hidden: { y: 10, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 200,
-      damping: 10,
-      duration: 0.3,
-    },
-  },
+const SkillItem = ({ skill }) => {
+  const [imageError, setImageError] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
+
+  if (imageError) {
+    return (
+      <motion.li className="skill-item" variants={animationConfig.item}>
+        <div className="skill-icon-fallback" role="img" aria-label={`${skill.description} (icon unavailable)`}>
+          {skill.name.charAt(0)}
+        </div>
+        <dl className="skill-details mb-0">
+          <dt className="skill-name">{skill.name}</dt>
+          <dd className="skill-description visually-hidden">{skill.description}</dd>
+        </dl>
+      </motion.li>
+    );
+  }
+
+  return (
+    <motion.li className="skill-item" variants={animationConfig.item}>
+      <figure className="skill-icon-container mb-0" role="img" aria-label={`${skill.name} icon`}>
+        <img 
+          src={skill.icon}
+          alt=""
+          className="skill-icon"
+          loading="lazy"
+          width="48"
+          height="48"
+          onError={() => {
+            setImageError(true);
+            setStatusMessage(`${skill.name} icon failed to load, showing fallback`);
+          }}
+        />
+        <div className="icon-overlay" aria-hidden="true" />
+      </figure>
+      <dl className="skill-details mb-0">
+        <dt className="skill-name">{skill.name}</dt>
+        <dd className="skill-description visually-hidden">{skill.description}</dd>
+      </dl>
+      <div className="visually-hidden" role="status" aria-live="polite">{statusMessage}</div>
+    </motion.li>
+  );
 };
 
-const SkillSection = ({ title, skills }) => (
-  <div className="skill-card">
-    <h3 className="skill-section-title">{title}</h3>
-    <div className="skill-divider"></div>
-    <motion.div
+const SkillSection = ({ title, skills, id, variants }) => (
+  <section className="skill-card" aria-labelledby={id}>
+    <header>
+      <h2 id={id} className="skill-section-title">{title}</h2>
+      <div className="skill-divider" aria-hidden="true" />
+    </header>
+    <motion.ul 
       className="skills-grid"
-      variants={containerVariants}
+      variants={variants?.container}
       initial="hidden"
       animate="visible"
+      aria-label={`${title} - ${skills.length} skills`}
     >
-      {skills.map((skill, index) => (
-        <motion.div
-          key={index}
-          className="skill-item"
-          variants={itemVariants}
-        >
-          <div className="skill-icon-container">
-            <img src={skill.icon} alt={skill.name} className="skill-icon" />
-            <div className="icon-overlay"></div>
-          </div>
-          <span className="skill-name">{skill.name}</span>
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
+      {skills.map(skill => <SkillItem key={skill.name} skill={skill} />)}
+    </motion.ul>
+  </section>
 );
 
 const Skills = () => {
+  const animations = useReducedMotion() ? {} : animationConfig;
+  
   return (
-    <div className="skills-container">
-      <SkillSection title="Front-end Proficiencies" skills={skillsData.frontend} />
-      <SkillSection title="Back-end Proficiencies" skills={skillsData.backend} />
-    </div>
+    <article className="skills-container" aria-labelledby="skills-heading">
+      <h2 id="skills-heading" className="visually-hidden">Technical Skills Overview</h2>
+      <SkillSection title="Front-end Proficiencies" skills={skillsData.frontend} id="frontend-skills" variants={animations} />
+      <SkillSection title="Back-end Proficiencies" skills={skillsData.backend} id="backend-skills" variants={animations} />
+    </article>
   );
 };
 
