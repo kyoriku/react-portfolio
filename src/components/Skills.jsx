@@ -163,7 +163,7 @@ const SkillItem = ({ skill }) => {
 const SkillSection = ({ title, skills, id, variants }) => (
   <section className="skill-card" aria-labelledby={id}>
     <header>
-      <h2 id={id} className="skill-section-title">{title}</h2>
+      <h3 id={id} className="skill-section-title">{title}</h3>
       <div className="skill-divider" aria-hidden="true" />
     </header>
 
@@ -195,6 +195,7 @@ const Skills = () => {
   return (
     <article className="skills-container">
       {/* Skill sections */}
+      <h2 className="visually-hidden">Technical Skills</h2>
       <SkillSection
         title="Front-end Proficiencies"
         skills={skillsData.frontend}
