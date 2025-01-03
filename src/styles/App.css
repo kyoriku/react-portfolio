@@ -7,6 +7,7 @@
   --color-text-secondary: #8892b0;
   --color-accent: #64ffda;
   --color-accent-secondary: #63b3ed;
+  --color-focus-outline: #FF69B4;
   
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #64ffda 0%, #63b3ed 100%);
@@ -109,6 +110,7 @@ hr {
   background: rgba(100, 255, 218, 0.3);
   margin: 1rem 0 1.5rem;
   border: none;  /* Remove default hr border */
+  opacity: 1;
 }
 
 /* Selection styling */
