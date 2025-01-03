@@ -220,7 +220,6 @@ const Project = ({
       whileHover={animations.hover}
       id={title.toLowerCase()}
       aria-labelledby={titleId}
-      tabIndex="0"
       onFocus={onFocus}
       onBlur={onBlur}
     >

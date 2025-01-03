@@ -83,6 +83,7 @@ const Navigation = () => {
                   className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
                   to={item.path}
                   onClick={() => setExpanded(false)}
+                  id={location.pathname === item.path ? 'active-nav-link' : undefined}
                 >
                   {item.name}
                 </Link>

@@ -21,6 +21,7 @@
   color: var(--color-text-primary);
   text-decoration: none;
   transition: left 0s;
+  border-radius: 8px;
 }
 
 .skip-link:focus {
@@ -41,7 +42,7 @@
 
 /* Focus Styles */
 *:focus {
-  outline: 2px solid var(--color-focus-outline);
+  outline: 5px solid var(--color-focus-outline);
   outline-offset: 2px;
 }
 
@@ -51,8 +52,15 @@
 }
 
 *:focus-visible {
-  outline: 2px solid var(--color-focus-outline);
+  outline: 5px solid var(--color-focus-outline);
   outline-offset: 2px;
+}
+
+/* Specific style for just the Projects heading */
+h1.gradient-text:focus-visible {
+  outline: 5px solid var(--color-focus-outline);
+  outline-offset: 2px;
+  border-radius: 8px;
 }
 
 /* Reduced Motion */
@@ -62,7 +70,7 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  
+
   /* Remove all transitions */
   * {
     transition: none !important;
@@ -74,7 +82,7 @@
   .project-card:hover {
     transform: none !important;
   }
-  
+
   /* Remove any hover animations */
   *:hover {
     transition: none !important;
@@ -88,7 +96,7 @@
     background-clip: initial;
     color: CanvasText;
   }
-  
+
   *:focus {
     outline: 3px solid CanvasText;
   }
