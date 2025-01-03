@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { FileText } from 'lucide-react';
 import Skills from './Skills';
@@ -133,6 +133,14 @@ const Resume = () => {
   const handleAnimationComplete = () => {
     setIsAnimating(false);
   };
+
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = "Austin Graham | Resume";
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
 
   return (
     <motion.section

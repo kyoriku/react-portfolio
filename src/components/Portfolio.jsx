@@ -80,43 +80,6 @@ const animationConfig = {
   }
 };
 
-const PortfolioNavigation = () => (
-  <nav
-    aria-label="Portfolio navigation"
-    className="portfolio-nav"
-  >
-    <div className="visually-hidden">
-      <h2>Navigation Instructions</h2>
-      <p>
-        • Tab key: Move forward through project cards and their interactive elements (links).
-        • Shift + Tab: Move backward through project cards and their interactive elements.
-        • Enter: When focused on a link, opens the link in a new window.
-        • Arrow keys (Left/Right/Up/Down): Move between adjacent project cards in the grid.
-        • Escape key: Return focus to the main heading.
-        • B key: Quickly return to the top of the portfolio page from anywhere.
-        • Screen reader users: Each project card displays the project title, description, technologies used, and provides links to both the deployed application and source code.
-      </p>
-    </div>
-    <ul className="nav-list">
-      {projectsData.map((project) => (
-        <li key={project.title}>
-          <a
-            href={`#${project.title.toLowerCase()}`}
-            className="nav-link"
-            aria-label={`Navigate to ${project.title} project`}
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById(project.title.toLowerCase())?.focus();
-            }}
-          >
-            {project.title}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </nav>
-);
-
 const ProjectGrid = ({ animations }) => (
   <motion.div
     className="row g-3 project-grid"
@@ -132,9 +95,7 @@ const ProjectGrid = ({ animations }) => (
         role="listitem"
         aria-label={`${project.title} project card`}
       >
-        <Project {...project}
-          tabIndex="0"
-        />
+        <Project {...project} />
       </motion.div>
     ))}
   </motion.div>
@@ -151,21 +112,22 @@ const Portfolio = () => {
         const activeElement = document.activeElement;
         if (activeElement.tagName === 'A' && activeElement.href) {
           e.preventDefault();
-          if (activeElement.getAttribute('href').startsWith('#')) {
-            const targetId = activeElement.getAttribute('href').substring(1);
-            document.getElementById(targetId)?.focus();
+
+          // Check if it's an internal navigation link (starts with '#' or is a React Router link)
+          if (activeElement.getAttribute('href').startsWith('#') ||
+            activeElement.getAttribute('href').startsWith('/')) {
+            // Handle internal navigation
+            if (activeElement.getAttribute('href').startsWith('#')) {
+              const targetId = activeElement.getAttribute('href').substring(1);
+              document.getElementById(targetId)?.focus();
+            } else {
+              // Let React Router handle the navigation
+              activeElement.click();
+            }
           } else {
+            // External links (project demos and GitHub links) open in new tab
             window.open(activeElement.href, '_blank');
           }
-        }
-      }
-
-      if (e.key === 'b' || e.key === 'B') {
-        e.preventDefault();
-        const heading = document.getElementById('portfolio-heading');
-        if (heading) {
-          heading.focus();
-          heading.scrollIntoView({ behavior: 'smooth' });
         }
       }
 
@@ -174,7 +136,7 @@ const Portfolio = () => {
       }
 
       const focusableElements = Array.from(document.querySelectorAll(
-        '.project-card[tabindex="0"], .project-card a[href]'
+        '.project-card a[href]'
       ));
 
       const currentIndex = focusableElements.indexOf(document.activeElement);
@@ -222,7 +184,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const originalTitle = document.title;
-    document.title = " Austin Graham | Projects";
+    document.title = "Austin Graham | Projects";
     return () => {
       document.title = originalTitle;
     };
@@ -236,19 +198,18 @@ const Portfolio = () => {
       aria-labelledby="portfolio-heading"
       variants={animations}
     >
-
-      <a
-        href="#portfolio-heading"
-        className="skip-link"
-        aria-label="Skip to main content"
-      >
-        Skip to main content
-        <span className="visually-hidden"> (Press Enter)</span>
-      </a>
-
       <div className="container py-3 pb-4">
         <div className="visually-hidden">
-          <PortfolioNavigation />
+          <h2>Navigation Instructions</h2>
+          <p>
+            Press Tab to move forward through project links.
+            Press Shift + Tab to move backward.
+            Enter opens the focused link in a new window.
+            Use Arrow keys to move between adjacent project links.
+            Escape exits the project grid and returns focus to main heading.
+            Back to top link returns to navigation menu.
+            Screen reader users: Each project card displays the project title, description, technologies used, and provides links to both the deployed application and source code.
+          </p>
         </div>
 
         <header>
@@ -270,11 +231,12 @@ const Portfolio = () => {
       </div>
 
       <a
-        href="#portfolio-heading"
+        href="#active-nav-link"
         className="back-to-top skip-link"
-        aria-label="Back to top of page"
+        aria-label="Back to top and return to navigation"
       >
         Back to top
+        <span className="visually-hidden"> (Press Enter to return to navigation)</span>
       </a>
     </motion.section>
   );

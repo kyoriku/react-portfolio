@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, XCircle } from 'lucide-react';
 import '../styles/Contact.css';
@@ -23,6 +23,14 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [botField, setBotField] = useState('');
+
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = "Austin Graham | Contact";
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
 
   const handleNameChange = (e) => {
     const newName = e.target.value;
@@ -133,7 +141,7 @@ const Contact = () => {
           <div className="form-group">
             <div className="label-container">
               <label htmlFor="name" className="form-label mb-1">
-                Name 
+                Name
               </label>
               {nameError && <span className="inline-error">{nameError}</span>}
             </div>
@@ -155,7 +163,7 @@ const Contact = () => {
           <div className="form-group">
             <div className="label-container">
               <label htmlFor="email" className="form-label mb-1">
-                Email 
+                Email
               </label>
               {emailError && <span className="inline-error">{emailError}</span>}
             </div>
@@ -177,7 +185,7 @@ const Contact = () => {
           <div className="form-group">
             <div className="label-container">
               <label htmlFor="message" className="form-label mb-1">
-                Message 
+                Message
               </label>
               {messageError && <span className="inline-error">{messageError}</span>}
             </div>
