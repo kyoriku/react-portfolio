@@ -48,3 +48,30 @@
   text-align: center;
   width: 100%;
 }
+
+.email-link {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.email-link:hover,
+.email-link:focus {
+  color: var(--color-accent);
+  border-radius: 8px;
+}
+
+.email-link-mobile {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.email-link-mobile:hover,
+.email-link-mobile:focus {
+  color: var(--color-accent);
+}
