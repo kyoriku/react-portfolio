@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Footer.css';
 
 // Collection of social media links with their details and accessibility labels
@@ -27,7 +28,7 @@ const socialLinks = [
 
 /**
  * Footer component serves as the main footer section of the website
- * Handles social media links and copyright information with responsive layout
+ * Handles social media links, email contact, and copyright information with responsive layout
  * Includes accessibility features for screen readers and keyboard navigation
  */
 const Footer = () => {
@@ -40,7 +41,21 @@ const Footer = () => {
       role="contentinfo"
       aria-label="Site footer"
     >
-      <div className="container py-3 d-flex flex-column">
+      <div className="container py-3 position-relative">
+        {/* Email link - desktop version */}
+        <a
+          href="mailto:devkyoriku@gmail.com"
+          className="email-link d-none d-lg-flex align-items-center"
+          aria-label="Send me an email"
+        >
+          <FontAwesomeIcon
+            icon={faEnvelope}
+            className="me-2"
+            aria-hidden="true"
+          />
+          <small>devkyoriku@gmail.com</small>
+        </a>
+
         {/* Social media navigation section */}
         <nav
           className="social-links"
@@ -67,15 +82,29 @@ const Footer = () => {
           ))}
         </nav>
 
-        {/* Copyright notice - desktop version (visible on large screens) */}
+        {/* Copyright notice - desktop version */}
         <small className="copyright d-none d-lg-block">
           © {currentYear} Austin Graham. All rights reserved.
         </small>
 
-        {/* Copyright notice - mobile version (visible on smaller screens) */}
-        <small className="copyright-mobile d-lg-none">
-          © {currentYear} Austin Graham. All rights reserved.
-        </small>
+        {/* Email and copyright - mobile version */}
+        <div className="d-lg-none text-center">
+          <a
+            href="mailto:devkyoriku@gmail.com"
+            className="email-link-mobile d-block mt-3"
+            aria-label="Send me an email"
+          >
+            <FontAwesomeIcon
+              icon={faEnvelope}
+              className="me-2"
+              aria-hidden="true"
+            />
+            <small>devkyoriku@gmail.com</small>
+          </a>
+          <small className="copyright-mobile d-block mt-3">
+            © {currentYear} Austin Graham. All rights reserved.
+          </small>
+        </div>
       </div>
     </footer>
   );
