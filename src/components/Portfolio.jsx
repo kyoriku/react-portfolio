@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import Project from './Project';
 import '../styles/Portfolio.css';
 
+// Collection of portfolio projects with their details and links
 const projectsData = [
   {
     title: 'AdminAccess',
@@ -54,6 +55,7 @@ const projectsData = [
   }
 ];
 
+// Animation variants for Framer Motion transitions
 const animationConfig = {
   heading: {
     hidden: { opacity: 0, y: -25 },
@@ -80,6 +82,10 @@ const animationConfig = {
   }
 };
 
+/**
+ * ProjectGrid component organizes project cards in a responsive grid layout
+ * Handles animation variants and accessibility roles for the project list
+ */
 const ProjectGrid = ({ animations }) => (
   <motion.div
     className="row g-3 project-grid"
@@ -101,87 +107,17 @@ const ProjectGrid = ({ animations }) => (
   </motion.div>
 );
 
+/**
+ * Portfolio component serves as the main container for the projects section
+ * Manages animations, document title, and provides accessibility instructions
+ * for navigating through the project grid
+ */
 const Portfolio = () => {
+  // Respect user's motion preferences for animations
   const shouldReduceMotion = useReducedMotion();
   const animations = shouldReduceMotion ? {} : animationConfig;
-  const [isNavigatingByKeyboard, setIsNavigatingByKeyboard] = useState(false);
 
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Enter') {
-        const activeElement = document.activeElement;
-        if (activeElement.tagName === 'A' && activeElement.href) {
-          e.preventDefault();
-
-          // Check if it's an internal navigation link (starts with '#' or is a React Router link)
-          if (activeElement.getAttribute('href').startsWith('#') ||
-            activeElement.getAttribute('href').startsWith('/')) {
-            // Handle internal navigation
-            if (activeElement.getAttribute('href').startsWith('#')) {
-              const targetId = activeElement.getAttribute('href').substring(1);
-              document.getElementById(targetId)?.focus();
-            } else {
-              // Let React Router handle the navigation
-              activeElement.click();
-            }
-          } else {
-            // External links (project demos and GitHub links) open in new tab
-            window.open(activeElement.href, '_blank');
-          }
-        }
-      }
-
-      if (e.key === 'Tab') {
-        setIsNavigatingByKeyboard(true);
-      }
-
-      const focusableElements = Array.from(document.querySelectorAll(
-        '.project-card a[href]'
-      ));
-
-      const currentIndex = focusableElements.indexOf(document.activeElement);
-
-      switch (e.key) {
-        case 'ArrowRight':
-        case 'ArrowDown': {
-          if (currentIndex !== -1) {
-            e.preventDefault();
-            const nextIndex = (currentIndex + 1) % focusableElements.length;
-            focusableElements[nextIndex]?.focus();
-          }
-          break;
-        }
-        case 'ArrowLeft':
-        case 'ArrowUp': {
-          if (currentIndex !== -1) {
-            e.preventDefault();
-            const prevIndex = currentIndex <= 0 ? focusableElements.length - 1 : currentIndex - 1;
-            focusableElements[prevIndex]?.focus();
-          }
-          break;
-        }
-        case 'Escape': {
-          document.getElementById('portfolio-heading')?.focus();
-          break;
-        }
-      }
-    };
-
-    const handleMouseMove = () => {
-      if (isNavigatingByKeyboard) {
-        setIsNavigatingByKeyboard(false);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [isNavigatingByKeyboard]);
-
+  // Update document title and restore on unmount
   useEffect(() => {
     const originalTitle = document.title;
     document.title = "Austin Graham | Projects";
@@ -199,25 +135,24 @@ const Portfolio = () => {
       variants={animations}
     >
       <div className="container py-3 pb-4">
-        <div className="visually-hidden">
-          <h2>Navigation Instructions</h2>
+        {/* Navigation instructions for screen reader users */}
+        <div className="visually-hidden" aria-label="Navigation Instructions">
           <p>
             Press Tab to move forward through project links.
-            Press Shift + Tab to move backward.
-            Enter opens the focused link in a new window.
-            Use Arrow keys to move between adjacent project links.
-            Escape exits the project grid and returns focus to main heading.
-            Back to top link returns to navigation menu.
+            Press Shift + Tab to move backward project links.
+            Press Enter to open the focused link in a new window.
+            Use the arrow keys or Page Up/Down to scroll through the project grid.
+            The Back to Top link at the bottom of the page returns focus to the main navigation menu.
             Screen reader users: Each project card displays the project title, description, technologies used, and provides links to both the deployed application and source code.
           </p>
         </div>
 
+        {/* Portfolio header section */}
         <header>
           <motion.h1
             className="text-center mb-3 gradient-text"
             variants={animations?.heading || {}}
             id="portfolio-heading"
-            tabIndex="-1"
           >
             Projects
           </motion.h1>
@@ -227,9 +162,11 @@ const Portfolio = () => {
           </p>
         </header>
 
+        {/* Project grid display */}
         <ProjectGrid animations={animations} />
       </div>
 
+      {/* Back to top navigation link */}
       <a
         href="#active-nav-link"
         className="back-to-top skip-link"
