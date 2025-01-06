@@ -23,10 +23,28 @@
 .social-icon svg {
   width: 30px;
   height: 30px;
-  color: #0a192f;
+  color: var(--color-background);
 }
 
 .social-icon:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(100, 255, 218, 0.3);
+}
+
+.container {
+  position: relative;
+}
+
+.copyright {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-primary)
+}
+
+.copyright-mobile {
+  margin-top: 1rem;
+  text-align: center;
+  width: 100%;
 }
