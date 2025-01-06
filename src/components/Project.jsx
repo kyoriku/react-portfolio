@@ -152,12 +152,12 @@ const ProjectContent = ({
 }) => (
   <div className="project-content">
     <header>
-      <h3
+      <h2
         className="project-title"
         id={titleId}
       >
         {title}
-      </h3>
+      </h2>
       <hr
         className="skill-divider mt-0 mb-2"
         role="presentation"
