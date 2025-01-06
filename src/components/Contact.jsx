@@ -111,10 +111,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('Form submitted with honeypot value:', botField);
-
     if (botField) {
-      console.log('🚨 Honeypot triggered - bot detected!');
       setSubmitStatus('Message sent successfully! I will get back to you soon.');
       setFormData({ name: '', email: '', message: '' });
       setBotField('');
