@@ -27,6 +27,18 @@
   margin-bottom: 1rem;
 }
 
+.form-group:nth-child(5) {  /* 4 because of the hidden input and description div */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .form-label {
   display: block;
   /* margin-bottom: 0.5rem; */
@@ -41,13 +53,58 @@
   border: 1px solid rgba(100, 255, 218, 0.2);
   border-radius: 8px;
   color: #EEF4ED;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* .form-input:focus-visible {
+  outline: 5px solid hotpink;
+  outline-offset: 2px;
+  border-color: transparent;
+  box-shadow: none;
+} */
+
+/* Base focus styles (mouse interaction) */
 .form-input:focus {
   outline: none;
   border-color: #64ffda;
   box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+}
+
+/* Keyboard focus styles */
+.form-input:focus:not([data-mouse-focus]) {
+  outline: 5px solid hotpink;
+  outline-offset: 2px;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* .form-input:focus {
+  outline: none;
+  border-color: #64ffda;
+  box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+} */
+
+/* Default state - dark background inputs */
+/* .form-input::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-text-primary);
+} */
+
+/* Only when input is autofilled */
+.form-input:-webkit-autofill::selection {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--color-background);
+}
+
+/* Firefox version */
+.form-input::-moz-selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-text-primary);
+}
+
+.form-input:-webkit-autofill::-moz-selection {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--color-background);
 }
 
 .form-input::placeholder {
@@ -71,8 +128,13 @@ textarea.form-input {
   border-radius: 8px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: fit-content;
+}
+
+.submit-button:focus-visible {
+  outline: 5px solid hotpink;
+  outline-offset: 2px;
 }
 
 .submit-button:hover {
@@ -92,7 +154,9 @@ textarea.form-input {
   margin-top: 0.5rem;
 }
 
-#nameError, #emailError, #messageError {
+#nameError,
+#emailError,
+#messageError {
   color: #ff6b6b;
   font-size: 0.875rem;
   margin-top: 0.5rem;
@@ -158,8 +222,6 @@ textarea.form-input {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-
-  
   .submit-button {
     width: 100%;
     justify-content: center;
@@ -179,4 +241,59 @@ textarea.form-input {
 
 textarea.form-input {
   display: block;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .submit-button:hover {
+    transform: none;
+  }
+
+  .status-message {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (forced-colors: active) {
+  .form-input {
+    border: 2px solid CanvasText;
+  }
+
+  .submit-button {
+    border: 2px solid ButtonText;
+    background: ButtonFace;
+    color: ButtonText;
+  }
+
+  .gradient-text {
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: CanvasText;
+  }
+
+  .status-message.success {
+    border: 2px solid MarkText;
+    color: MarkText;
+  }
+
+  .status-message.error {
+    border: 2px solid LinkText;
+    color: LinkText;
+  }
+
+  /* Ensure form validation states are visible */
+  .form-input:invalid {
+    border-color: LinkText;
+  }
+
+  .inline-error {
+    color: LinkText;
+  }
 }
