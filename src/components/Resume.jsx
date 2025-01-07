@@ -81,7 +81,7 @@ const Resume = () => {
   // Update document title and restore on unmount
   useEffect(() => {
     const originalTitle = document.title;
-    document.title = "Austin Graham | Resume";
+    document.title = "Developer Resume | Austin Graham";
     return () => {
       document.title = originalTitle;
     };
