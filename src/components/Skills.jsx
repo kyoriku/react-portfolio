@@ -2,90 +2,56 @@ import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import '../styles/Skills.css';
 
-// Centralized data for skills, making the component more maintainable
+/**
+ * Centralized skill data structure containing technology information
+ * Organized by category (frontend, backend, databases, devops)
+ * Each skill includes name, icon path, and descriptive text
+ */
 const skillsData = {
   frontend: [
-    {
-      name: 'HTML',
-      icon: '/icons/html.jpg',
-      description: 'Semantic HTML5 markup for structuring web content and ensuring accessibility'
-    },
-    {
-      name: 'CSS',
-      icon: '/icons/css.jpg',
-      description: 'CSS3 styling including Flexbox, Grid, and responsive design principles'
-    },
-    {
-      name: 'JavaScript',
-      icon: '/icons/javascript.jpg',
-      description: 'Modern ES6+ JavaScript for dynamic client-side functionality'
-    },
-    {
-      name: 'jQuery',
-      icon: '/icons/jquery.jpg',
-      description: 'jQuery for DOM manipulation and cross-browser compatibility'
-    },
-    {
-      name: 'React',
-      icon: '/icons/reactjs.jpg',
-      description: 'React.js library for building interactive user interfaces with components'
-    },
-    {
-      name: 'Bootstrap',
-      icon: '/icons/bootstrap.jpg',
-      description: 'Bootstrap framework for rapid responsive web development'
-    }
+    { name: 'HTML5', icon: '/icons/html.png', description: 'Semantic HTML5 markup for modern web applications' },
+    { name: 'CSS3', icon: '/icons/css.png', description: 'Advanced CSS3 including Flexbox, Grid, and animations' },
+    { name: 'JavaScript', icon: '/icons/javascript.png', description: 'Modern ES6+ JavaScript for dynamic client-side functionality' },
+    { name: 'React', icon: '/icons/react.png', description: 'React.js library for building interactive user interfaces' },
+    { name: 'Bootstrap', icon: '/icons/bootstrap.png', description: 'Bootstrap framework for responsive web development' },
+    { name: 'Tailwind CSS', icon: '/icons/tailwind.png', description: 'Utility-first CSS framework for modern web applications' }
   ],
   backend: [
-    {
-      name: 'APIs',
-      icon: '/icons/api.jpg',
-      description: 'RESTful API design and implementation with proper status codes and JWT auth'
-    },
-    {
-      name: 'Node.js',
-      icon: '/icons/nodejs.jpg',
-      description: 'Server-side JavaScript runtime for scalable network applications'
-    },
-    {
-      name: 'Express',
-      icon: '/icons/expressjs.jpg',
-      description: 'Express.js framework for building robust web applications and APIs'
-    },
-    {
-      name: 'MySQL',
-      icon: '/icons/mysql.jpg',
-      description: 'Relational database design and management with MySQL'
-    },
-    {
-      name: 'MongoDB',
-      icon: '/icons/mongodb.jpg',
-      description: 'NoSQL database for flexible, document-oriented data storage'
-    },
-    {
-      name: 'GraphQL',
-      icon: '/icons/graphql.jpg',
-      description: 'GraphQL for efficient, flexible API queries and data handling'
-    }
+    { name: 'Node.js', icon: '/icons/nodejs.png', description: 'Server-side JavaScript runtime environment' },
+    { name: 'Express', icon: '/icons/express.png', description: 'Web application framework for Node.js' },
+    { name: 'REST APIs', icon: '/icons/api.png', description: 'RESTful API design and implementation' },
+    { name: 'Python', icon: '/icons/python.png', description: 'Versatile programming language for web development and data analysis' }
+  ],
+  databases: [
+    { name: 'MySQL', icon: '/icons/mysql.png', description: 'Relational database management system' },
+    { name: 'MongoDB', icon: '/icons/mongodb.png', description: 'NoSQL database for flexible data storage' },
+    { name: 'Sequelize', icon: '/icons/sequelize.png', description: 'Promise-based Node.js ORM for SQL databases' },
+    { name: 'Mongoose', icon: '/icons/mongoose.png', description: 'MongoDB object modeling for Node.js' }
+  ],
+  devops: [
+    { name: 'Git', icon: '/icons/git.png', description: 'Version control system for tracking code changes' },
+    { name: 'AWS', icon: '/icons/aws.png', description: 'Cloud services including S3, DynamoDB, and EC2' },
+    { name: 'Jest', icon: '/icons/jest.png', description: 'JavaScript testing framework' },
+    { name: 'Vite', icon: '/icons/vite.png', description: 'Next generation frontend build tool' }
   ]
 };
 
-// Animation configuration with clear, reusable settings
+/**
+ * Animation configuration for Framer Motion
+ * Defines container and item level animations with spring physics
+ * Container handles staggered children animations
+ * Item animations include opacity and vertical translation
+ */
 const animationConfig = {
   container: {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.05
-      }
+      transition: { staggerChildren: 0.05 }
     }
   },
   item: {
-    hidden: {
-      y: 10,
-      opacity: 0
-    },
+    hidden: { y: 10, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -100,16 +66,18 @@ const animationConfig = {
 };
 
 /**
- * SkillItem component renders individual skill with icon and details
- * Handles image loading errors with a fallback mechanism
+ * SkillItem component renders individual skill entries
+ * Handles icon loading with fallback for failed image loads
+ * Provides semantic HTML structure with accessibility support
+ * Receives animation variants as props to respect reduced motion preferences
  */
-const SkillItem = ({ skill }) => {
+const SkillItem = ({ skill, variants }) => {
   const [imageError, setImageError] = useState(false);
 
   return (
     <motion.li
       className="skill-item"
-      variants={animationConfig.item}
+      variants={variants}
     >
       {/* Fallback for image loading errors */}
       {imageError ? (
@@ -157,8 +125,10 @@ const SkillItem = ({ skill }) => {
 };
 
 /**
- * SkillSection component groups skills by category
- * Provides semantic structure and accessibility
+ * SkillSection component organizes skills into categorical groups
+ * Provides semantic structure and accessibility features
+ * Manages animation variants for child elements
+ * Passes animation variants to child components to respect reduced motion preferences
  */
 const SkillSection = ({ title, skills, id, variants }) => (
   <section className="skill-card" aria-labelledby={id}>
@@ -178,6 +148,7 @@ const SkillSection = ({ title, skills, id, variants }) => (
         <SkillItem
           key={skill.name}
           skill={skill}
+          variants={variants?.item}
         />
       ))}
     </motion.ul>
@@ -185,29 +156,33 @@ const SkillSection = ({ title, skills, id, variants }) => (
 );
 
 /**
- * Main Skills component that renders frontend and backend skill sections
- * Respects user's reduced motion preferences
+ * Main Skills component that renders the complete skills showcase
+ * Organizes skills into frontend, backend, database, and devops sections
+ * Manages responsive layout and accessibility features
+ * Respects user's motion preferences for animations by conditionally applying variants
  */
 const Skills = () => {
-  // Disable animations for users with reduced motion preferences
   const animations = useReducedMotion() ? {} : animationConfig;
+
+  const sections = [
+    { title: "Frontend Development", data: skillsData.frontend, id: "frontend-skills" },
+    { title: "Backend Development", data: skillsData.backend, id: "backend-skills" },
+    { title: "Database Technologies", data: skillsData.databases, id: "database-skills" },
+    { title: "DevOps & Tools", data: skillsData.devops, id: "devops-skills" }
+  ];
 
   return (
     <article className="skills-container">
-      {/* Skill sections */}
       <h2 className="visually-hidden">Technical Skills</h2>
-      <SkillSection
-        title="Front-end Proficiencies"
-        skills={skillsData.frontend}
-        id="frontend-skills"
-        variants={animations}
-      />
-      <SkillSection
-        title="Back-end Proficiencies"
-        skills={skillsData.backend}
-        id="backend-skills"
-        variants={animations}
-      />
+      {sections.map(({ title, data, id }) => (
+        <SkillSection
+          key={id}
+          title={title}
+          skills={data}
+          id={id}
+          variants={animations}
+        />
+      ))}
     </article>
   );
 };

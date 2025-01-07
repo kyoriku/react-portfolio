@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { FileText } from 'lucide-react';
 import Skills from './Skills';
 import '../styles/Resume.css';
 
-// Centralized configuration for animations
+/**
+ * Animation configuration for Framer Motion
+ * Defines transitions for heading and content sections
+ * Includes opacity and vertical translation with easing functions
+ */
 const animationConfig = {
   heading: {
     hidden: {
@@ -37,103 +41,44 @@ const animationConfig = {
   }
 };
 
-// Navigation data for Table of Contents
-const navigationLinks = [
-  {
-    href: "#frontend-skills",
-    label: "Skip to front-end skills section",
-    text: "Front-end Proficiencies"
-  },
-  {
-    href: "#backend-skills",
-    label: "Skip to back-end skills section",
-    text: "Back-end Proficiencies"
-  },
-  {
-    href: "#view-resume-heading",
-    label: "Skip to resume download section",
-    text: "View Resume"
-  }
-];
-
 /**
- * TableOfContents component provides keyboard-accessible navigation
- * through main sections of the resume
+ * ViewResumeButton component provides PDF resume download functionality
+ * Includes accessibility features and semantic HTML structure
+ * Manages external link behavior and screen reader support
  */
-const TableOfContents = () => (
-  <nav
-    aria-label="Resume sections"
-    className="visually-hidden"
-    role="navigation"
+const ViewResumeButton = () => (
+  <section
+    className="resume-view-container"
+    aria-labelledby="view-resume-heading"
   >
-    <h2>Resume Navigation</h2>
-    <p>Quick navigation - use tab key to move between links and enter key to jump to sections:</p>
-    <ul role="list">
-      {navigationLinks.map(({ href, label, text }) => (
-        <li key={href} role="listitem">
-          <a href={href} aria-label={label}>
-            {text}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </nav>
+    <h2 id="view-resume-heading" className="visually-hidden">View Resume</h2>
+    <a
+      href="/documents/Austin_Graham_Resume_2025.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="resume-button"
+      aria-label="Open resume PDF in new tab"
+      title="View resume as PDF in new browser tab"
+    >
+      <span className="icon-wrapper" aria-hidden="true">
+        <FileText size={22} />
+      </span>
+      <span className="link-text">View Resume</span>
+      <span className="visually-hidden">(opens in new tab)</span>
+    </a>
+  </section>
 );
 
 /**
- * ViewResumeButton component handles the PDF resume download functionality
- * Includes loading states and accessibility announcements
- */
-const ViewResumeButton = () => {
-  const [status, setStatus] = useState('');
-
-  const handleClick = () => {
-    setStatus('Opening resume PDF in new tab');
-  };
-
-  return (
-    <section
-      className="resume-view-container"
-      aria-labelledby="view-resume-heading"
-    >
-      <h2 id="view-resume-heading" className="visually-hidden">View Resume</h2>
-      <a
-        href="/documents/Austin_Graham_Resume_2025.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="resume-button"
-        aria-label="Open resume PDF in new tab"
-        title="View resume as PDF in new browser tab"
-        onClick={handleClick}
-      >
-        <span className="icon-wrapper" aria-hidden="true">
-          <FileText size={22} />
-        </span>
-        <span className="link-text">View Resume</span>
-      </a>
-      <output
-        role="status"
-        aria-live="polite"
-        className="visually-hidden"
-      >
-        {status}
-      </output>
-    </section>
-  );
-};
-
-/**
- * Main Resume component that combines all sections and handles animations
- * Respects user's reduced motion preferences
+ * Main Resume component that displays skills and experience section
+ * Manages animations, document title, and provides accessibility features
+ * for screen readers and keyboard navigation
+ * Respects user's motion preferences for animations
  */
 const Resume = () => {
   const animations = useReducedMotion() ? {} : animationConfig;
-  const [isAnimating, setIsAnimating] = useState(true);
 
-  const handleAnimationComplete = () => {
-    setIsAnimating(false);
-  };
-
+  // Update document title and restore on unmount
   useEffect(() => {
     const originalTitle = document.title;
     document.title = "Austin Graham | Resume";
@@ -144,48 +89,57 @@ const Resume = () => {
 
   return (
     <motion.section
-      className="resume-section container py-3"
+      className="resume-section"
       initial="hidden"
       animate="visible"
       aria-labelledby="resume-heading"
-      role="region"
-      aria-description="Use tab key to navigate between sections and enter key to activate links"
-      onAnimationComplete={handleAnimationComplete}
+      variants={animations}
     >
-      <motion.h1
-        id="resume-heading"
-        className="text-center mb-3 gradient-text"
-        variants={animations.heading}
-      >
-        Skills & Experience
-      </motion.h1>
+      <div className="container py-3 pb-4">
+        {/* Navigation instructions for screen reader users */}
+        <div className="visually-hidden" aria-label="Navigation Instructions">
+          <p>
+            Press Tab to move forward through skill sections.
+            Press Shift + Tab to move backward through sections.
+            Use the arrow keys or Page Up/Down to scroll through the skills list.
+            The Back to Top link at the bottom of the page returns focus to the main navigation menu.
+            Screen reader users: Each skill displays the technology name and its description.
+          </p>
+        </div>
 
-      <aside
-        className="visually-hidden"
-        role="note"
-        aria-label="Page description"
-      >
-        This section showcases my technical skills in both front-end and back-end development,
-        followed by a link to view my complete resume.
-      </aside>
+        {/* Resume header section */}
+        <header>
+          <motion.h1
+            id="resume-heading"
+            className="text-center mb-3 gradient-text"
+            variants={animations.heading}
+          >
+            Skills & Experience
+          </motion.h1>
+          <p className="visually-hidden">
+            Explore my technical skills in both front-end and back-end development,
+            along with a downloadable copy of my complete resume.
+          </p>
+        </header>
 
-      <TableOfContents />
+        {/* Main content section */}
+        <motion.article
+          variants={animations.content}
+          className="resume-content"
+        >
+          <Skills />
+          <ViewResumeButton />
+        </motion.article>
+      </div>
 
-      <motion.article
-        variants={animations.content}
-        className="resume-content"
-        aria-busy={isAnimating}
-      >
-        <Skills />
-        <ViewResumeButton />
-      </motion.article>
-
+      {/* Back to top navigation link */}
       <a
-        href="#resume-heading"
-        className="skip-link visually-hidden focus:not-visually-hidden"
-        aria-label="Skip to top of page"
+        href="#active-nav-link"
+        className="back-to-top skip-link"
+        aria-label="Back to top and return to navigation"
       >
         Back to top
+        <span className="visually-hidden"> (Press Enter to return to navigation)</span>
       </a>
     </motion.section>
   );

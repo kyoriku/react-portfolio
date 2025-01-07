@@ -47,6 +47,7 @@ const Footer = () => {
           href="mailto:contact@austingraham.ca"
           className="email-link d-none d-lg-flex align-items-center"
           aria-label="Send me an email"
+          title='Send me an email'
         >
           <FontAwesomeIcon
             icon={faEnvelope}
@@ -93,6 +94,7 @@ const Footer = () => {
             href="mailto:contact@austingraham.ca"
             className="email-link-mobile d-block mt-3"
             aria-label="Send me an email"
+            title='Send me an email'
           >
             <FontAwesomeIcon
               icon={faEnvelope}
