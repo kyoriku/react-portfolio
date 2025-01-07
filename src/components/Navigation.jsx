@@ -8,14 +8,48 @@ const Navigation = () => {
   const location = useLocation();
   const menuRef = useRef(null);
   const toggleRef = useRef(null);
+  const firstNavItemRef = useRef(null);
 
-  // Handle all clicks on the page
+  // Handle back to top functionality
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#back-to-nav') {
+        window.scrollTo(0, 0);
+        const isMobileView = window.matchMedia('(max-width: 767.98px)').matches;
+        
+        if (isMobileView) {
+          // Expand the menu first
+          setExpanded(true);
+          
+          // Focus the active nav link after menu animation
+          setTimeout(() => {
+            const activeNavItem = document.querySelector('.nav-link.active');
+            if (activeNavItem) {
+              activeNavItem.focus();
+            }
+          }, 300); // Matches your menu animation duration
+        } else {
+          // Desktop behavior - just focus the active nav link
+          const activeNavItem = document.querySelector('.nav-link.active');
+          if (activeNavItem) {
+            activeNavItem.focus();
+          }
+        }
+        
+        // Clear the hash without jumping
+        history.pushState('', document.title, window.location.pathname + window.location.search);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Handle clicks outside the menu
   useEffect(() => {
     const handleClick = (e) => {
-      // If menu is not expanded, don't do anything
       if (!expanded) return;
 
-      // Check if click is outside both menu and toggle button
       const isOutsideMenu = menuRef.current && !menuRef.current.contains(e.target);
       const isOutsideToggle = toggleRef.current && !toggleRef.current.contains(e.target);
 
@@ -24,10 +58,7 @@ const Navigation = () => {
       }
     };
 
-    // Add click handler to document
     document.addEventListener('click', handleClick);
-
-    // Cleanup
     return () => document.removeEventListener('click', handleClick);
   }, [expanded]);
 
@@ -36,8 +67,23 @@ const Navigation = () => {
     setExpanded(false);
   }, [location.pathname]);
 
+  // Handle keyboard navigation
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape' && expanded) {
+      setExpanded(false);
+      toggleRef.current?.focus();
+    }
+  };
+
+  // Move focus to first nav item when menu opens on mobile
+  useEffect(() => {
+    if (expanded && firstNavItemRef.current && window.innerWidth < 768) {
+      firstNavItemRef.current.focus();
+    }
+  }, [expanded]);
+
   const handleToggle = (e) => {
-    e.stopPropagation(); // Prevent the document click handler from firing
+    e.stopPropagation();
     setExpanded(!expanded);
   };
 
@@ -49,14 +95,23 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="navbar navbar-expand-md">
+    <nav
+      className="navbar navbar-expand-md"
+      role="navigation"
+      aria-label="Main navigation"
+      onKeyDown={handleKeyDown}
+    >
       <div className="container">
         <Link
           className={`navbar-brand ${location.pathname === '/' ? 'active' : ''}`}
           to="/"
           onClick={() => setExpanded(false)}
+          aria-current={location.pathname === '/' ? 'page' : undefined}
         >
           Austin Graham
+          {location.pathname === '/' && (
+            <span className="visually-hidden"> (current page)</span>
+          )}
         </Link>
 
         <button
@@ -64,8 +119,14 @@ const Navigation = () => {
           className={`navbar-toggler custom-toggler ${expanded ? 'is-active' : ''}`}
           type="button"
           onClick={handleToggle}
+          aria-expanded={expanded}
+          aria-controls="main-nav-menu"
+          aria-label={expanded ? 'Close main menu' : 'Open main menu'}
         >
-          <div className="hamburger-lines">
+          <div
+            className="hamburger-lines"
+            aria-hidden="true"
+          >
             <span className="line line1"></span>
             <span className="line line2"></span>
             <span className="line line3"></span>
@@ -74,18 +135,31 @@ const Navigation = () => {
 
         <div
           ref={menuRef}
+          id="main-nav-menu"
           className={`navbar-menu ${expanded ? 'show' : ''}`}
+          role="menubar"
+          aria-label="Main menu items"
         >
           <ul className="navbar-nav ms-auto">
-            {navItems.map((item) => (
-              <li key={item.name} className="nav-item">
+            {navItems.map((item, index) => (
+              <li
+                key={item.name}
+                className="nav-item"
+                role="none"
+              >
                 <Link
+                  ref={index === 0 ? firstNavItemRef : null}
                   className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
                   to={item.path}
                   onClick={() => setExpanded(false)}
+                  role="menuitem"
+                  aria-current={location.pathname === item.path ? 'page' : undefined}
                   id={location.pathname === item.path ? 'active-nav-link' : undefined}
                 >
                   {item.name}
+                  {location.pathname === item.path && (
+                    <span className="visually-hidden"> (current page)</span>
+                  )}
                 </Link>
               </li>
             ))}

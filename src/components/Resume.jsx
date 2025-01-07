@@ -134,7 +134,7 @@ const Resume = () => {
 
       {/* Back to top navigation link */}
       <a
-        href="#active-nav-link"
+        href="#back-to-nav"
         className="back-to-top skip-link"
         aria-label="Back to top and return to navigation"
       >

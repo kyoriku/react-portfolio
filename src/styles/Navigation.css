@@ -88,16 +88,22 @@
   background: transparent;
   outline: none;
   transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.custom-toggler:focus,
-.custom-toggler:active {
+/* Reset default focus styles */
+.custom-toggler:focus {
   outline: none;
   box-shadow: none;
 }
 
-.custom-toggler:focus .hamburger-lines {
-  opacity: 0.8;
+/* Add consistent focus-visible style */
+.custom-toggler:focus-visible {
+  outline: 5px solid var(--color-focus-outline);
+  outline-offset: 2px;
+  border-radius: 8px;
 }
 
 .custom-toggler:active {
@@ -207,9 +213,10 @@
   }
 }
 
+/* Focus states for nav links and brand */
 .navbar .nav-link:focus,
 .navbar-brand:focus {
-  color: inherit;
+  color: var(--color-accent);
 }
 
 .nav-link:focus-visible,
