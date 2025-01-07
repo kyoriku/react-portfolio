@@ -5,15 +5,15 @@
 }
 
 .skill-card {
-  background: linear-gradient(135deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.8) 100%);
+  background: var(--gradient-background);
   border-radius: 15px;
   padding: 1rem;
   border: 1px solid rgba(100, 255, 218, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
 }
 
 .skill-section-title {
-  color: #64ffda;
+  color: var(--color-accent);
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -56,7 +56,6 @@
 }
 
 .skill-name {
-  color: #EEF4ED;
   font-size: 0.875rem;
   font-weight: 500;
   text-align: center;
@@ -81,8 +80,9 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .skill-icon-container {
+    width: 50px;
+    height: 50px;
   }
 
   .skill-description {
@@ -93,22 +93,5 @@
     height: 1px;
     overflow: hidden;
     white-space: nowrap;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Default to 4 columns for all sections */
-  .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Override for frontend section to be 3 columns */
-  /* .skill-card:nth-child(2) .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-  } */
-
-  .skill-icon-container {
-    width: 50px;
-    height: 50px;
   }
 }
