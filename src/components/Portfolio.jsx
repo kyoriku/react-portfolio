@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import Project from './Project';
-import '../styles/Portfolio.css';
 
 // Collection of portfolio projects with their details and links
 const projectsData = [

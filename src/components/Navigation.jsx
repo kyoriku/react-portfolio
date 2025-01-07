@@ -16,18 +16,18 @@ const Navigation = () => {
       if (window.location.hash === '#back-to-nav') {
         window.scrollTo(0, 0);
         const isMobileView = window.matchMedia('(max-width: 767.98px)').matches;
-        
+
         if (isMobileView) {
           // Expand the menu first
           setExpanded(true);
-          
+
           // Focus the active nav link after menu animation
           setTimeout(() => {
             const activeNavItem = document.querySelector('.nav-link.active');
             if (activeNavItem) {
               activeNavItem.focus();
             }
-          }, 300); // Matches your menu animation duration
+          }, 300);
         } else {
           // Desktop behavior - just focus the active nav link
           const activeNavItem = document.querySelector('.nav-link.active');
@@ -35,7 +35,7 @@ const Navigation = () => {
             activeNavItem.focus();
           }
         }
-        
+
         // Clear the hash without jumping
         history.pushState('', document.title, window.location.pathname + window.location.search);
       }

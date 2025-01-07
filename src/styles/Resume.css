@@ -1,17 +1,3 @@
-.resume-section {
-  color: #EEF4ED;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, #64ffda 0%, #63b3ed 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 600;
-}
-
 .resume-content {
   max-width: 800px;
   margin: 0 auto;
@@ -29,7 +15,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, #64ffda 0%, #63b3ed 100%);
+  background: var(--gradient-primary);
   color: #0a192f;
   border: none;
   border-radius: 8px;
@@ -45,9 +31,10 @@
   color: #0a192f;
 }
 
-.resume-button:focus-visible {
-  outline: 5px solid var(--color-focus-outline);
-  outline-offset: 2px;
-  border-radius: 8px;
-  transform: translateY(-2px);
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .resume-button {
+    width: 50%;
+    justify-content: center;
+  }
 }

@@ -2,7 +2,7 @@
   background: linear-gradient(135deg, rgba(17, 34, 64, 0.8) 0%, rgba(10, 25, 47, 0.8) 100%);
   border-radius: 15px;
   border: 1px solid rgba(100, 255, 218, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
   padding: 1.5rem;
   text-align: center;
   max-width: 500px;
@@ -20,16 +20,15 @@
 }
 
 .error-message {
-  color: #EEF4ED;
+  color: var(--color-text-primary);
   font-size: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .error-details {
   color: #ff6b6b;
   font-size: 1rem;
-  margin-bottom: 1rem;
-  opacity: 0.8;
+  margin-bottom: 2rem;
 }
 
 .home-button {
@@ -37,8 +36,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, #64ffda 0%, #63b3ed 100%);
-  color: #0a192f;
+  background: var(--gradient-primary);
+  color: var(--color-background);
   border: none;
   border-radius: 8px;
   font-weight: 500;
