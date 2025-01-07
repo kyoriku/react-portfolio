@@ -7,7 +7,7 @@ import '../styles/Portfolio.css';
 const projectsData = [
   {
     title: 'AdminAccess',
-    image: '/images/adminaccess.jpg',
+    image: '/images/adminaccess.png',
     deployedLink: 'https://adminaccess-f697b23e85fa.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/AdminAccess',
     technologies: ['React', 'Node.js', 'Express', 'MySQL', 'Sequelize'],
@@ -15,7 +15,7 @@ const projectsData = [
   },
   {
     title: 'RendezView',
-    image: '/images/rendezview.jpg',
+    image: '/images/rendezview.png',
     deployedLink: 'https://rendezviews-6983bdd1f9ce.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/RendezView',
     technologies: ['Node.js', 'Express', 'MySQL', 'Sequelize', 'Handlebars'],
@@ -23,7 +23,7 @@ const projectsData = [
   },
   {
     title: 'FilmFinder',
-    image: '/images/filmfinder.jpg',
+    image: '/images/filmfinder.png',
     deployedLink: 'https://kyoriku.github.io/FilmFinder/',
     githubLink: 'https://github.com/kyoriku/FilmFinder',
     technologies: ['HTML', 'CSS', 'JavaScript', 'TMDb API', 'Watchmode API'],
@@ -31,7 +31,7 @@ const projectsData = [
   },
   {
     title: 'Tech Blog',
-    image: '/images/tech-blog-cms.jpg',
+    image: '/images/tech-blog-cms.png',
     deployedLink: 'https://techblogcms-1e5c1470e624.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/tech-blog',
     technologies: ['Node.js', 'Express', 'MySQL', 'Sequelize', 'Handlebars'],
@@ -39,7 +39,7 @@ const projectsData = [
   },
   {
     title: 'Weather Dashboard',
-    image: '/images/weather-dashboard.jpg',
+    image: '/images/weather-dashboard.png',
     deployedLink: 'https://kyoriku.github.io/weather-dashboard/',
     githubLink: 'https://github.com/kyoriku/weather-dashboard',
     technologies: ['HTML', 'CSS', 'JavaScript', 'OpenWeather API'],
@@ -47,7 +47,7 @@ const projectsData = [
   },
   {
     title: 'Coding Quiz',
-    image: '/images/coding-quiz.jpg',
+    image: '/images/coding-quiz.png',
     deployedLink: 'https://kyoriku.github.io/code-quiz/',
     githubLink: 'https://github.com/kyoriku/code-quiz',
     technologies: ['HTML', 'CSS', 'JavaScript'],
