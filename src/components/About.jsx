@@ -11,7 +11,7 @@ const animationConfig = {
 const ProfileImage = () => (
   <div className="col-md-4 text-center" role="complementary" aria-label="Profile Image">
     <figure className="profile-image-container">
-      <img src='/images/armoredcore.jpg'
+      <img src='/images/armoredcore.png'
         alt="Austin Graham - Full Stack Developer based in Toronto"
         aria-describedby="img-description"
         className="about-image img-fluid"
