@@ -4,8 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx'
 import About from './components/About';
 import Portfolio from './components/Portfolio';
-import Contact from './components/Contact';
 import Resume from './components/Resume';
+import Contact from './components/Contact';
 import Error from './components/Error';
 
 const router = createBrowserRouter([
@@ -23,12 +23,12 @@ const router = createBrowserRouter([
         element: <Portfolio />,
       },
       {
-        path: '/contact',
-        element: <Contact />,
-      },
-      {
         path: '/resume',
         element: <Resume />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
       },
     ],
   },

@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
 import '../styles/About.css';
 
-const ANIMATION_CONFIG = {
+const animationConfig = {
   hidden: { opacity: 0, y: 25 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } }
 };
@@ -58,8 +58,7 @@ const Biography = () => (
 );
 
 const About = () => {
-  const prefersReducedMotion = useReducedMotion();
-  const animations = prefersReducedMotion ? {} : ANIMATION_CONFIG;
+  const animations = useReducedMotion() ? {} : animationConfig;
 
   return (
     <section

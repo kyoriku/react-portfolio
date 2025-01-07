@@ -114,9 +114,8 @@ const ProjectGrid = ({ animations }) => (
  */
 const Portfolio = () => {
   // Respect user's motion preferences for animations
-  const shouldReduceMotion = useReducedMotion();
-  const animations = shouldReduceMotion ? {} : animationConfig;
-
+  const animations = useReducedMotion() ? {} : animationConfig;
+  
   // Update document title and restore on unmount
   useEffect(() => {
     const originalTitle = document.title;

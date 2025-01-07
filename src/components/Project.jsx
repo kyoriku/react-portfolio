@@ -5,22 +5,22 @@ import '../styles/Project.css';
 
 // Centralized configuration for technology icons
 const techIcons = {
-  'HTML': '/icons/html.jpg',
-  'CSS': '/icons/css.jpg',
-  'JavaScript': '/icons/javascript.jpg',
-  'jQuery': '/icons/jquery.jpg',
-  'React': '/icons/reactjs.jpg',
-  'Bootstrap': '/icons/bootstrap.jpg',
-  'Node.js': '/icons/nodejs.jpg',
-  'Express': '/icons/expressjs.jpg',
-  'MySQL': '/icons/mysql.jpg',
-  'MongoDB': '/icons/mongodb.jpg',
-  'GraphQL': '/icons/graphql.jpg',
-  'Sequelize': '/icons/sequelize.jpg',
-  'Handlebars': '/icons/handlebars.jpg',
-  'TMDb API': '/icons/api.jpg',
-  'Watchmode API': '/icons/api.jpg',
-  'OpenWeather API': '/icons/api.jpg'
+  'HTML': '/icons/html.png',
+  'CSS': '/icons/css.png',
+  'JavaScript': '/icons/javascript.png',
+  'jQuery': '/icons/jquery.png',
+  'React': '/icons/react.png',
+  'Bootstrap': '/icons/bootstrap.png',
+  'Node.js': '/icons/nodejs.png',
+  'Express': '/icons/express.png',
+  'MySQL': '/icons/mysql.png',
+  'MongoDB': '/icons/mongodb.png',
+  'GraphQL': '/icons/graphql.png',
+  'Sequelize': '/icons/sequelize.png',
+  'Handlebars': '/icons/handlebars.png',
+  'TMDb API': '/icons/api.png',
+  'Watchmode API': '/icons/api.png',
+  'OpenWeather API': '/icons/api.png'
 };
 
 // Animation configuration for hover effects
@@ -82,6 +82,7 @@ const ProjectLinks = ({ deployedLink, githubLink, title }) => (
       rel="noopener noreferrer"
       className="project-link demo-link"
       aria-label={`Visit ${title} website (opens in new tab)`}
+      title={`View ${title} live site`}
     >
       <ExternalLink size={18} aria-hidden="true" />
       <span>View Site</span>
@@ -93,6 +94,7 @@ const ProjectLinks = ({ deployedLink, githubLink, title }) => (
       rel="noopener noreferrer"
       className="project-link github-link"
       aria-label={`View ${title} source code on GitHub (opens in new tab)`}
+      title={`View ${title} source code on GitHub`}
     >
       <Github size={18} aria-hidden="true" />
       <span>Source Code</span>
@@ -206,8 +208,7 @@ const Project = ({
   const [imageError, setImageError] = useState(false);
 
   // Respect user's motion preferences for animations
-  const shouldReduceMotion = useReducedMotion();
-  const animations = shouldReduceMotion ? {} : animationConfig;
+  const animations = useReducedMotion() ? {} : animationConfig;
 
   // Generate consistent ID for ARIA labelling
   const titleId = `${title.toLowerCase()}-title`;

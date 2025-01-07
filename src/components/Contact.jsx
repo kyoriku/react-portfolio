@@ -24,8 +24,7 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [submitStatus, setSubmitStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
-  const animations = shouldReduceMotion ? {} : animationConfig;
+  const animations = useReducedMotion() ? {} : animationConfig;
 
   useEffect(() => {
     const originalTitle = document.title;
@@ -343,6 +342,7 @@ const Contact = () => {
             className="submit-button"
             disabled={isSubmitting}
             aria-busy={isSubmitting}
+            title="Send Message"
           >
             <Send size={18} aria-hidden="true" />
             <span>{isSubmitting ? 'Submitting...' : 'Send Message'}</span>

@@ -27,7 +27,7 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   gap: 1.5rem;
   justify-items: center;
   margin: 0;
@@ -96,8 +96,15 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+
+  /* Default to 4 columns for all sections */
   .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Override for frontend section to be 3 columns */
+  .skill-card:nth-child(2) .skills-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
