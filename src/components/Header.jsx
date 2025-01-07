@@ -1,11 +1,9 @@
-import React from 'react'; // Importing React to use JSX
-import Navigation from './Navigation'; // Importing Navigation component to display navigation bar
+import React from 'react';
+import Navigation from './Navigation';
 
-// Functional component to display header
 const Header = () => {
-  // Returning the header with navigation bar
   return (
-    <header>
+    <header role="banner" aria-label="Site header">
       <Navigation />
     </header>
   );

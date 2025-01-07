@@ -52,7 +52,7 @@
 .location {
   display: flex;
   align-items: center;
-  color: #B8DBD9;
+  color: rgba(238, 244, 237, 0.7);
 }
 
 .location-icon {
@@ -75,15 +75,16 @@
 
 /* High contrast support */
 @media (prefers-contrast: more) {
+
   .card-title,
   .card-text {
     color: #ffffff;
   }
-  
+
   .card-subtitle {
     color: #8affeb;
   }
-  
+
   .location {
     color: #ffffff;
   }

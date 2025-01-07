@@ -26,9 +26,10 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const animations = useReducedMotion() ? {} : animationConfig;
 
+  // Update document title and restore on unmount
   useEffect(() => {
     const originalTitle = document.title;
-    document.title = "Austin Graham | Contact";
+    document.title = "Contact | Austin Graham";
     return () => {
       document.title = originalTitle;
     };
@@ -168,7 +169,6 @@ const Contact = () => {
       initial="hidden"
       animate="visible"
       aria-labelledby="contact-heading"
-      role="region"
     >
       <div className="container py-3 pb-4">
         <motion.h1
