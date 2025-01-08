@@ -95,7 +95,7 @@ const Resume = () => {
       aria-labelledby="resume-heading"
       variants={animations}
     >
-      <div className="container py-3 pb-4">
+      <div className="container spacing">
         {/* Navigation instructions for screen reader users */}
         <div className="visually-hidden" aria-label="Navigation Instructions">
           <p>
@@ -111,7 +111,7 @@ const Resume = () => {
         <header>
           <motion.h1
             id="resume-heading"
-            className="text-center mb-3 gradient-text"
+            className="text-center gradient-text"
             variants={animations.heading}
           >
             Skills & Experience

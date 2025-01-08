@@ -87,7 +87,7 @@ const animationConfig = {
  */
 const ProjectGrid = ({ animations }) => (
   <motion.div
-    className="row g-3 project-grid"
+    className="row g-3"
     variants={animations.container}
     role="list"
     aria-label="Portfolio projects"
@@ -132,7 +132,7 @@ const Portfolio = () => {
       aria-labelledby="portfolio-heading"
       variants={animations}
     >
-      <div className="container py-3 pb-4">
+      <div className="container spacing">
         {/* Navigation instructions for screen reader users */}
         <div className="visually-hidden" aria-label="Navigation Instructions">
           <p>
@@ -148,7 +148,7 @@ const Portfolio = () => {
         {/* Portfolio header section */}
         <header>
           <motion.h1
-            className="text-center mb-3 gradient-text"
+            className="text-center gradient-text"
             variants={animations?.heading || {}}
             id="portfolio-heading"
           >

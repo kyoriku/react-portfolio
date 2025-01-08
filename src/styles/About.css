@@ -50,6 +50,60 @@
   color: var(--color-accent);
 }
 
+/* Add to your About.css */
+.expertise-section {
+  position: relative;
+  border-top: 1px solid rgba(100, 255, 218, 0.1);
+  border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.expertise-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-background);
+  pointer-events: none;
+}
+
+.expertise-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: rgba(100, 255, 218, 0.1);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expertise-section .content-card {
+  background: rgba(17, 34, 64, 0.5);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expertise-section .content-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(100, 255, 218, 0.1);
+}
+
+.expertise-section .content-card:hover .expertise-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .content-card {
