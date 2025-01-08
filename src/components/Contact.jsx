@@ -170,10 +170,10 @@ const Contact = () => {
       animate="visible"
       aria-labelledby="contact-heading"
     >
-      <div className="container py-3 pb-4">
+      <div className="container py-3">
         <motion.h1
           id="contact-heading"
-          className="text-center mb-3 gradient-text"
+          className="text-center gradient-text"
           variants={animations.heading}
         >
           Contact Me

@@ -66,7 +66,7 @@ const About = () => {
       aria-labelledby="about-heading"
     >
       <motion.div
-        className="about-section container py-5"
+        className="about-section container spacing py-5"
         initial="hidden"
         animate="visible"
         variants={animations}

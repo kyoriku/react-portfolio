@@ -1,6 +1,8 @@
 .contact-container {
   max-width: 600px;
   margin: 0 auto;
+  position: relative;
+  padding-bottom: 5rem;
 }
 
 .contact-form {
@@ -134,30 +136,36 @@ textarea.form-input {
 }
 
 .status-message-container {
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-  max-height: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s ease-out;
 }
 
 .status-message-container.show {
-  max-height: 200px;
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
 }
 
 .status-message {
-  margin-top: 1rem;
+  margin: 0 auto;
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
   font-weight: 500;
   background: var(--gradient-background);
   box-shadow: var(--shadow-sm);
-  opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  max-width: 600px;
 }
 
 .status-message.show {
-  opacity: 1;
   transform: translateY(0);
 }
 
@@ -215,5 +223,11 @@ textarea.form-input {
 
   textarea.form-input {
     min-height: 240px;
+  }
+}
+
+@media (max-width: 768px) and (max-device-width: 768px) {
+  .contact-container {
+    padding-bottom: 6rem;
   }
 }
