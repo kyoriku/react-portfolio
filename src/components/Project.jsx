@@ -5,22 +5,22 @@ import '../styles/Project.css';
 
 // Centralized configuration for technology icons
 const techIcons = {
-  'HTML': '/icons/html.png',
-  'CSS': '/icons/css.png',
-  'JavaScript': '/icons/javascript.png',
-  'jQuery': '/icons/jquery.png',
-  'React': '/icons/react.png',
-  'Bootstrap': '/icons/bootstrap.png',
-  'Node.js': '/icons/nodejs.png',
-  'Express': '/icons/express.png',
-  'MySQL': '/icons/mysql.png',
-  'MongoDB': '/icons/mongodb.png',
-  'GraphQL': '/icons/graphql.png',
-  'Sequelize': '/icons/sequelize.png',
-  'Handlebars': '/icons/handlebars.png',
-  'TMDb API': '/icons/api.png',
-  'Watchmode API': '/icons/api.png',
-  'OpenWeather API': '/icons/api.png'
+  'HTML': '/icons/html.webp',
+  'CSS': '/icons/css.webp',
+  'JavaScript': '/icons/javascript.webp',
+  'jQuery': '/icons/jquery.webp',
+  'React': '/icons/react.webp',
+  'Bootstrap': '/icons/bootstrap.webp',
+  'Node.js': '/icons/nodejs.webp',
+  'Express': '/icons/express.webp',
+  'MySQL': '/icons/mysql.webp',
+  'MongoDB': '/icons/mongodb.webp',
+  'GraphQL': '/icons/graphql.webp',
+  'Sequelize': '/icons/sequelize.webp',
+  'Handlebars': '/icons/handlebars.webp',
+  'TMDb API': '/icons/api.webp',
+  'Watchmode API': '/icons/api.webp',
+  'OpenWeather API': '/icons/api.webp'
 };
 
 // Animation configuration for hover effects
@@ -34,7 +34,7 @@ const animationConfig = {
 };
 
 // TechStack component displays the technologies used in the project
-const TechStack = ({ technologies, projectTitle }) => (
+const TechStack = ({ technologies, projectTitle, projectIndex }) => (
   <section
     className="tech-stack"
     aria-label={`Technologies used in ${projectTitle}`}
@@ -56,7 +56,7 @@ const TechStack = ({ technologies, projectTitle }) => (
             className="tech-icon"
             width="24"
             height="24"
-            loading="lazy"
+            loading="eager"
             aria-hidden="true"
             onError={(e) => {
               console.error('Image failed to load:', tech);
@@ -118,7 +118,7 @@ const ProjectImage = ({ image, title, setImageError, imageError }) => (
       className="project-image"
       width="100%"
       height="auto"
-      loading="lazy"
+      loading="eager"
       onError={() => setImageError(true)}
       aria-hidden={imageError}
       role="presentation"
@@ -230,7 +230,6 @@ const Project = ({
         setImageError={setImageError}
         imageError={imageError}
       />
-
       <ProjectContent
         title={title}
         titleId={titleId}

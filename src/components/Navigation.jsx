@@ -90,7 +90,7 @@ const Navigation = () => {
   const navItems = [
     { name: 'About', path: '/' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Resume', path: '/resume' },
+    { name: 'Experience', path: '/experience' },
     { name: 'Contact', path: '/contact' }
   ];
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useRouteError, Link } from 'react-router-dom';
 import { Home, AlertCircle } from 'lucide-react';
 import Header from './Header';
@@ -15,17 +16,13 @@ const ErrorPage = () => {
   const error = useRouteError();
   console.error(error);
 
-  // Update document title and restore on unmount
-  useEffect(() => {
-    const originalTitle = document.title;
-    document.title = "404 - Page Not Found | Austin Graham";
-    return () => {
-      document.title = originalTitle;
-    };
-  }, []);
-
   return (
     <div className='app-container'>
+      <Helmet>
+        <title>404 - Page Not Found | Austin Graham</title>
+        <meta name="description" content="The requested page could not be found. Return to Austin Graham's portfolio to explore web development projects and skills." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <Header />
       {/* Main content area */}
       <main>
