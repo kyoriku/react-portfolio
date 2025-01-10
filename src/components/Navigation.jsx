@@ -140,7 +140,7 @@ const Navigation = () => {
           role="menubar"
           aria-label="Main menu items"
         >
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav ms-auto" role="menu">
             {navItems.map((item, index) => (
               <li
                 key={item.name}
