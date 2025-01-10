@@ -1,7 +1,7 @@
 import React from 'react';
+import { Mail } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Footer.css';
 
 // Collection of social media links with their details and accessibility labels
@@ -32,15 +32,8 @@ const socialLinks = [
  * Includes accessibility features for screen readers and keyboard navigation
  */
 const Footer = () => {
-  // Get current year for copyright notice
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer
-      className="footer mt-auto"
-      role="contentinfo"
-      aria-label="Site footer"
-    >
+    <footer className="footer mt-auto" role="contentinfo" aria-label="Site footer">
       <div className="container py-3 position-relative">
         {/* Email link - desktop version */}
         <a
@@ -49,19 +42,12 @@ const Footer = () => {
           aria-label="Send me an email"
           title='Send me an email'
         >
-          <FontAwesomeIcon
-            icon={faEnvelope}
-            className="me-2"
-            aria-hidden="true"
-          />
+          <Mail className="me-2" aria-hidden="true" size={18} />
           <small>contact@austingraham.ca</small>
         </a>
 
         {/* Social media navigation section */}
-        <nav
-          className="social-links"
-          aria-label="Social media links"
-        >
+        <nav className="social-links" aria-label="Social media links">
           {socialLinks.map(({ icon, href, label, name }) => (
             <a
               key={href}
@@ -71,13 +57,7 @@ const Footer = () => {
               className="social-icon"
               aria-label={label}
             >
-              {/* Icon is decorative, actual text is provided via aria-label */}
-              <FontAwesomeIcon
-                icon={icon}
-                aria-hidden="true"
-                title={name}
-              />
-              {/* Visually hidden text for screen readers */}
+              <FontAwesomeIcon icon={icon} aria-hidden="true" title={name} />
               <span className="visually-hidden">{name}</span>
             </a>
           ))}
@@ -85,7 +65,7 @@ const Footer = () => {
 
         {/* Copyright notice - desktop version */}
         <small className="copyright d-none d-lg-block">
-          © {currentYear} Austin Graham. All rights reserved.
+          © 2024 Austin Graham. All rights reserved.
         </small>
 
         {/* Email and copyright - mobile version */}
@@ -96,15 +76,11 @@ const Footer = () => {
             aria-label="Send me an email"
             title='Send me an email'
           >
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              className="me-2"
-              aria-hidden="true"
-            />
+            <Mail className="me-2" aria-hidden="true" size={18} />
             <small>contact@austingraham.ca</small>
           </a>
           <small className="copyright-mobile d-block mt-3">
-            © {currentYear} Austin Graham. All rights reserved.
+            © 2024 Austin Graham. All rights reserved.
           </small>
         </div>
       </div>

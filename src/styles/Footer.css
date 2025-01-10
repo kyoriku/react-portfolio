@@ -74,4 +74,5 @@
 .email-link-mobile:hover,
 .email-link-mobile:focus {
   color: var(--color-accent);
+  border-radius: 8px;
 }

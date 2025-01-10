@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Send, CheckCircle, XCircle } from 'lucide-react';
 import '../styles/Contact.css';
@@ -25,15 +26,6 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const animations = useReducedMotion() ? {} : animationConfig;
-
-  // Update document title and restore on unmount
-  useEffect(() => {
-    const originalTitle = document.title;
-    document.title = "Contact | Austin Graham";
-    return () => {
-      document.title = originalTitle;
-    };
-  }, []);
 
   const handleMouseDown = (e) => {
     e.target.setAttribute('data-mouse-focus', 'true');
@@ -164,226 +156,261 @@ const Contact = () => {
   };
 
   return (
-    <motion.section
-      className="contact-section"
-      initial="hidden"
-      animate="visible"
-      aria-labelledby="contact-heading"
-    >
-      <div className="container py-3">
-        <motion.h1
-          id="contact-heading"
-          className="text-center gradient-text"
-          variants={animations.heading}
-        >
-          Contact Me
-        </motion.h1>
+    <>
+      <Helmet>
+        <title>Contact | Austin Graham - Full Stack Developer</title>
+        <meta
+          name="description"
+          content="Get in touch with Austin Graham, a Toronto-based Full Stack Developer. Available for web development projects, collaborations, and opportunities."
+        />
+        <link rel="canonical" href="https://austingraham.ca/contact" />
 
-        <motion.div
-          className="contact-container"
-          variants={animations.form}
-        >
-          <form
-            id="contact-form"
-            className="contact-form"
-            onSubmit={handleSubmit}
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            aria-describedby="form-description"
-          >
-            <div id="form-description" className="visually-hidden">
-              Contact form with three required fields: name, email, and message. Use tab key to navigate between fields. Form validation will provide feedback for any errors. After submitting, you will receive a confirmation message.
-            </div>
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://austingraham.ca/contact" />
+        <meta property="og:locale" content="en_CA" />
+        <meta property="og:site_name" content="Austin Graham" />
+        <meta property="og:title" content="Contact | Austin Graham - Full Stack Developer" />
+        <meta
+          property="og:description"
+          content="Get in touch with Austin Graham, a Toronto-based Full Stack Developer. Available for web development projects, collaborations, and opportunities."
+        />
+        <meta property="og:image" content="https://austingraham.ca/screenshots/contact.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
-            <input type="hidden" name="form-name" value="contact" />
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://austingraham.ca/contact" />
+        <meta property="twitter:title" content="Contact | Austin Graham - Full Stack Developer" />
+        <meta
+          property="twitter:description"
+          content="Get in touch with Austin Graham, a Toronto-based Full Stack Developer. Available for web development projects, collaborations, and opportunities."
+        />
+        <meta property="twitter:image" content="https://austingraham.ca/screenshots/contact.jpg" />
+      </Helmet>
 
-            {/* Name field */}
-            <div className="form-group">
-              <div className="label-container">
-                <label htmlFor="name" className="form-label mb-1">
-                  Name
-                  <span className="visually-hidden"> (required)</span>
-                </label>
-                {errors.name && (
-                  <span
-                    id="name-error"
-                    className="inline-error"
-                    role="alert"
-                    aria-label={errors.name.aria}
-                  >
-                    {errors.name.visual}
-                  </span>
-                )}
-              </div>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                autoComplete='name'
-                className="form-input"
-                placeholder="Enter your name"
-                value={formData.name}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                onMouseDown={handleMouseDown}
-                onKeyDown={handleKeyDown}
-                required
-                aria-required="true"
-                aria-invalid={!!errors.name}
-                aria-describedby={errors.name ? "name-error name-description" : "name-description"}
-              />
-              <span id="name-description" className="visually-hidden">
-                Enter your full name as you'd like to be addressed
-              </span>
-            </div>
-
-            {/* Email field */}
-            <div className="form-group">
-              <div className="label-container">
-                <label htmlFor="email" className="form-label mb-1">
-                  Email
-                  <span className="visually-hidden"> (required)</span>
-                </label>
-                {errors.email && (
-                  <span
-                    id="email-error"
-                    className="inline-error"
-                    role="alert"
-                    aria-label={errors.email.aria}
-                  >
-                    {errors.email.visual}
-                  </span>
-                )}
-              </div>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                autoComplete='email'
-                className="form-input"
-                placeholder="Enter your email address"
-                value={formData.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                onMouseDown={handleMouseDown}
-                onKeyDown={handleKeyDown}
-                required
-                aria-required="true"
-                aria-invalid={!!errors.email}
-                aria-describedby={errors.email ? "email-error email-description" : "email-description"}
-              />
-              <span id="email-description" className="visually-hidden">
-                Enter your email address where you'd like to receive my response
-              </span>
-            </div>
-
-            {/* Honeypot field */}
-            <div aria-hidden="true" className="form-group">
-              <div className="label-container">
-                <label htmlFor="bot-field" className="form-label mb-1">
-                  Subject
-                  <span className="visually-hidden"> (optional)</span>
-                </label>
-              </div>
-              <input
-                id="bot-field"
-                name="bot-field"
-                onChange={(e) => setBotField(e.target.value)}
-                value={botField}
-                tabIndex="-1"
-                className="form-input"
-                placeholder="What is your message about?"
-                onMouseDown={handleMouseDown}
-                onKeyDown={handleKeyDown}
-              />
-            </div>
-
-            {/* Message field */}
-            <div className="form-group">
-              <div className="label-container">
-                <label htmlFor="message" className="form-label mb-1">
-                  Message
-                  <span className="visually-hidden"> (required)</span>
-                </label>
-                {errors.message && (
-                  <span
-                    id="message-error"
-                    className="inline-error"
-                    role="alert"
-                    aria-label={errors.message.aria}
-                  >
-                    {errors.message.visual}
-                  </span>
-                )}
-              </div>
-              <textarea
-                id="message"
-                name="message"
-                className="form-input"
-                placeholder="Type your message here. I'll get back to you as soon as possible!"
-                value={formData.message}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                onMouseDown={handleMouseDown}
-                onKeyDown={handleKeyDown}
-                required
-                aria-required="true"
-                aria-invalid={!!errors.message}
-                aria-describedby={errors.message ? "message-error message-description" : "message-description"}
-              />
-              <span id="message-description" className="visually-hidden">
-                Type your message. Please provide enough detail so I can best assist you.
-              </span>
-            </div>
-
-            <button
-              type="submit"
-              className="submit-button"
-              disabled={isSubmitting}
-              aria-busy={isSubmitting}
-              title="Send Message"
-            >
-              <Send size={18} aria-hidden="true" />
-              <span>{isSubmitting ? 'Submitting...' : 'Send Message'}</span>
-            </button>
-          </form>
-
-          {/* Status message */}
-          <div
-            className={`status-message-container ${submitStatus ? 'show' : ''}`}
-            aria-live="polite"
-            aria-relevant="additions text"
-            aria-atomic="true"
-          >
-            <div
-              id="submit-status"
-              className={`status-message ${submitStatus.includes('error') ? 'error' : 'success'} ${submitStatus ? 'show' : ''}`}
-              tabIndex={submitStatus ? -1 : undefined}
-              role="status"
-            >
-              {submitStatus.includes('error') ? (
-                <XCircle className="status-icon" size={20} aria-hidden="true" />
-              ) : (
-                <CheckCircle className="status-icon" size={20} aria-hidden="true" />
-              )}
-              <span>{submitStatus}</span>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Back to top navigation link */}
-      <a
-        href="#back-to-nav"
-        className="back-to-top skip-link"
-        aria-label="Back to top and return to navigation"
+      <motion.section
+        className="contact-section"
+        initial="hidden"
+        animate="visible"
+        aria-labelledby="contact-heading"
       >
-        Back to top
-        <span className="visually-hidden"> (Press Enter to return to navigation)</span>
-      </a>
-    </motion.section>
+        <div className="container py-3">
+          <motion.h1
+            id="contact-heading"
+            className="text-center gradient-text"
+            variants={animations.heading}
+          >
+            Contact Me
+          </motion.h1>
+
+          <motion.div
+            className="contact-container"
+            variants={animations.form}
+          >
+            <form
+              id="contact-form"
+              className="contact-form"
+              onSubmit={handleSubmit}
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              aria-describedby="form-description"
+            >
+              <div id="form-description" className="visually-hidden">
+                Contact form with three required fields: name, email, and message. Use tab key to navigate between fields. Form validation will provide feedback for any errors. After submitting, you will receive a confirmation message.
+              </div>
+
+              <input type="hidden" name="form-name" value="contact" />
+
+              {/* Name field */}
+              <div className="form-group">
+                <div className="label-container">
+                  <label htmlFor="name" className="form-label mb-1">
+                    Name
+                    <span className="visually-hidden"> (required)</span>
+                  </label>
+                  {errors.name && (
+                    <span
+                      id="name-error"
+                      className="inline-error"
+                      role="alert"
+                      aria-label={errors.name.aria}
+                    >
+                      {errors.name.visual}
+                    </span>
+                  )}
+                </div>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  autoComplete='name'
+                  className="form-input"
+                  placeholder="Enter your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  onMouseDown={handleMouseDown}
+                  onKeyDown={handleKeyDown}
+                  required
+                  aria-required="true"
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? "name-error name-description" : "name-description"}
+                />
+                <span id="name-description" className="visually-hidden">
+                  Enter your full name as you'd like to be addressed
+                </span>
+              </div>
+
+              {/* Email field */}
+              <div className="form-group">
+                <div className="label-container">
+                  <label htmlFor="email" className="form-label mb-1">
+                    Email
+                    <span className="visually-hidden"> (required)</span>
+                  </label>
+                  {errors.email && (
+                    <span
+                      id="email-error"
+                      className="inline-error"
+                      role="alert"
+                      aria-label={errors.email.aria}
+                    >
+                      {errors.email.visual}
+                    </span>
+                  )}
+                </div>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autoComplete='email'
+                  className="form-input"
+                  placeholder="Enter your email address"
+                  value={formData.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  onMouseDown={handleMouseDown}
+                  onKeyDown={handleKeyDown}
+                  required
+                  aria-required="true"
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error email-description" : "email-description"}
+                />
+                <span id="email-description" className="visually-hidden">
+                  Enter your email address where you'd like to receive my response
+                </span>
+              </div>
+
+              {/* Honeypot field */}
+              <div aria-hidden="true" className="form-group">
+                <div className="label-container">
+                  <label htmlFor="bot-field" className="form-label mb-1">
+                    Subject
+                    <span className="visually-hidden"> (optional)</span>
+                  </label>
+                </div>
+                <input
+                  id="bot-field"
+                  name="bot-field"
+                  onChange={(e) => setBotField(e.target.value)}
+                  value={botField}
+                  tabIndex="-1"
+                  className="form-input"
+                  placeholder="What is your message about?"
+                  onMouseDown={handleMouseDown}
+                  onKeyDown={handleKeyDown}
+                />
+              </div>
+
+              {/* Message field */}
+              <div className="form-group">
+                <div className="label-container">
+                  <label htmlFor="message" className="form-label mb-1">
+                    Message
+                    <span className="visually-hidden"> (required)</span>
+                  </label>
+                  {errors.message && (
+                    <span
+                      id="message-error"
+                      className="inline-error"
+                      role="alert"
+                      aria-label={errors.message.aria}
+                    >
+                      {errors.message.visual}
+                    </span>
+                  )}
+                </div>
+                <textarea
+                  id="message"
+                  name="message"
+                  className="form-input"
+                  placeholder="Type your message here. I'll get back to you as soon as possible!"
+                  value={formData.message}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  onMouseDown={handleMouseDown}
+                  onKeyDown={handleKeyDown}
+                  required
+                  aria-required="true"
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? "message-error message-description" : "message-description"}
+                />
+                <span id="message-description" className="visually-hidden">
+                  Type your message. Please provide enough detail so I can best assist you.
+                </span>
+              </div>
+
+              <button
+                type="submit"
+                className="submit-button"
+                disabled={isSubmitting}
+                aria-busy={isSubmitting}
+                title="Send Message"
+              >
+                <Send size={18} aria-hidden="true" />
+                <span>{isSubmitting ? 'Submitting...' : 'Send Message'}</span>
+              </button>
+            </form>
+
+            {/* Status message */}
+            <div
+              className={`status-message-container ${submitStatus ? 'show' : ''}`}
+              aria-live="polite"
+              aria-relevant="additions text"
+              aria-atomic="true"
+            >
+              <div
+                id="submit-status"
+                className={`status-message ${submitStatus.includes('error') ? 'error' : 'success'} ${submitStatus ? 'show' : ''}`}
+                tabIndex={submitStatus ? -1 : undefined}
+                role="status"
+              >
+                {submitStatus.includes('error') ? (
+                  <XCircle className="status-icon" size={20} aria-hidden="true" />
+                ) : (
+                  <CheckCircle className="status-icon" size={20} aria-hidden="true" />
+                )}
+                <span>{submitStatus}</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Back to top navigation link */}
+        <a
+          href="#back-to-nav"
+          className="back-to-top skip-link"
+          aria-label="Back to top and return to navigation"
+        >
+          Back to top
+          <span className="visually-hidden"> (Press Enter to return to navigation)</span>
+        </a>
+      </motion.section>
+    </>
   );
 };
 
