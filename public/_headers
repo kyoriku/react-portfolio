@@ -4,15 +4,15 @@
 /public/icons/*
   Cache-Control: public, max-age=86400, immutable
 
+/public/documents/*
+  Cache-Control: public, max-age=86400
+  Content-Disposition: inline
+
 *.js
   Cache-Control: public, max-age=86400, immutable
 
 *.css
   Cache-Control: public, max-age=86400, immutable
-
-*.pdf
-  Cache-Control: public, max-age=86400
-  Content-Disposition: inline
 
 /*
   X-Frame-Options: DENY
