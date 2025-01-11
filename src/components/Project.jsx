@@ -97,7 +97,7 @@ const ProjectLinks = ({ deployedLink, githubLink, title }) => (
       title={`View ${title} source code on GitHub`}
     >
       <Github size={18} aria-hidden="true" />
-      <span>Source Code</span>
+      <span>View Code</span>
       <span className="visually-hidden">(opens in new tab)</span>
     </a>
   </footer>

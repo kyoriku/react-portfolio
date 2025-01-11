@@ -11,7 +11,7 @@ const projectsData = [
     deployedLink: 'https://adminaccess-f697b23e85fa.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/AdminAccess',
     technologies: ['React', 'Node.js', 'Express', 'MySQL', 'Sequelize'],
-    description: 'A content management system for managing a company\'s employee database.'
+    description: 'A secure employee management system featuring real-time updates while streamlining staff, department, and role organization through an intuitive interface.'
   },
   {
     title: 'RendezView',
@@ -19,7 +19,7 @@ const projectsData = [
     deployedLink: 'https://rendezviews-6983bdd1f9ce.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/RendezView',
     technologies: ['Node.js', 'Express', 'MySQL', 'Sequelize', 'Handlebars'],
-    description: 'A platform for organizing and managing events with friends.'
+    description: 'A community-focused event platform that brings people together through local event discovery, personalized dashboards, and seamless RSVP management.'
   },
   {
     title: 'FilmFinder',
@@ -27,7 +27,7 @@ const projectsData = [
     deployedLink: 'https://kyoriku.github.io/FilmFinder/',
     githubLink: 'https://github.com/kyoriku/FilmFinder',
     technologies: ['HTML', 'CSS', 'JavaScript', 'TMDb API', 'Watchmode API'],
-    description: 'A web application for discovering and exploring movies using external APIs.'
+    description: 'A movie discovery platform integrating TMDb and Watchmode APIs to help users find films, access streaming information, and maintain personal watchlists.'
   },
   {
     title: 'Tech Blog',
@@ -35,7 +35,7 @@ const projectsData = [
     deployedLink: 'https://techblogcms-1e5c1470e624.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/tech-blog',
     technologies: ['Node.js', 'Express', 'MySQL', 'Sequelize', 'Handlebars'],
-    description: 'A CMS-style blog site for publishing articles, blog posts, and thoughts about tech.'
+    description: 'A full-stack CMS blog platform built with MVC architecture, featuring user authentication, commenting system, and post management capabilities.'
   },
   {
     title: 'Weather Dashboard',
@@ -43,7 +43,7 @@ const projectsData = [
     deployedLink: 'https://kyoriku.github.io/weather-dashboard/',
     githubLink: 'https://github.com/kyoriku/weather-dashboard',
     technologies: ['HTML', 'CSS', 'JavaScript', 'OpenWeather API'],
-    description: 'A weather dashboard that provides current and future weather conditions.'
+    description: 'A responsive weather forecasting tool leveraging OpenWeather API to display current conditions and 5-day forecasts with persistent search history.'
   },
   {
     title: 'Coding Quiz',
@@ -51,7 +51,7 @@ const projectsData = [
     deployedLink: 'https://kyoriku.github.io/code-quiz/',
     githubLink: 'https://github.com/kyoriku/code-quiz',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    description: 'An interactive coding quiz application with a timer and high score tracking.'
+    description: 'An interactive JavaScript quiz application featuring timed coding assessments, score tracking and dynamic feedback with time penalties for incorrect answers.'
   }
 ];
 
@@ -106,7 +106,7 @@ const animationConfig = {
  */
 const ProjectGrid = ({ animations }) => (
   <motion.div
-    className="row g-3"
+    className="row g-4"
     variants={animations.container}
     role="list"
     aria-label="Portfolio projects"
