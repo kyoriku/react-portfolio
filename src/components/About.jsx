@@ -371,7 +371,7 @@ const About = () => {
           <header className="">
             <h2 id="expertise-heading" className="gradient-text expertise-heading my-0">Technical Specializations</h2>
             <hr className="skill-divider" aria-hidden="true" />
-            <p className="mx-auto">
+            <p className="mx-auto expertise-text">
               Building scalable, secure, and user-centric web solutions using modern technologies and industry-standard development practices.
             </p>
           </header>
