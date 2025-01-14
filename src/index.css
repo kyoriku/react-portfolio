@@ -133,15 +133,11 @@ select:focus {
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *:hover,
+  *:hover * {
     animation: none !important;
     transition: none !important;
-  }
-
-  .project-link:hover,
-  .resume-button:hover,
-  .submit-button:hover,
-  .social-icon:hover {
-    transform: none;
+    transform: none !important;
   }
 }
