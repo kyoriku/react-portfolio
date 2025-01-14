@@ -13,8 +13,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: var(--gradient-primary);
   transition: transform 0.3s ease, box-shadow 0.3s ease;

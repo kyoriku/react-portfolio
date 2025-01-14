@@ -51,7 +51,7 @@ const projectsData = [
     deployedLink: 'https://kyoriku.github.io/code-quiz/',
     githubLink: 'https://github.com/kyoriku/code-quiz',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    description: 'An interactive JavaScript quiz application featuring timed coding assessments, score tracking and dynamic feedback with time penalties for incorrect answers.'
+    description: 'An interactive JavaScript quiz application featuring timed coding assessments, score tracking, and dynamic feedback with time penalties for incorrect answers.'
   }
 ];
 
