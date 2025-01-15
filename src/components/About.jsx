@@ -7,21 +7,68 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/About.css';
 
+const techStack = [
+  'JavaScript',
+  'React',
+  'Node.js',
+  'Express',
+  'MySQL',
+  'MongoDB'
+];
+
+const socialLinks = [
+  {
+    href: "https://github.com/kyoriku",
+    icon: faGithub,
+    label: "Visit my GitHub profile"
+  },
+  {
+    href: "https://linkedin.com/in/austingraham1",
+    icon: faLinkedin,
+    label: "Connect with me on LinkedIn"
+  },
+  {
+    href: "mailto:contact@austingraham.ca",
+    icon: faEnvelope,
+    label: "Send me an email"
+  }
+];
+
+const expertiseData = [
+  {
+    title: "Frontend Development",
+    description: "JavaScript, React, Responsive Design, UI/UX Best Practices",
+    icon: Layout,
+  },
+  {
+    title: "Backend Development",
+    description: "Node.js, Express, RESTful APIs, Database Design",
+    icon: Terminal,
+  },
+  {
+    title: "Database Management",
+    description: "MySQL, MongoDB, Sequelize ORM, Data Modeling",
+    icon: Database,
+  },
+  {
+    title: "Development Practices",
+    description: "Agile Methodologies, Version Control, CI/CD, Code Review",
+    icon: GitBranch,
+  }
+];
+
 const animationConfig = {
-  // Stack icons animation
-  stackIcon: {
+  fadeUpStagger: {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.2,
+        duration: 0.3,
         ease: "easeOut"
       }
     }
   },
-
-  // Container for staggered items
   staggerContainer: {
     hidden: { opacity: 0 },
     visible: {
@@ -32,48 +79,17 @@ const animationConfig = {
       }
     }
   },
-
-  // Profile image animation
-  profileImage: {
+  scaleUp: {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
         duration: 0.3,
-        ease: [0.645, 0.045, 0.355, 1.000]
-      }
-    }
-  },
-
-  // Biography animation
-  biography: {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.3,
-        ease: [0.215, 0.610, 0.355, 1.000],
-        staggerChildren: 0.05
-      }
-    }
-  },
-
-  // Biography text animation
-  biographyText: {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.2,
         ease: "easeOut"
       }
     }
   },
-
-  // Expertise cards animation
   expertiseCard: {
     hidden: { opacity: 0, y: 20 },
     visible: i => ({
@@ -81,30 +97,10 @@ const animationConfig = {
       y: 0,
       transition: {
         delay: i * 0.05,
-        duration: 0.2,
-        ease: [0.645, 0.045, 0.355, 1.000]
-      }
-    }),
-    whileHover: {
-      y: -4,
-      transition: {
-        duration: 0.2,
+        duration: 0.3,
         ease: "easeOut"
       }
-    }
-  },
-
-  // Section variants
-  section: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.06,
-        ease: "easeOut",
-        duration: 0.2
-      }
-    }
+    })
   }
 };
 
@@ -117,16 +113,16 @@ const StackIcons = ({ animations }) => (
     animate="visible"
     variants={animations?.staggerContainer}
   >
-    {['React', 'Node.js', 'Express', 'MySQL', 'MongoDB'].map((tech) => (
+    {techStack.map((tech) => (
       <motion.li
         key={tech}
-        variants={animations?.stackIcon}
+        variants={animations?.fadeUpStagger}
         className="d-flex align-items-center"
       >
         <span className="visually-hidden">{tech}</span>
         <img
           src={`/icons/${tech.toLowerCase().replace('.', '')}.webp`}
-          alt=""
+          alt={`${tech} icon`}
           className="stack-icon"
           width="32"
           height="32"
@@ -137,48 +133,37 @@ const StackIcons = ({ animations }) => (
   </motion.ul>
 );
 
-const SocialLink = ({ animations }) => {
-  const socialLinks = [
-    { href: "https://github.com/kyoriku", icon: faGithub, label: "Visit my GitHub profile" },
-    { href: "https://linkedin.com/in/austingraham1", icon: faLinkedin, label: "Connect with me on LinkedIn" },
-    { href: "mailto:contact@austingraham.ca", icon: faEnvelope, label: "Send me an email" }
-  ];
-
-  return (
-    <motion.nav
-      className="social-links-about"
-      aria-label="Social media links"
-      initial="hidden"
-      animate="visible"
-      variants={animations?.staggerContainer}
-    >
-      <motion.ul
-        className="list-unstyled d-flex align-items-center gap-3 mb-0"
-        variants={animations?.staggerContainer}
-      >
-        {socialLinks.map((link) => (
-          <motion.li
-            key={link.href}
-            variants={animations?.stackIcon}
+const SocialLink = ({ animations }) => (
+  <motion.nav
+    className="social-links-about"
+    aria-label="Social media links"
+    initial="hidden"
+    animate="visible"
+    variants={animations?.staggerContainer}
+  >
+    <ul className="list-unstyled d-flex align-items-center gap-3 mb-0">
+      {socialLinks.map((link) => (
+        <motion.li
+          key={link.href}
+          variants={animations?.fadeUpStagger}
+        >
+          <a
+            href={link.href}
+            className="social-icon"
+            rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            target={link.href.startsWith('http') ? '_blank' : undefined}
           >
-            <a
-              href={link.href}
-              className="social-icon"
-              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-            >
-              <FontAwesomeIcon icon={link.icon} aria-hidden="true" />
-              <span className="visually-hidden">
-                {link.label}
-                {link.href.startsWith('http') ? ' (opens in new tab)' : ''}
-              </span>
-            </a>
-          </motion.li>
-        ))}
-      </motion.ul>
-    </motion.nav>
-  );
-};
+            <FontAwesomeIcon icon={link.icon} aria-hidden="true" />
+            <span className="visually-hidden">
+              {link.label}
+              {link.href.startsWith('http') ? ' (opens in new tab)' : ''}
+            </span>
+          </a>
+        </motion.li>
+      ))}
+    </ul>
+  </motion.nav>
+);
 
 const ProfileImage = ({ animations }) => (
   <aside className="col-lg-4 px-0" role="complementary" aria-labelledby="profile-heading">
@@ -187,7 +172,7 @@ const ProfileImage = ({ animations }) => (
       <motion.figure
         initial="hidden"
         animate="visible"
-        variants={animations?.profileImage}
+        variants={animations?.scaleUp}
         className="profile-image-container mb-4"
       >
         <img
@@ -205,7 +190,7 @@ const ProfileImage = ({ animations }) => (
         </figcaption>
       </motion.figure>
 
-      <div className="text-center">
+      <div className="text-center tablet-sizes">
         <div className="profile-social mb-3">
           <h3 className="h5 text-start">Contact & Connect</h3>
           <hr className="skill-divider mt-0 mb-2" aria-hidden="true" />
@@ -224,7 +209,7 @@ const ProfileImage = ({ animations }) => (
 
 const BiographyText = ({ children, animations, className = "mb-4" }) => (
   <motion.p
-    variants={animations?.biographyText}
+    variants={animations?.fadeUpStagger}
     className={className}
   >
     {children}
@@ -236,25 +221,25 @@ const Biography = ({ animations }) => (
     <motion.article
       initial="hidden"
       animate="visible"
-      variants={animations?.biography}
+      variants={animations?.staggerContainer}
       className="content-card h-100"
     >
       <header>
-        <motion.h1 variants={animations?.biographyText} id="about-heading" className="mt-0 mb-0">
+        <motion.h1 variants={animations?.fadeUpStagger} id="about-heading" className="mt-0 mb-0">
           Austin Graham
         </motion.h1>
-        <motion.p variants={animations?.biographyText} className="card-subtitle h2 mb-3">
+        <motion.p variants={animations?.fadeUpStagger} className="card-subtitle h2 mb-3">
           Full Stack Developer
         </motion.p>
 
-        <motion.div variants={animations?.biographyText}>
+        <motion.div variants={animations?.fadeUpStagger}>
           <address className="location d-inline-flex align-items-center">
             <MapPin size={20} className="location-icon" aria-hidden="true" />
             <span>Toronto, Canada</span>
           </address>
         </motion.div>
       </header>
-      <div className="bio">
+      <section className="bio" aria-label="Biography">
         <div className="card-text">
           <BiographyText animations={animations}>
             With expertise in the MERN stack, I transform complex challenges into elegant web solutions. My experience collaborating in development teams has strengthened my ability to build secure, scalable applications. I combine technical excellence with a drive to create applications that deliver measurable business impact.
@@ -266,7 +251,7 @@ const Biography = ({ animations }) => (
             My background in high-pressure hospitality environments has developed my customer-first mindset and ability to thrive in fast-paced settings. This unique perspective helps me bridge the gap between technical capabilities and practical business needs, creating solutions that enhance productivity and streamline processes.
           </BiographyText>
         </div>
-      </div>
+      </section>
     </motion.article>
     <div className="d-lg-none bio-mobile-sections">
       <h2 className="visually-hidden">Additional Information</h2>
@@ -284,19 +269,20 @@ const ExpertiseCard = ({ title, description, icon: Icon, index, animations }) =>
     className="col-md-6 col-lg-3 mb-3"
     initial="hidden"
     whileInView="visible"
+    viewport={{ once: true }}
     custom={index}
     variants={animations?.expertiseCard}
   >
-    <article className="content-card h-100">
+    <article className="content-card h-100 ">
       <header className="d-flex flex-column align-items-center text-center">
-        <div className="expertise-icon mb-4" aria-hidden="true">
+        <div className="expertise-icon mb-3" aria-hidden="true">
           <Icon size={28} className="text-accent" />
         </div>
         <h3 className="card-subtitle h5 mb-3">{title}</h3>
       </header>
-      <div className="card-content text-center">
+      <section className="card-content text-center">
         <p className="card-text mb-0">{description}</p>
-      </div>
+      </section>
     </article>
   </motion.div>
 );
@@ -346,30 +332,32 @@ const About = () => {
       <section
         className="container"
         aria-labelledby="about-heading"
+        aria-description="Professional overview and background information"
       >
         <motion.div
           className="about-section container py-5"
           initial="hidden"
           animate="visible"
-          variants={animations?.section}
+          variants={animations?.staggerContainer}
         >
-          <motion.div
-            className="row align-items-start"
-            variants={animations?.section}
-          >
+          <div className='row align-items-start'>
             <ProfileImage animations={animations} />
             <Biography animations={animations} />
-          </motion.div>
+          </div>
         </motion.div>
       </section>
 
       <section
         className="expertise-section mb-5"
         aria-labelledby="expertise-heading"
+        aria-description="Technical specializations and development expertise"
+        role="region"
       >
         <div className="container">
-          <header className="">
-            <h2 id="expertise-heading" className="gradient-text expertise-heading my-0">Technical Specializations</h2>
+          <header>
+            <h2 id="expertise-heading" className="gradient-text expertise-heading my-0">
+              Technical Specializations
+            </h2>
             <hr className="skill-divider" aria-hidden="true" />
             <p className="mx-auto expertise-text">
               Building scalable, secure, and user-centric web solutions using modern technologies and industry-standard development practices.
@@ -379,41 +367,21 @@ const About = () => {
           <motion.div
             className="row"
             initial="hidden"
-            animate="visible"
-            variants={animations?.section}
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={animations?.staggerContainer}
           >
-            <ExpertiseCard
-              title="Frontend Development"
-              description="React, JavaScript (ES6+), Responsive Design, UI/UX Best Practices"
-              icon={Layout}
-              index={0}
-              animations={animations}
-            />
-            <ExpertiseCard
-              title="Backend Development"
-              description="Node.js, Express, RESTful APIs, Database Design"
-              icon={Terminal}
-              index={1}
-              animations={animations}
-            />
-            <ExpertiseCard
-              title="Database Management"
-              description="MongoDB, MySQL, Sequelize ORM, Data Modeling"
-              icon={Database}
-              index={2}
-              animations={animations}
-            />
-            <ExpertiseCard
-              title="Development Practices"
-              description="Agile Methodologies, Version Control, CI/CD, Code Review"
-              icon={GitBranch}
-              index={3}
-              animations={animations}
-            />
+            {expertiseData.map((card, index) => (
+              <ExpertiseCard
+                key={card.title}
+                {...card}
+                index={index}
+                animations={animations}
+              />
+            ))}
           </motion.div>
         </div>
 
-        {/* Back to top navigation link */}
         <a
           href="#back-to-nav"
           className="back-to-top skip-link"

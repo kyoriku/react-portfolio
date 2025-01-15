@@ -44,7 +44,7 @@ Thank you for visiting!
 - Clean, modern user interface
 
 ### Deployed Site
-View my portfolio at [www.austingraham.ca](https://www.austingraham.ca)
+View my portfolio at [austingraham.ca](https://austingraham.ca)
 
 ## Screenshots
 ![about](public/screenshots/about.jpg)

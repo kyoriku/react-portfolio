@@ -57,7 +57,7 @@
 }
 
 .stack-icons-gap {
-  gap: 1rem;
+  gap: 6px
 }
 
 .stack-icon {
@@ -160,6 +160,10 @@
     height: 42px;
   }
 
+  .stack-icons-gap {
+    gap: 1rem
+  }
+
   .expertise-icon {
     width: 60px;
     height: 60px;
@@ -174,10 +178,10 @@
     align-items: center;
   }
 
-  .text-center {
+  .tablet-sizes {
     width: 100%;
     display: flex;
-    gap: 20px;
+    gap: 16px;
     justify-content: center;
   }
 
@@ -200,6 +204,10 @@
   .stack-icon {
     width: 42px;
     height: 42px;
+  }
+
+  .stack-icons-gap {
+    gap: 11px;
   }
 }
 
