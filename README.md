@@ -47,10 +47,10 @@ Thank you for visiting!
 View my portfolio at [austingraham.ca](https://austingraham.ca)
 
 ## Screenshots
-![about](public/screenshots/about.jpg)
-![portfolio](public/screenshots/projects.jpg)
-![resume](public/screenshots/resume.jpg)
-![contact](public/screenshots/contact.jpg)
+![about](public/readme-screenshots/about.jpg)
+![portfolio](public/readme-screenshots/projects.jpg)
+![experience](public/readme-screenshots/experience.jpg)
+![contact](public/readme-screenshots/contact.jpg)
 
 ## Installation
 To install this project locally, follow these steps:

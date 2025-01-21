@@ -43,6 +43,14 @@ const skillsData = {
  * Item animations include opacity and vertical translation
  */
 const animationConfig = {
+  heading: {
+    hidden: { opacity: 0, x: -25 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3, ease: "easeOut" }
+    }
+  },
   container: {
     hidden: { opacity: 0 },
     visible: {
@@ -56,10 +64,8 @@ const animationConfig = {
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring',
-        stiffness: 200,
-        damping: 10,
-        duration: 0.3
+        duration: 0.3,
+        ease: "easeOut"
       }
     }
   }
@@ -130,21 +136,18 @@ const SkillItem = ({ skill, variants }) => {
  * Manages animation variants for child elements
  * Passes animation variants to child components to respect reduced motion preferences
  */
-const SkillSection = ({ title, skills, id, variants }) => (
-  <section className="skill-card" aria-labelledby={id}>
-    <header>
-      <h3 id={id} className="skill-section-title">{title}</h3>
-      <div className="skill-divider" aria-hidden="true" />
-    </header>
-
+const SkillSection = ({ title, data, id, variants }) => (
+  <div className="skill-category">
+    <h2 className="skill-category-title">{title}</h2>
+    <div className="skill-divider" aria-hidden="true" />
     <motion.ul
       className="skills-grid"
-      variants={variants?.container}
+      variants={variants?.container}  // Add back container variants for stagger
       initial="hidden"
       animate="visible"
-      aria-label={`${title} - ${skills.length} skills`}
+      aria-label={`${title} - ${data.length} skills`}
     >
-      {skills.map(skill => (
+      {data.map(skill => (
         <SkillItem
           key={skill.name}
           skill={skill}
@@ -152,7 +155,7 @@ const SkillSection = ({ title, skills, id, variants }) => (
         />
       ))}
     </motion.ul>
-  </section>
+  </div>
 );
 
 /**
@@ -172,18 +175,39 @@ const Skills = () => {
   ];
 
   return (
-    <article className="skills-container">
-      <h2 className="visually-hidden">Technical Skills</h2>
-      {sections.map(({ title, data, id }) => (
-        <SkillSection
-          key={id}
-          title={title}
-          skills={data}
-          id={id}
-          variants={animations}
-        />
-      ))}
-    </article>
+    <section className="skill-card mt-3" aria-labelledby="skills-heading">
+      <motion.h1
+        className="text-start gradient-text my-0 mt-4"
+        variants={animations?.heading}
+        initial="hidden"
+        animate="visible"
+        id="skills-heading"
+      >
+        Skills
+      </motion.h1>
+      <div className="skill-divider" aria-hidden="true" />
+
+      <motion.div
+        className="skills-container mb-med"
+        variants={animations?.container}
+        initial="hidden"
+        animate="visible"
+      >
+        {sections.map(({ title, data, id }) => (
+          <motion.div
+            key={id}
+            variants={animations?.item}
+          >
+            <SkillSection
+              title={title}
+              data={data}
+              id={id}
+              variants={animations}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
   );
 };
 

@@ -47,7 +47,7 @@ const ErrorPage = () => {
             {/* Main error heading */}
             <h1
               id="error-heading"
-              className="gradient-text"
+              className="w-100 gradient-text"
             >
               Page Not Found
             </h1>

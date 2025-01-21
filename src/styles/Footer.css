@@ -17,7 +17,7 @@
   height: 42px;
   border-radius: 50%;
   background: var(--gradient-primary);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-icon svg {
@@ -27,6 +27,7 @@
 }
 
 .social-icon:hover {
+  opacity: 0.9;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(100, 255, 218, 0.3);
 }

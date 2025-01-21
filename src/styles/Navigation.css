@@ -20,7 +20,10 @@
 
 /* Brand styles */
 .navbar .navbar-brand {
-  color: var(--color-accent);
+  background: linear-gradient(90deg, var(--color-accent), #64b5f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-weight: 600;
   transition: transform 0.3s ease, text-shadow 0.3s ease; 
 }

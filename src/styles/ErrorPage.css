@@ -10,7 +10,7 @@
 }
 
 .error-icon {
-  color: #64ffda;
+  color: var(--color-accent);
   margin-bottom: 1rem;
 }
 

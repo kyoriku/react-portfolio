@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, useReducedMotion } from 'framer-motion';
 import { MapPin, Terminal, Database, Layout, GitBranch } from 'lucide-react';
@@ -58,6 +57,14 @@ const expertiseData = [
 ];
 
 const animationConfig = {
+  heading: {
+    hidden: { opacity: 0, x: -25 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3, ease: "easeOut" }
+    }
+  },
   fadeUpStagger: {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -74,7 +81,7 @@ const animationConfig = {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.06,
+        staggerChildren: 0.05,
         ease: "easeOut"
       }
     }
@@ -96,7 +103,7 @@ const animationConfig = {
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.05,
+        delay: i * 0.1,
         duration: 0.3,
         ease: "easeOut"
       }
@@ -269,7 +276,7 @@ const ExpertiseCard = ({ title, description, icon: Icon, index, animations }) =>
     className="col-md-6 col-lg-3 mb-3"
     initial="hidden"
     whileInView="visible"
-    viewport={{ once: true }}
+    viewport={{ once: true, margin: "-100px" }}
     custom={index}
     variants={animations?.expertiseCard}
   >
@@ -278,7 +285,7 @@ const ExpertiseCard = ({ title, description, icon: Icon, index, animations }) =>
         <div className="expertise-icon mb-3" aria-hidden="true">
           <Icon size={28} className="text-accent" />
         </div>
-        <h3 className="card-subtitle h5 mb-3">{title}</h3>
+        <h3 className="card-subtitle expertise-card-title h5 mb-3">{title}</h3>
       </header>
       <section className="card-content text-center">
         <p className="card-text mb-0">{description}</p>
@@ -355,13 +362,16 @@ const About = () => {
       >
         <div className="container">
           <header>
-            <h2 id="expertise-heading" className="gradient-text expertise-heading my-0">
+            <motion.h2
+              id="expertise-heading"
+              className="gradient-text expertise-heading my-0"
+              variants={animationConfig.heading}
+              initial="hidden"
+              animate="visible"
+            >
               Technical Specializations
-            </h2>
+            </motion.h2>
             <hr className="skill-divider" aria-hidden="true" />
-            <p className="mx-auto expertise-text">
-              Building scalable, secure, and user-centric web solutions using modern technologies and industry-standard development practices.
-            </p>
           </header>
 
           <motion.div
