@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App.jsx'
-import About from './components/About';
+import About from './pages/About/index.jsx';
 import Projects from './components/Portfolio.jsx';
 import Experience from './components/Experience.jsx';
 import Contact from './components/Contact';
