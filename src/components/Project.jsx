@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import '../styles/Project.css';
 
-// Centralized configuration for technology icons
+// Technology icons configuration
 const techIcons = {
   'HTML': '/icons/html.webp',
   'CSS': '/icons/css.webp',
@@ -20,10 +20,19 @@ const techIcons = {
   'Handlebars': '/icons/handlebars.webp',
   'TMDb API': '/icons/api.webp',
   'Watchmode API': '/icons/api.webp',
-  'OpenWeather API': '/icons/api.webp'
+  'OpenWeather API': '/icons/api.webp',
+  'AWS': '/icons/aws.webp',
+  'DynamoDB': '/icons/dynamodb.webp',
+  'EC2': '/icons/ec2.webp',
+  'S3': '/icons/s3.webp',
+  'Python': '/icons/python.webp',
+  'Flask': '/icons/flask.webp',
+  'SQLAlchemy': '/icons/sqlalchemy.webp',
+  'Jinja': '/icons/jinja.webp',
+  'Gunicorn': '/icons/gunicorn.webp'
 };
 
-// Animation configuration for hover effects
+// Animation configuration
 const animationConfig = {
   hover: {
     y: -5,
@@ -33,8 +42,8 @@ const animationConfig = {
   }
 };
 
-// TechStack component displays the technologies used in the project
-const TechStack = ({ technologies, projectTitle, projectIndex }) => (
+// TechStack Component
+const TechStack = ({ technologies, projectTitle }) => (
   <section
     className="tech-stack"
     aria-label={`Technologies used in ${projectTitle}`}
@@ -52,7 +61,7 @@ const TechStack = ({ technologies, projectTitle, projectIndex }) => (
         {techIcons[tech] && (
           <img
             src={techIcons[tech]}
-            alt="" // Intentionally empty alt - decorative icon, technology name is provided in text
+            alt=""
             className="tech-icon"
             width="24"
             height="24"
@@ -70,43 +79,88 @@ const TechStack = ({ technologies, projectTitle, projectIndex }) => (
   </section>
 );
 
-/**
- * ProjectLinks component renders the external links section
- * including demo site and GitHub repository
- */
-const ProjectLinks = ({ deployedLink, githubLink, title }) => (
-  <footer className="project-links">
-    <a
-      href={deployedLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="project-link demo-link"
-      aria-label={`Visit ${title} website (opens in new tab)`}
-      title={`View ${title} live site`}
-    >
-      <ExternalLink size={18} aria-hidden="true" />
-      <span>View Site</span>
-      <span className="visually-hidden">(opens in new tab)</span>
-    </a>
-    <a
-      href={githubLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="project-link github-link"
-      aria-label={`View ${title} source code on GitHub (opens in new tab)`}
-      title={`View ${title} source code on GitHub`}
-    >
-      <Github size={18} aria-hidden="true" />
-      <span>View Code</span>
-      <span className="visually-hidden">(opens in new tab)</span>
-    </a>
-  </footer>
-);
+// ProjectLinks Component
+// const ProjectLinks = ({ deployedLink, githubLink, title }) => (
+//   <footer className="project-links">
+//     <a
+//       href={deployedLink}
+//       target="_blank"
+//       rel="noopener noreferrer"
+//       className="project-link demo-link"
+//       aria-label={`Visit ${title} website (opens in new tab)`}
+//       title={`View ${title} live site`}
+//     >
+//       <ExternalLink size={18} aria-hidden="true" />
+//       <span>View Site</span>
+//       <span className="visually-hidden">(opens in new tab)</span>
+//     </a>
+//     <a
+//       href={githubLink}
+//       target="_blank"
+//       rel="noopener noreferrer"
+//       className="project-link github-link"
+//       aria-label={`View ${title} source code on GitHub (opens in new tab)`}
+//       title={`View ${title} source code on GitHub`}
+//     >
+//       <Github size={18} aria-hidden="true" />
+//       <span>View Code</span>
+//       <span className="visually-hidden">(opens in new tab)</span>
+//     </a>
+//   </footer>
+// );
 
-/**
- * ProjectImage component handles the display and error states
- * of the project screenshot
- */
+const ProjectLinks = ({ deployedLink, githubLink, title }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  return (
+    <footer className="project-links">
+      {!deployedLink ? (
+        <span
+          className="project-link demo-link project-link-disabled"
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
+          aria-disabled="true"
+        >
+          <ExternalLink size={18} aria-hidden="true" />
+          <span>View Site</span>
+          <span className="visually-hidden">(Not currently deployed)</span>
+          {showTooltip && (
+            <div className="tooltip-custom">
+              Live deployment not available
+            </div>
+          )}
+        </span>
+      ) : (
+        <a
+          href={deployedLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-link demo-link"
+          aria-label={`Visit ${title} website (opens in new tab)`}
+          title={`View ${title} live site`}
+        >
+          <ExternalLink size={18} aria-hidden="true" />
+          <span>View Site</span>
+          <span className="visually-hidden">(opens in new tab)</span>
+        </a>
+      )}
+      <a
+        href={githubLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="project-link github-link"
+        aria-label={`View ${title} source code on GitHub (opens in new tab)`}
+        title={`View ${title} source code on GitHub`}
+      >
+        <Github size={18} aria-hidden="true" />
+        <span>View Code</span>
+        <span className="visually-hidden">(opens in new tab)</span>
+      </a>
+    </footer>
+  );
+};
+
+// ProjectImage Component
 const ProjectImage = ({ image, title, setImageError, imageError }) => (
   <figure
     className="project-image-container m-0"
@@ -140,17 +194,16 @@ const ProjectImage = ({ image, title, setImageError, imageError }) => (
   </figure>
 );
 
-/**
- * ProjectContent component structures the main information area
- * including title, description, and technology stack
- */
+// ProjectContent Component
 const ProjectContent = ({
   title,
   titleId,
   description,
   technologies,
   deployedLink,
-  githubLink
+  githubLink,
+  onViewDetails,
+  image
 }) => (
   <div className="project-content">
     <header>
@@ -173,6 +226,13 @@ const ProjectContent = ({
         aria-label={`About ${title}`}
       >
         <p>{description}</p>
+        <button
+          onClick={() => onViewDetails({ title, description, technologies, deployedLink, githubLink, image })}
+          className="view-details-button"
+          aria-label={`Read more about ${title}`}
+        >
+          View Details <span aria-hidden="true">→</span>
+        </button>
       </section>
 
       <TechStack
@@ -189,10 +249,7 @@ const ProjectContent = ({
   </div>
 );
 
-/**
- * Project component serves as the main container for individual portfolio items
- * Manages focus states and motion preferences for accessibility
- */
+// Project.jsx (continued)
 const Project = ({
   title,
   image,
@@ -202,15 +259,11 @@ const Project = ({
   description,
   isFocused,
   onFocus,
-  onBlur
+  onBlur,
+  onViewDetails
 }) => {
-  // State for handling image loading errors
   const [imageError, setImageError] = useState(false);
-
-  // Respect user's motion preferences for animations
   const animations = useReducedMotion() ? {} : animationConfig;
-
-  // Generate consistent ID for ARIA labelling
   const titleId = `${title.toLowerCase()}-title`;
   const projectRef = useRef(null);
 
@@ -218,7 +271,6 @@ const Project = ({
     <motion.article
       ref={projectRef}
       className={`project-card ${isFocused ? 'focused' : ''}`}
-      whileHover={animations.hover}
       id={title.toLowerCase()}
       aria-labelledby={titleId}
       onFocus={onFocus}
@@ -237,6 +289,15 @@ const Project = ({
         technologies={technologies}
         deployedLink={deployedLink}
         githubLink={githubLink}
+        image={image}
+        onViewDetails={() => onViewDetails({
+          title,
+          image,
+          description,
+          technologies,
+          deployedLink,
+          githubLink
+        })}
       />
     </motion.article>
   );
