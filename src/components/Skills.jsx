@@ -175,7 +175,7 @@ const Skills = () => {
   ];
 
   return (
-    <section className="skill-card mt-3" aria-labelledby="skills-heading">
+    <section className="mt-3" aria-labelledby="skills-heading">
       <motion.h1
         className="text-start gradient-text my-0 mt-4"
         variants={animations?.heading}
