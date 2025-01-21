@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
-import BiographyText from './BiographyText';
-import StackIcons from './StackIcons';
+import { BiographyText } from './BiographyText';
+import { StackIcons } from './StackIcons';
 
-const Biography = ({ animations }) => (
+export const Biography = ({ animations }) => (
   <div className="col-lg-8 px-0">
     <motion.article
       initial="hidden"
@@ -50,5 +50,3 @@ const Biography = ({ animations }) => (
     </div>
   </div>
 );
-
-export default Biography;

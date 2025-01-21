@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const BiographyText = ({ children, animations, className = "mb-4" }) => (
+export const BiographyText = ({ children, animations, className = "mb-4" }) => (
   <motion.p
     variants={animations?.fadeUpStagger}
     className={className}
@@ -8,5 +8,3 @@ const BiographyText = ({ children, animations, className = "mb-4" }) => (
     {children}
   </motion.p>
 );
-
-export default BiographyText;

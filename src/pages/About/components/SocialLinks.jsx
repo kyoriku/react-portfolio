@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { socialLinks } from '../constants';
 
-const SocialLinks = ({ animations }) => (
+export const SocialLinks = ({ animations }) => (
   <motion.nav
     className="social-links-about"
     aria-label="Social media links"
@@ -33,5 +33,3 @@ const SocialLinks = ({ animations }) => (
     </ul>
   </motion.nav>
 );
-
-export default SocialLinks;

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const ExpertiseCard = ({ title, description, icon: Icon, index, animations }) => (
+export const ExpertiseCard = ({ title, description, icon: Icon, index, animations }) => (
   <motion.div
     className="col-md-6 col-lg-3 mb-3"
     initial="hidden"
@@ -22,5 +22,3 @@ const ExpertiseCard = ({ title, description, icon: Icon, index, animations }) =>
     </article>
   </motion.div>
 );
-
-export default ExpertiseCard;

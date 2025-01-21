@@ -1,4 +1,4 @@
-const BackToTop = () => (
+export const BackToTop = () => (
   <a
     href="#back-to-nav"
     className="back-to-top skip-link"
@@ -8,5 +8,3 @@ const BackToTop = () => (
     <span className="visually-hidden"> (Press Enter to return to navigation)</span>
   </a>
 );
-
-export default BackToTop;

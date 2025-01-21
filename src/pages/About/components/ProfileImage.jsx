@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import StackIcons from './StackIcons';
-import SocialLinks from './SocialLinks';
+import { StackIcons } from './StackIcons';
+import { SocialLinks } from './SocialLinks';
 
-const ProfileImage = ({ animations }) => (
+export const ProfileImage = ({ animations }) => (
   <aside className="col-lg-4 px-0" role="complementary" aria-labelledby="profile-heading">
     <h2 id="profile-heading" className="visually-hidden">Profile Information</h2>
     <div className="profile-wrapper">
@@ -43,5 +43,3 @@ const ProfileImage = ({ animations }) => (
     </div>
   </aside>
 );
-
-export default ProfileImage;
