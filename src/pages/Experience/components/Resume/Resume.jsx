@@ -1,42 +1,10 @@
-import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FileText } from 'lucide-react';
+import { useAnimations } from '../../hooks/useAnimations';
+import '../../styles/Resume.css';
 
-const animationConfig = {
-  heading: {
-    hidden: { opacity: 0, x: -25 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.3, ease: "easeOut" }
-    }
-  },
-  container: {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.05 }
-    }
-  },
-  item: {
-    hidden: { y: 10, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.3, ease: "easeOut"
-      }
-    }
-  }
-};
-
-/**
- * ResumeLink component provides PDF resume download functionality
- * Includes accessibility features and semantic HTML structure
- * Manages external link behavior and screen reader support
- */
-const Resume = () => {
-  const animations = useReducedMotion() ? {} : animationConfig;
+export const Resume = () => {
+  const animations = useAnimations();
 
   return (
     <section className="mt-3 mb-med" aria-labelledby="experience-title">
@@ -86,5 +54,3 @@ const Resume = () => {
     </section>
   );
 };
-
-export default Resume;

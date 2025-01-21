@@ -108,7 +108,7 @@ const Certificates = () => {
   const animations = useReducedMotion() ? {} : animationConfig;
 
   return (
-    <section className="skill-card mt-3" aria-labelledby="certificates-heading">
+    <section className="mt-3" aria-labelledby="certificates-heading">
       <motion.h1
         variants={animations?.heading}
         initial="hidden"
