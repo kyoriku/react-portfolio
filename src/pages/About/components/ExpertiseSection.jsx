@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import { expertiseData } from '../constants';
-import ExpertiseCard from './ExpertiseCard';
-import BackToTop from './BackToTop';
+import { ExpertiseCard } from './ExpertiseCard';
 
-const ExpertiseSection = ({ animations }) => (
+export const ExpertiseSection = ({ animations }) => (
   <section
     className="expertise-section mb-5"
     aria-labelledby="expertise-heading"
@@ -43,5 +42,3 @@ const ExpertiseSection = ({ animations }) => (
     </div>
   </section>
 );
-
-export default ExpertiseSection;

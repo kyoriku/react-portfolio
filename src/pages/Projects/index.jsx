@@ -1,10 +1,9 @@
-// src/pages/Projects/Projects.jsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ProjectGrid } from './components/ProjectGrid';
 import { ProjectDetailsModal } from './components/ProjectDetailsModal/ProjectDetailsModal';
 import { MetaTags } from './components/MetaTags';
-import BackToTop from './components/BackToTop';
+import { BackToTop } from '../../components/BackToTop';
 import { useAnimations } from './hooks/useAnimations';
 import './styles/Projects.css';
 

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { techStack } from '../constants';
 
-const StackIcons = ({ animations }) => (
+export const StackIcons = ({ animations }) => (
   <motion.ul
     className="stack-icons-gap d-flex align-items-center ms-auto list-unstyled mb-0"
     aria-label="Technical Stack"
@@ -29,5 +29,3 @@ const StackIcons = ({ animations }) => (
     ))}
   </motion.ul>
 );
-
-export default StackIcons;

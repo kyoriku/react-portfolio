@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import MetaTags from './components/MetaTags';
-import ProfileImage from './components/ProfileImage';
-import Biography from './components/Biography';
-import ExpertiseSection from './components/ExpertiseSection';
-import BackToTop from './components/BackToTop';
+import { MetaTags } from './components/MetaTags';
+import { ProfileImage } from './components/ProfileImage';
+import { Biography } from './components/Biography';
+import { ExpertiseSection } from './components/ExpertiseSection';
+import { BackToTop } from '../../components/BackToTop';
 import { useAnimations } from './hooks/useAnimations';
 import './styles/About.css';
 

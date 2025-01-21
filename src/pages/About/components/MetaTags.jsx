@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 
-const MetaTags = () => (
+export const MetaTags = () => (
   <Helmet>
     <title>Austin Graham - Full Stack Developer</title>
     <meta
@@ -39,4 +39,3 @@ const MetaTags = () => (
   </Helmet>
 );
 
-export default MetaTags;
