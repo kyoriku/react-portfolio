@@ -7,15 +7,11 @@
 </head>
 
 <body>
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <form name="contact" netlify netlify-honeypot="subject" hidden>
     <input type="text" name="name" />
     <input type="email" name="email" />
+    <input type="text" name="subject" />
     <textarea name="message"></textarea>
-    <p class="hidden">
-      <label>
-        Don't fill this out if you're human: <input name="bot-field" />
-      </label>
-    </p>
   </form>
 </body>
 

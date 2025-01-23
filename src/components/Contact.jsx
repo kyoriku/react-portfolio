@@ -125,7 +125,7 @@ const Contact = () => {
         const submitData = {
           "form-name": "contact",
           ...formData,
-          "bot-field": botField
+          "subject": botField
         };
 
         await fetch("/", {
@@ -227,7 +227,7 @@ const Contact = () => {
                 name="contact"
                 method="POST"
                 data-netlify="true"
-                netlify-honeypot="bot-field"
+                netlify-honeypot="subject"
                 aria-describedby="form-description"
               >
                 <div id="form-description" className="visually-hidden">
@@ -319,14 +319,14 @@ const Contact = () => {
                 {/* Honeypot field */}
                 <div aria-hidden="true" className="form-group">
                   <div className="label-container">
-                    <label htmlFor="bot-field" className="form-label mb-1">
+                    <label htmlFor="subject" className="form-label mb-1">
                       Subject
                       <span className="visually-hidden"> (optional)</span>
                     </label>
                   </div>
                   <input
-                    id="bot-field"
-                    name="bot-field"
+                    id="subject"
+                    name="subject"
                     onChange={(e) => setBotField(e.target.value)}
                     value={botField}
                     tabIndex="-1"
