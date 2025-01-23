@@ -8,7 +8,6 @@ import App from './App.jsx'
 import About from './pages/About/index.jsx';
 import Projects from './pages/Projects/index.jsx';
 import Experience from './pages/Experience/index.jsx';
-// import Contact from './components/Contact';
 import Contact from './pages/Contact/index.jsx';
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 
