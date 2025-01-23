@@ -1,7 +1,7 @@
 import { MetaTags } from './components/MetaTags';
-import { Skills } from './components/Skills/Skills';
-import { Certificates } from './components/Certificates/Certificates';
-import { Resume } from './components/Resume/Resume';
+import { Skills } from './components/Skills';
+import { Certificates } from './components/Certificates';
+import { Resume } from './components/Resume';
 import { BackToTop } from '../../components/BackToTop/BackToTop';
 import './styles/Experience.css';
 

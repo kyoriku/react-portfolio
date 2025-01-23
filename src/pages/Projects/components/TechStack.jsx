@@ -1,4 +1,4 @@
-import { techIcons } from '../../config/techIcons';
+import { techIcons } from '../config/techIcons';
 
 export const TechStack = ({ technologies, projectTitle }) => (
   <section

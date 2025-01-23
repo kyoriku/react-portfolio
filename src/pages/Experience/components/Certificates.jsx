@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { CertificatesSection } from './CertificatesSection';
-import { certificatesData } from '../../constants';
-import { useAnimations } from '../../hooks/useAnimations';
-import '../../styles/Certificates.css';
+import { certificatesData } from '../constants';
+import { useAnimations } from '../hooks/useAnimations';
+import '../styles/Certificates.css';
 
 export const Certificates = () => {
   const animations = useAnimations();

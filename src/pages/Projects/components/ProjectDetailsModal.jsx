@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Modal } from 'bootstrap';
 import { ExternalLink, Github } from 'lucide-react';
 import { CategorizedTechStack } from './CategorizedTechStack';
-import { projectExperienceData } from '../../constants';
+import { projectExperienceData } from '../constants';
 
 export const ProjectDetailsModal = ({ project, show, onHide }) => {
   const modalRef = useRef(null);

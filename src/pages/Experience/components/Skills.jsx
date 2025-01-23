@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { SkillSection } from './SkillSection';
-import { skillsData } from '../../constants';
-import { useAnimations } from '../../hooks/useAnimations';
-import '../../styles/Skills.css';
+import { skillsData } from '../constants';
+import { useAnimations } from '../hooks/useAnimations';
+import '../styles/Skills.css';
 
 export const Skills = () => {
   const animations = useAnimations();
