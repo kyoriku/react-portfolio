@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FileText } from 'lucide-react';
-import { useAnimations } from '../../hooks/useAnimations';
-import '../../styles/Resume.css';
+import { useAnimations } from '../hooks/useAnimations';
+import '../styles/Resume.css';
 
 export const Resume = () => {
   const animations = useAnimations();

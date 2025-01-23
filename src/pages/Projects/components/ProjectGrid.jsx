@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Project } from './Project/Project';
+import { Project } from './Project';
 import { projectsData } from '../constants';
 
 export const ProjectGrid = ({ animations, onViewDetails }) => (
