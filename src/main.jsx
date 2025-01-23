@@ -10,7 +10,7 @@ import Projects from './pages/Projects/index.jsx';
 import Experience from './pages/Experience/index.jsx';
 // import Contact from './components/Contact';
 import Contact from './pages/Contact/index.jsx';
-import ErrorPage from './components/ErrorPage.jsx';
+import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {

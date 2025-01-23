@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useRouteError, Link } from 'react-router-dom';
 import { Home, AlertCircle } from 'lucide-react';
-import Header from './Header';
-import Footer from './Footer';
-import '../styles/ErrorPage.css';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import './styles/ErrorPage.css';
 
 /**
  * ErrorPage component serves as the 404 error page when routes are not found
