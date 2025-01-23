@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Navigation.css';
+import './styles/Navigation.css';
 
 const Navigation = () => {
   const [expanded, setExpanded] = useState(false);

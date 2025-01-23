@@ -2,7 +2,7 @@ import React from 'react';
 import { Mail } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import '../styles/Footer.css';
+import './styles/Footer.css';
 
 // Collection of social media links with their details and accessibility labels
 const socialLinks = [

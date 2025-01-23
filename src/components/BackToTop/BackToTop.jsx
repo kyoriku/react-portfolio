@@ -1,3 +1,5 @@
+import './styles/BackToTop.css';
+
 export const BackToTop = () => (
   <a
     href="#back-to-nav"

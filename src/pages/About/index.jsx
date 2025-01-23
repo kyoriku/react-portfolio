@@ -3,7 +3,7 @@ import { MetaTags } from './components/MetaTags';
 import { ProfileImage } from './components/ProfileImage';
 import { Biography } from './components/Biography';
 import { ExpertiseSection } from './components/ExpertiseSection';
-import { BackToTop } from '../../components/BackToTop';
+import { BackToTop } from '../../components/BackToTop/BackToTop';
 import { useAnimations } from './hooks/useAnimations';
 import './styles/About.css';
 

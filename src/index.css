@@ -101,25 +101,6 @@ select:focus {
   outline-offset: 2px;
 }
 
-/* Skip Link Styling */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  z-index: 999;
-  padding: 1em;
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  font-weight: 500;
-  text-decoration: none;
-  transition: left 0s;
-  border-radius: 8px;
-}
-
-.skip-link:focus {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .spacing {
   padding-top: 1rem;
   padding-bottom: 5rem;
