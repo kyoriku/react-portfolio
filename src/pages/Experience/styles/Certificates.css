@@ -36,7 +36,7 @@
 }
 
 .certificate-name {
-  color: var(--color-accent);
+  color: var(--color-text-primary);
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0;
@@ -52,7 +52,7 @@
 }
 
 .certificate-link:hover {
-  opacity: 0.8;
+  color: var(--color-accent);
 }
 
 .certificate-link span {
@@ -61,6 +61,13 @@
 
 .certificate-link:hover span {
   transform: translateX(6px);
+}
+
+.certificate-link:focus-visible {
+  color: var(--color-accent);
+  outline: 5px solid var(--color-focus-outline);
+  outline-offset: 2px;
+  border-radius: 8px;
 }
 
 .certificate-meta {
