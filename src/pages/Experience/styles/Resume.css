@@ -33,7 +33,7 @@
 
 @media (max-width: 768px) {
   .resume-link {
-    width: 50%;
+    width: 100%;
     justify-content: center;
   }
 }

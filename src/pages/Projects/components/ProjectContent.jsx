@@ -1,5 +1,6 @@
 import { ProjectLinks } from './ProjectLinks';
 import { TechStack } from './TechStack';
+import { ArrowRight } from 'lucide-react';
 
 export const ProjectContent = ({
   title,
@@ -25,7 +26,7 @@ export const ProjectContent = ({
           className="view-details-button"
           aria-label={`Read more about ${title}`}
         >
-          View Details <span aria-hidden="true">→</span>
+          View Details <span><ArrowRight size={18} aria-hidden="true" /></span>
         </button>
       </section>
 
