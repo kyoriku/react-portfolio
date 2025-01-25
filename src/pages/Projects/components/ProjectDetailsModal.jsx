@@ -4,15 +4,23 @@ import { ExternalLink, Github } from 'lucide-react';
 import { CategorizedTechStack } from './CategorizedTechStack';
 import { projectExperienceData } from '../constants';
 
+/**
+ * ProjectDetailsModal component provides an expanded view of project information
+ * Implements Bootstrap modal functionality with keyboard navigation and focus management
+ * Displays project details, development highlights, and tech stack in an accessible format
+ */
 export const ProjectDetailsModal = ({ project, show, onHide }) => {
+  // References for modal management and accessibility
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);
   const [showTooltip, setShowTooltip] = useState(false);
 
+  // Get extended project data from constants
   const selectedProject = project
     ? projectExperienceData.find(p => p.title === project.title) || null
     : null;
 
+  // Initialize and manage Bootstrap modal behavior
   useEffect(() => {
     if (!show || !modalRef.current) return;
 
@@ -25,7 +33,7 @@ export const ProjectDetailsModal = ({ project, show, onHide }) => {
 
         if (show) {
           bsModal.show();
-          // Focus the close button when modal opens
+          // Focus the close button when modal opens for keyboard navigation
           setTimeout(() => {
             if (closeButtonRef.current) {
               closeButtonRef.current.focus();
@@ -42,6 +50,7 @@ export const ProjectDetailsModal = ({ project, show, onHide }) => {
     }
   }, [show, project, selectedProject]);
 
+  // Handle modal cleanup and event listeners
   useEffect(() => {
     const modalElement = modalRef.current;
     if (modalElement) {
@@ -67,6 +76,7 @@ export const ProjectDetailsModal = ({ project, show, onHide }) => {
     >
       <div className="modal-dialog modal-dialog-centered modal-lg">
         <div className="modal-content">
+          {/* Modal header with close button */}
           <div className="modal-header border-bottom-0">
             <h3 className="gradient-text mb-0" id="projectDetailsModalLabel">
               {selectedProject.title}
@@ -84,14 +94,17 @@ export const ProjectDetailsModal = ({ project, show, onHide }) => {
               </div>
             </button>
           </div>
+
+          {/* Modal body with project details */}
           <div className="modal-body">
+            {/* Project screenshot */}
             <img
               src={project.image || '/default-image.jpg'}
               alt={`Screenshot of ${selectedProject.title}`}
               className="img-fluid rounded mb-4"
             />
 
-            {/* Detailed Description */}
+            {/* Detailed project description section */}
             <div className="mb-med">
               <h4 className="d-flex align-items-center gap-3 fs-7 fw-medium mb-3">
                 Project Description
@@ -100,7 +113,7 @@ export const ProjectDetailsModal = ({ project, show, onHide }) => {
               <p className="project-description">{selectedProject.description}</p>
             </div>
 
-            {/* Development Highlights */}
+            {/* Conditional development highlights section */}
             {selectedProject.highlights && (
               <div className="mb-med">
                 <h4 className="d-flex align-items-center gap-3 fs-7 fw-medium mb-3">
@@ -115,7 +128,7 @@ export const ProjectDetailsModal = ({ project, show, onHide }) => {
               </div>
             )}
 
-            {/* Technologies Used */}
+            {/* Technologies used section with categorized display */}
             <div className="project-experience-tech mb-3">
               <h4 className="d-flex align-items-center gap-3 fs-7 fw-medium mb-3">
                 Technologies Used
@@ -128,6 +141,7 @@ export const ProjectDetailsModal = ({ project, show, onHide }) => {
             </div>
           </div>
 
+          {/* Modal footer with conditional project links */}
           <div className="modal-footer border-top-0 project-links">
             {!project.deployedLink ? (
               <span

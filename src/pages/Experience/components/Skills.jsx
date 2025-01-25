@@ -11,7 +11,7 @@ export const Skills = () => {
     { title: "Frontend Development", data: skillsData.frontend, id: "frontend-skills" },
     { title: "Backend Development", data: skillsData.backend, id: "backend-skills" },
     { title: "Database Technologies", data: skillsData.databases, id: "database-skills" },
-    { title: "DevOps & Tools", data: skillsData.devops, id: "devops-skills" }
+    { title: "Tools & Infrastructure", data: skillsData.infrastructure, id: "tools-skills" }
   ];
 
   return (
