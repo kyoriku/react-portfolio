@@ -169,12 +169,12 @@ export const projectExperienceData = [
       // Backend
       { name: 'Node.js', icon: 'nodejs' },
       { name: 'Express', icon: 'express' },
+      // Database
+      { name: 'DynamoDB', icon: 'dynamodb' },
       // Cloud
       { name: 'AWS', icon: 'aws' },
       { name: 'S3', icon: 's3' },
       { name: 'EC2', icon: 'ec2' },
-      // Database
-      { name: 'DynamoDB', icon: 'dynamodb' }
     ]
   },
   {
