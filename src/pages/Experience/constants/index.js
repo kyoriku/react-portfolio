@@ -10,19 +10,16 @@ export const skillsData = {
   backend: [
     { name: 'Node.js', icon: '/icons/nodejs.webp', description: 'Server-side JavaScript runtime environment' },
     { name: 'Express', icon: '/icons/express.webp', description: 'Web application framework for Node.js' },
-    { name: 'REST APIs', icon: '/icons/api.webp', description: 'RESTful API design and implementation' },
-    { name: 'Python', icon: '/icons/python.webp', description: 'Versatile programming language for web development and data analysis' }
+    { name: 'REST APIs', icon: '/icons/api.webp', description: 'RESTful API design and implementation' }
   ],
   databases: [
     { name: 'MySQL', icon: '/icons/mysql.webp', description: 'Relational database management system' },
     { name: 'MongoDB', icon: '/icons/mongodb.webp', description: 'NoSQL database for flexible data storage' },
-    { name: 'Sequelize', icon: '/icons/sequelize.webp', description: 'Promise-based Node.js ORM for SQL databases' },
-    { name: 'Mongoose', icon: '/icons/mongoose.webp', description: 'MongoDB object modeling for Node.js' }
+    { name: 'DynamoDB', icon: '/icons/dynamodb.webp', description: 'Fast and flexible NoSQL database service by AWS' }
   ],
-  devops: [
+  infrastructure: [
+    { name: 'AWS', icon: '/icons/aws.webp', description: 'Amazon Web Services cloud computing platform' },
     { name: 'Git', icon: '/icons/git.webp', description: 'Version control system for tracking code changes' },
-    { name: 'AWS', icon: '/icons/aws.webp', description: 'Cloud services including S3, DynamoDB, and EC2' },
-    { name: 'Jest', icon: '/icons/jest.webp', description: 'JavaScript testing framework' },
     { name: 'Vite', icon: '/icons/vite.webp', description: 'Next generation frontend build tool' }
   ]
 };
