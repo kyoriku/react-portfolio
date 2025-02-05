@@ -37,13 +37,13 @@ const Footer = () => {
       <div className="container py-3 position-relative">
         {/* Email link - desktop version */}
         <a
-          href="mailto:contact@austingraham.ca"
+          href="mailto:hello@austingraham.ca"
           className="email-link d-none d-lg-flex align-items-center"
           aria-label="Send me an email"
           title='Send me an email'
         >
           <Mail className="me-2" aria-hidden="true" size={18} />
-          <small>contact@austingraham.ca</small>
+          <small>hello@austingraham.ca</small>
         </a>
 
         {/* Social media navigation section */}
@@ -71,13 +71,13 @@ const Footer = () => {
         {/* Email and copyright - mobile version */}
         <div className="d-lg-none text-center">
           <a
-            href="mailto:contact@austingraham.ca"
+            href="mailto:hello@austingraham.ca"
             className="email-link-mobile d-block mt-3"
             aria-label="Send me an email"
             title='Send me an email'
           >
             <Mail className="me-2" aria-hidden="true" size={18} />
-            <small>contact@austingraham.ca</small>
+            <small>hello@austingraham.ca</small>
           </a>
           <small className="copyright-mobile d-block mt-3">
             © 2024 Austin Graham. All rights reserved.

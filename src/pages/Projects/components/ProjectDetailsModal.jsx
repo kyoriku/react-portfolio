@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Modal } from 'bootstrap';
 import { ExternalLink, Github } from 'lucide-react';
 import { CategorizedTechStack } from './CategorizedTechStack';
+import { ProjectLinks } from './ProjectLinks';
 import { projectExperienceData } from '../constants';
 
 /**
@@ -141,51 +142,13 @@ export const ProjectDetailsModal = ({ project, show, onHide }) => {
             </div>
           </div>
 
-          {/* Modal footer with conditional project links */}
-          <div className="modal-footer border-top-0 project-links">
-            {!project.deployedLink ? (
-              <span
-                className="project-link demo-link project-link-disabled"
-                onMouseEnter={() => setShowTooltip(true)}
-                onMouseLeave={() => setShowTooltip(false)}
-                aria-disabled="true"
-              >
-                <ExternalLink size={18} aria-hidden="true" />
-                <span>View Site</span>
-                <span className="visually-hidden">(Not currently deployed)</span>
-                {showTooltip && (
-                  <div className="tooltip-custom" style={{ left: '50%' }}>
-                    Live deployment not available
-                  </div>
-                )}
-              </span>
-            ) : (
-              <a
-                href={project.deployedLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link demo-link"
-                aria-label={`Visit ${project.title} website (opens in new tab)`}
-                title={`View ${project.title} live site`}
-              >
-                <ExternalLink size={18} aria-hidden="true" />
-                <span>View Site</span>
-                <span className="visually-hidden">(opens in new tab)</span>
-              </a>
-            )}
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-link github-link"
-              aria-label={`View ${project.title} source code on GitHub (opens in new tab)`}
-              title={`View ${project.title} source code on GitHub`}
-            >
-              <Github size={18} aria-hidden="true" />
-              <span>View Code</span>
-              <span className="visually-hidden">(opens in new tab)</span>
-            </a>
-          </div>
+          {/* Modal footer with project links */}
+          <ProjectLinks
+            deployedLink={project.deployedLink}
+            githubLink={project.githubLink}
+            title={project.title}
+            isModal={true}
+          />
         </div>
       </div>
     </div>

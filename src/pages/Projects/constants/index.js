@@ -5,7 +5,7 @@ export const projectsData = [
     deployedLink: 'https://adminaccess-f697b23e85fa.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/AdminAccess',
     technologies: ['JavaScript', 'React', 'Node.js', 'Express', 'MySQL'],
-    description: 'A secure employee management system featuring real-time updates while streamlining staff, department, and role organization through an intuitive interface.'
+    description: 'A full-stack MERN application that provides administrators with a secure and intuitive platform for managing employee data, roles, and departments.'
   },
   {
     title: 'RendezView',
@@ -13,31 +13,31 @@ export const projectsData = [
     deployedLink: 'https://rendezviews-6983bdd1f9ce.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/RendezView',
     technologies: ['JavaScript', 'Handlebars', 'Node.js', 'Express', 'MySQL'],
-    description: 'A community-focused event platform that brings people together through local event discovery, personalized dashboards, and seamless RSVP management.'
+    description: 'A full-stack event planning platform built with MVC architecture, featuring event creation, RSVP functionality, and personalized dashboards.'
   },
   {
     title: 'Tech Blog',
-    image: '/images/tech-blog-cms.webp',
+    image: '/images/mvc-tech-blog.webp',
     deployedLink: 'https://techblogcms-1e5c1470e624.herokuapp.com/',
-    githubLink: 'https://github.com/kyoriku/tech-blog',
+    githubLink: 'https://github.com/kyoriku/mvc-tech-blog',
     technologies: ['JavaScript', 'Handlebars', 'Node.js', 'Express', 'MySQL'],
-    description: 'A full-stack CMS blog platform built with MVC architecture, featuring user authentication, commenting system, and post management capabilities.'
+    description: 'A full-stack blog application built with MVC architecture, featuring user authentication, commenting system, and post management capabilities.'
   },
   {
     title: 'CloudShare',
     image: '/images/cloudshare.webp',
     deployedLink: '',
-    githubLink: 'https://github.com/kyoriku/aws-thought',
+    githubLink: 'https://github.com/kyoriku/CloudShare',
     technologies: ['JavaScript', 'React', 'Node.js', 'AWS', 'DynamoDB'],
     description: 'A full-stack application leveraging AWS cloud services for content sharing and image management, utilizing S3 for storage and DynamoDB for data persistence.'
   },
   {
-    title: 'ByteBoard',
-    image: '/images/byteboard.webp',
-    deployedLink: 'https://byteboard-4e8a416dbfc1.herokuapp.com/',
-    githubLink: 'https://github.com/kyoriku/python-newsfeed',
-    technologies: ['JavaScript', 'Python', 'Flask', 'Jinja', 'SQLAlchemy'],
-    description: 'A Python-based web application built with Flask and SQLAlchemy that enables users to create and interact with content through an authenticated platform.'
+    title: 'PythonPress',
+    image: '/images/pythonpress.webp',
+    deployedLink: 'https://pythonpress-64ffcf772c54.herokuapp.com/',
+    githubLink: 'https://github.com/kyoriku/PythonPress',
+    technologies: ['Python', 'Flask', 'Jinja', 'SQLAlchemy', 'JavaScript'],
+    description: 'A full-stack web application built with Python and Flask that enables users to create, share, and interact with news content in a social platform format.'
   },
   {
     title: 'FilmFinder',
@@ -99,10 +99,10 @@ export const projectExperienceData = [
     ],
     technologies: [
       // Frontend
-      { name: 'CSS', icon: 'css3' },
       { name: 'JavaScript', icon: 'javascript' },
       { name: 'jQuery', icon: 'jquery' },
       { name: 'Handlebars', icon: 'handlebars' },
+      { name: 'CSS', icon: 'css3' },
       { name: 'Bootstrap', icon: 'bootstrap' },
       // Backend
       { name: 'Node.js', icon: 'nodejs' },
@@ -131,9 +131,9 @@ export const projectExperienceData = [
     ],
     technologies: [
       // Frontend
-      { name: 'CSS', icon: 'css3' },
       { name: 'JavaScript', icon: 'javascript' },
       { name: 'Handlebars', icon: 'handlebars' },
+      { name: 'CSS', icon: 'css3' },
       { name: 'Bootstrap', icon: 'bootstrap' },
       // Backend
       { name: 'Node.js', icon: 'nodejs' },
@@ -162,9 +162,9 @@ export const projectExperienceData = [
     ],
     technologies: [
       // Frontend
-      { name: 'CSS', icon: 'css3' },
       { name: 'JavaScript', icon: 'javascript' },
       { name: 'React', icon: 'react' },
+      { name: 'CSS', icon: 'css3' },
       { name: 'Bootstrap', icon: 'bootstrap' },
       // Backend
       { name: 'Node.js', icon: 'nodejs' },
@@ -178,8 +178,8 @@ export const projectExperienceData = [
     ]
   },
   {
-    title: 'ByteBoard',
-    description: `ByteBoard is a robust full-stack web application built with Python and Flask, demonstrating modern web development practices in a Python environment. The application provides a platform for users to share and interact with news content through a responsive interface.
+    title: 'PythonPress',
+    description: `PythonPress is a robust full-stack web application built with Python and Flask, demonstrating modern web development practices in a Python environment. The application provides a platform for users to share and interact with news content through a responsive interface.
 
       The platform implements comprehensive user authentication and leverages SQLAlchemy for efficient database management. Using Jinja templating, it delivers dynamically rendered content while maintaining clean separation of concerns. The Gunicorn server ensures reliable production deployment.
 
@@ -196,8 +196,8 @@ export const projectExperienceData = [
     ],
     technologies: [
       // Frontend
-      { name: 'CSS', icon: 'css3' },
       { name: 'JavaScript', icon: 'javascript' },
+      { name: 'CSS', icon: 'css3' },
       { name: 'Jinja', icon: 'jinja' },
       // Backend
       { name: 'Python', icon: 'python' },

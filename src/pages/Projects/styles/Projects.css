@@ -457,3 +457,26 @@ body.modal-open {
 .tech-badge:hover {
   transform: scale(1.1);
 }
+
+.project-link.disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  background: var(--gradient-primary);
+  border: 1px solid var(--text-disabled);
+  color: #0a192f;
+  pointer-events: none;
+  filter: brightness(0.7);
+}
+
+.project-link.disabled:hover,
+.project-link.disabled:focus {
+  transform: none;
+  box-shadow: none;
+  filter: brightness(0.7);
+}
+
+.project-link.disabled:focus-visible {
+  outline: 5px solid var(--color-focus-outline);
+  outline-offset: 2px;
+  box-shadow: none;
+}

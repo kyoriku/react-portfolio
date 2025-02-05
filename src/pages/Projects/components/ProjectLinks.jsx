@@ -1,35 +1,22 @@
-import { useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 
 /**
  * ProjectLinks component displays project deployment and GitHub links
- * Handles conditional rendering for unavailable deployments with tooltip
- * Implements accessibility features for both available and disabled states
+ * Uses consistent disabled button state for unavailable deployments
  */
-export const ProjectLinks = ({ deployedLink, githubLink, title }) => {
-  // State for managing tooltip visibility
-  const [showTooltip, setShowTooltip] = useState(false);
-
+export const ProjectLinks = ({ deployedLink, githubLink, title, isModal = false }) => {
   return (
-    <footer className="project-links">
-      {/* Conditionally render either disabled span or active link for deployment */}
+    <footer className={`project-links ${isModal ? 'modal-footer border-top-0' : ''}`}>
       {!deployedLink ? (
-        <span
-          className="project-link demo-link project-link-disabled"
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
+        <button
+          className="project-link demo-link disabled"
+          disabled
           aria-disabled="true"
         >
           <ExternalLink size={18} aria-hidden="true" />
-          <span>View Site</span>
-          <span className="visually-hidden">(Not currently deployed)</span>
-          {/* Tooltip for explaining disabled state */}
-          {showTooltip && (
-            <div className="tooltip-custom">
-              Live deployment not available
-            </div>
-          )}
-        </span>
+          <span>Visit Site</span>
+          <span className="visually-hidden">(Not currently available)</span>
+        </button>
       ) : (
         <a
           href={deployedLink}
@@ -40,7 +27,7 @@ export const ProjectLinks = ({ deployedLink, githubLink, title }) => {
           title={`View ${title} live site`}
         >
           <ExternalLink size={18} aria-hidden="true" />
-          <span>View Site</span>
+          <span>Visit Site</span>
           <span className="visually-hidden">(opens in new tab)</span>
         </a>
       )}
