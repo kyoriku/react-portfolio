@@ -1,6 +1,6 @@
 import { MetaTags } from './components/MetaTags';
 import { Skills } from './components/Skills';
-import { Certificates } from './components/Certificates';
+import { Credentials } from './components/Credentials';
 import { Resume } from './components/Resume';
 import { BackToTop } from '../../components/BackToTop/BackToTop';
 import './styles/Experience.css';
@@ -16,7 +16,7 @@ const Experience = () => {
         <div className="container spacing pt-0">
           <article className="experience-content">
             <Skills />
-            <Certificates />
+            <Credentials />
             <Resume />
           </article>
         </div>

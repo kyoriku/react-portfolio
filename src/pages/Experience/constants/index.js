@@ -5,7 +5,7 @@ export const skillsData = {
     { name: 'JavaScript', icon: '/icons/javascript.webp', description: 'Modern ES6+ JavaScript for dynamic client-side functionality' },
     { name: 'React', icon: '/icons/react.webp', description: 'React.js library for building interactive user interfaces' },
     { name: 'Bootstrap', icon: '/icons/bootstrap.webp', description: 'Bootstrap framework for responsive web development' },
-    { name: 'Tailwind CSS', icon: '/icons/tailwind.webp', description: 'Utility-first CSS framework for modern web applications' }
+    { name: 'Tailwind', icon: '/icons/tailwind.webp', description: 'Utility-first CSS framework for modern web applications' }
   ],
   backend: [
     { name: 'Node.js', icon: '/icons/nodejs.webp', description: 'Server-side JavaScript runtime environment' },
@@ -24,13 +24,22 @@ export const skillsData = {
   ]
 };
 
-export const certificatesData = [
+export const educationData = [
   {
     name: 'Full Stack Web Development',
     issuer: 'University of Toronto',
     date: 'March 2024',
-    id: 'cert1'
-  },
+    id: 'edu1'
+  }
+];
+
+export const certificatesData = [
+  // {
+  //   name: 'Full Stack Web Development',
+  //   issuer: 'University of Toronto',
+  //   date: 'March 2024',
+  //   id: 'cert1'
+  // },
   {
     name: 'Google Project Management',
     issuer: 'Coursera',
