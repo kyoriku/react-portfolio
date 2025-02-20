@@ -60,7 +60,7 @@
 }
 
 .certificate-link:hover span {
-  transform: translateX(6px);
+  transform: translateX(4px);
 }
 
 .certificate-link:focus-visible {
