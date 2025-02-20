@@ -406,7 +406,7 @@ body.modal-open {
 }
 
 .view-details-button:hover span {
-  transform: translateX(6px);
+  transform: translateX(4px);
 }
 
 .tech-label {
