@@ -23,7 +23,7 @@ export const socialLinks = [
     label: "Connect with me on LinkedIn"
   },
   {
-    href: "mailto:contact@austingraham.ca",
+    href: "mailto:hello@austingraham.ca",
     icon: faEnvelope,
     label: "Send me an email"
   }
