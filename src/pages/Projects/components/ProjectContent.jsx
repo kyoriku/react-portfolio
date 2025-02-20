@@ -33,7 +33,7 @@ export const ProjectContent = ({
           className="view-details-button"
           aria-label={`Read more about ${title}`}
         >
-          View Details <span><ArrowRight size={18} aria-hidden="true" /></span>
+          More Details <span><ArrowRight size={18} aria-hidden="true" /></span>
         </button>
       </section>
 

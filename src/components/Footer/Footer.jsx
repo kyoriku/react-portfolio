@@ -65,7 +65,7 @@ const Footer = () => {
 
         {/* Copyright notice - desktop version */}
         <small className="copyright d-none d-lg-block">
-          © 2024 Austin Graham. All rights reserved.
+          © 2024 Austin Graham
         </small>
 
         {/* Email and copyright - mobile version */}
@@ -80,7 +80,7 @@ const Footer = () => {
             <small>hello@austingraham.ca</small>
           </a>
           <small className="copyright-mobile d-block mt-3">
-            © 2024 Austin Graham. All rights reserved.
+            © 2024 Austin Graham
           </small>
         </div>
       </div>
