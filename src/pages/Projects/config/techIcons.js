@@ -5,6 +5,7 @@ export const techIcons = {
   'jQuery': '/icons/jquery.webp',
   'React': '/icons/react.webp',
   'Bootstrap': '/icons/bootstrap.webp',
+  'Tailwind': '/icons/tailwind.webp',
   'Node.js': '/icons/nodejs.webp',
   'Express': '/icons/express.webp',
   'MySQL': '/icons/mysql.webp',
@@ -23,5 +24,7 @@ export const techIcons = {
   'Flask': '/icons/flask.webp',
   'SQLAlchemy': '/icons/sqlalchemy.webp',
   'Jinja': '/icons/jinja.webp',
-  'Gunicorn': '/icons/gunicorn.webp'
+  'Gunicorn': '/icons/gunicorn.webp',
+  'Redis': '/icons/redis.webp',
+  'TanStack Query': '/icons/react-query.webp',
 };
