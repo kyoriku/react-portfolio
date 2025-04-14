@@ -2,9 +2,9 @@ import { techIcons } from '../config/techIcons';
 
 // Predefined categories for organizing different types of technologies
 const categories = {
-  'Frontend': ['HTML', 'CSS', 'JavaScript', 'jQuery', 'React', 'Bootstrap', 'Handlebars', 'Jinja'],
+  'Frontend': ['HTML', 'CSS', 'JavaScript', 'jQuery', 'React', 'Bootstrap', 'Tailwind', 'Handlebars', 'Jinja', 'TanStack Query'],
   'Backend': ['Node.js', 'Express', 'Python', 'Flask', 'Gunicorn'],
-  'Database': ['MySQL', 'MongoDB', 'Sequelize', 'SQLAlchemy', 'DynamoDB'],
+  'Database': ['MySQL', 'MongoDB', 'Sequelize', 'SQLAlchemy', 'DynamoDB', 'Redis'],
   'Cloud': ['AWS', 'S3', 'EC2'],
   'APIs': ['TMDb API', 'Watchmode API', 'OpenWeather API']
 };
@@ -39,7 +39,7 @@ export const CategorizedTechStack = ({ technologies, projectTitle }) => {
             </div>
             {/* Technology stack section with semantic HTML and accessibility */}
             <section
-              className="tech-stack"
+              className="tech-stack mb-2"
               aria-label={`${category} technologies used in ${projectTitle}`}
             >
               {/* Hidden text for screen readers */}

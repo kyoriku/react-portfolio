@@ -1,5 +1,13 @@
 export const projectsData = [
   {
+    title: 'StackNova',
+    image: '/images/stacknova.webp',
+    deployedLink: 'https://stacknova.ca',
+    githubLink: 'https://github.com/kyoriku/stacknova',
+    technologies: ['JavaScript', 'React', 'Node.js', 'Express', 'MySQL'],
+    description: 'A full-stack Q&A platform where developers can ask questions, share knowledge, and engage in technical discussions with support for code formatting and syntax highlighting.'
+  },
+  {
     title: 'AdminAccess',
     image: '/images/adminaccess.webp',
     deployedLink: 'https://adminaccess-f697b23e85fa.herokuapp.com/',
@@ -15,14 +23,14 @@ export const projectsData = [
     technologies: ['JavaScript', 'Handlebars', 'Node.js', 'Express', 'MySQL'],
     description: 'A full-stack event planning platform built with MVC architecture, featuring event creation, RSVP functionality, and personalized dashboards.'
   },
-  {
-    title: 'Tech Blog',
-    image: '/images/mvc-tech-blog.webp',
-    deployedLink: 'https://techblogcms-1e5c1470e624.herokuapp.com/',
-    githubLink: 'https://github.com/kyoriku/mvc-tech-blog',
-    technologies: ['JavaScript', 'Handlebars', 'Node.js', 'Express', 'MySQL'],
-    description: 'A full-stack blog application built with MVC architecture, featuring user authentication, commenting system, and post management capabilities.'
-  },
+  // {
+  //   title: 'Tech Blog',
+  //   image: '/images/mvc-tech-blog.webp',
+  //   deployedLink: 'https://techblogcms-1e5c1470e624.herokuapp.com/',
+  //   githubLink: 'https://github.com/kyoriku/mvc-tech-blog',
+  //   technologies: ['JavaScript', 'Handlebars', 'Node.js', 'Express', 'MySQL'],
+  //   description: 'A full-stack blog application built with MVC architecture, featuring user authentication, commenting system, and post management capabilities.'
+  // },
   {
     title: 'CloudShare',
     image: '/images/cloudshare.webp',
@@ -50,6 +58,38 @@ export const projectsData = [
 ];
 
 export const projectExperienceData = [
+  {
+    title: 'StackNova',
+    description: `StackNova is a software engineer Q&A platform where developers can ask questions, share knowledge, and engage in technical discussions. Built with React and Node.js, the application features a clean, responsive interface with comprehensive Markdown support for code formatting and syntax highlighting.
+
+    The platform implements secure user authentication with HTTP-only cookies and protected routes, ensuring that user data and content remain secure. With advanced search capabilities and real-time updates, users can easily find relevant technical information and participate in ongoing discussions.
+    
+    StackNova's intuitive dashboard interface allows users to track their questions, manage their content, and view their activity history through a comprehensive profile system. The application demonstrates best practices in modern web development with its focus on performance, security, and user experience.`,
+    highlights: [
+      'Secure authentication system with HTTP-only cookies and protected routes',
+      'Full Markdown support with code syntax highlighting via prism-react-renderer',
+      'Server-side caching with Redis resulting in 74% faster query times',
+      'Client-side optimizations with TanStack Query for efficient data fetching',
+      'Responsive UI with light/dark mode powered by Tailwind CSS',
+      'Input validation and sanitization to prevent XSS attacks',
+      'RESTful API architecture with efficient indexing and query optimization',
+      'Comprehensive user profiles with activity tracking and statistics'
+    ],
+    technologies: [
+      // Frontend
+      { name: 'JavaScript', icon: 'javascript' },
+      { name: 'React', icon: 'react' },
+      { name: 'TanStack Query', icon: 'react-query' },
+      { name: 'Tailwind', icon: 'tailwind css' },
+      // Backend
+      { name: 'Node.js', icon: 'nodejs' },
+      { name: 'Express', icon: 'express' },
+      // Database
+      { name: 'MySQL', icon: 'mysql' },
+      { name: 'Sequelize', icon: 'sequelize' },
+      { name: 'Redis', icon: 'redis' }
+    ]
+  },
   {
     title: 'AdminAccess',
     description: `AdminAccess is a comprehensive employee management solution designed for administrators, built with the MERN stack (MySQL, Express, React, Node). The application provides a secure and intuitive interface for managing organizational data. At its core, it offers robust authentication and real-time data management capabilities.
@@ -112,37 +152,37 @@ export const projectExperienceData = [
       { name: 'Sequelize', icon: 'sequelize' }
     ]
   },
-  {
-    title: 'Tech Blog',
-    description: `Tech Blog is a full-featured content management system designed specifically for developers to share their technical insights and engage with the development community. Built using the MVC architectural pattern, this platform provides a robust environment for technical discourse and knowledge sharing.
-  
-      The application features comprehensive user authentication, allowing developers to maintain their own space within the community. Users can create, edit, and manage their blog posts while engaging with other developers through a commenting system. The platform supports markdown formatting for technical content, making it easy to share code snippets and technical explanations.
-      
-      With its focus on developer needs and clean interface design, Tech Blog serves as both a personal blog platform and a community hub for technical discussions.`,
-    highlights: [
-      'Full-stack CMS implementation following MVC architecture',
-      'Secure user authentication system with session management',
-      'Comprehensive CRUD operations for blog posts and comments',
-      'Dynamic templating system using Handlebars.js',
-      'RESTful API endpoints for content management',
-      'Personalized dashboard for post tracking and management',
-      'Interactive comment system for community engagement',
-      'Efficient database queries and content organization'
-    ],
-    technologies: [
-      // Frontend
-      { name: 'JavaScript', icon: 'javascript' },
-      { name: 'Handlebars', icon: 'handlebars' },
-      { name: 'CSS', icon: 'css3' },
-      { name: 'Bootstrap', icon: 'bootstrap' },
-      // Backend
-      { name: 'Node.js', icon: 'nodejs' },
-      { name: 'Express', icon: 'express' },
-      // Database
-      { name: 'MySQL', icon: 'mysql' },
-      { name: 'Sequelize', icon: 'sequelize' }
-    ]
-  },
+  // {
+  //   title: 'Tech Blog',
+  //   description: `Tech Blog is a full-featured content management system designed specifically for developers to share their technical insights and engage with the development community. Built using the MVC architectural pattern, this platform provides a robust environment for technical discourse and knowledge sharing.
+
+  //     The application features comprehensive user authentication, allowing developers to maintain their own space within the community. Users can create, edit, and manage their blog posts while engaging with other developers through a commenting system. The platform supports markdown formatting for technical content, making it easy to share code snippets and technical explanations.
+
+  //     With its focus on developer needs and clean interface design, Tech Blog serves as both a personal blog platform and a community hub for technical discussions.`,
+  //   highlights: [
+  //     'Full-stack CMS implementation following MVC architecture',
+  //     'Secure user authentication system with session management',
+  //     'Comprehensive CRUD operations for blog posts and comments',
+  //     'Dynamic templating system using Handlebars.js',
+  //     'RESTful API endpoints for content management',
+  //     'Personalized dashboard for post tracking and management',
+  //     'Interactive comment system for community engagement',
+  //     'Efficient database queries and content organization'
+  //   ],
+  //   technologies: [
+  //     // Frontend
+  //     { name: 'JavaScript', icon: 'javascript' },
+  //     { name: 'Handlebars', icon: 'handlebars' },
+  //     { name: 'CSS', icon: 'css3' },
+  //     { name: 'Bootstrap', icon: 'bootstrap' },
+  //     // Backend
+  //     { name: 'Node.js', icon: 'nodejs' },
+  //     { name: 'Express', icon: 'express' },
+  //     // Database
+  //     { name: 'MySQL', icon: 'mysql' },
+  //     { name: 'Sequelize', icon: 'sequelize' }
+  //   ]
+  // },
   {
     title: 'CloudShare',
     description: `CloudShare is a full-stack social platform that leverages AWS cloud services for robust content sharing and image management. Built with React and Node.js, the application demonstrates sophisticated cloud integration by utilizing AWS DynamoDB for data persistence, S3 for image storage, and EC2 for deployment.
