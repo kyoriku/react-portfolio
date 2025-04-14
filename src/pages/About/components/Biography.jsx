@@ -16,7 +16,7 @@ export const Biography = ({ animations }) => (
           Austin Graham
         </motion.h1>
         <motion.p variants={animations?.fadeUpStagger} className="card-subtitle h2 mb-3">
-          Full Stack Developer
+          Software Engineer
         </motion.p>
 
         <motion.div variants={animations?.fadeUpStagger}>
@@ -29,13 +29,13 @@ export const Biography = ({ animations }) => (
       <section className="bio" aria-label="Biography">
         <div className="card-text">
           <BiographyText animations={animations}>
-            With expertise in the MERN stack, I transform complex challenges into elegant web solutions. My experience collaborating in development teams has strengthened my ability to build secure, scalable applications. I combine technical excellence with a drive to create applications that deliver measurable business impact.
+            As a software engineer specializing in full stack web development, I create elegant technical solutions that solve real-world problems. I leverage React, Node.js, and efficient database architecture to build secure, scalable applications with a strong focus on performance and user experience.
           </BiographyText>
           <BiographyText animations={animations}>
-            I specialize in implementing robust authentication systems, optimizing database performance, and creating intuitive user experiences. Through employee management systems and event planning platforms, I've demonstrated the ability to develop comprehensive solutions that improve efficiency and user satisfaction.
+            My technical expertise includes implementing authentication systems, optimizing API efficiency, and designing responsive interfaces. I've developed systems ranging from employee management dashboards to cloud-native platforms with AWS infrastructure, consistently delivering solutions that enhance operational efficiency and drive measurable outcomes.
           </BiographyText>
           <BiographyText animations={animations} className="mb-0">
-            My background in high-pressure hospitality environments has developed my customer-first mindset and ability to thrive in fast-paced settings. This unique perspective helps me bridge the gap between technical capabilities and practical business needs, creating solutions that enhance productivity and streamline processes.
+            With experience in high-pressure environments, I bring a unique blend of technical skill and practical problem-solving to software development. This combination enables me to build applications that not only function flawlessly but also address genuine business needs—creating technology that makes a meaningful difference for users and stakeholders alike.
           </BiographyText>
         </div>
       </section>
