@@ -19,8 +19,8 @@ const ErrorPage = () => {
   return (
     <div className='app-container'>
       <Helmet>
-        <title>404 - Page Not Found | Austin Graham</title>
-        <meta name="description" content="The requested page could not be found. Return to Austin Graham's portfolio to explore web development projects and skills." />
+        <title>404 - Page Not Found | Austin Graham - Software Engineer</title>
+        <meta name="description" content="The requested page could not be found. Return to Austin Graham's software engineering portfolio to explore projects and professional experience." />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
       <Header />

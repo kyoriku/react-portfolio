@@ -111,7 +111,11 @@ export const ProjectDetailsModal = ({ project, show, onHide }) => {
                 Project Description
                 <hr className="flex-grow-1 my-0" />
               </h4>
-              <p className="project-description">{selectedProject.description}</p>
+              <div className="project-description">
+                {selectedProject.description.split('\n').map((paragraph, index) => (
+                  <p key={index} className="mb-3">{paragraph.trim()}</p>
+                ))}
+              </div>
             </div>
 
             {/* Conditional development highlights section */}
