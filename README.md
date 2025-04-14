@@ -30,7 +30,7 @@ By leveraging modern technologies like React, I've built a portfolio that not on
 Whether you're a potential employer, collaborator, or fellow developer, this portfolio is an invitation to explore my approach to web development—where innovation meets intentional design.
 
 ### Deployed Site
-Visit my portfolio at: [austingraham.ca](https://austingraham.ca)
+Visit my portfolio at: [https://austingraham.ca](https://austingraham.ca)
 
 ## Features
 * **Mobile-Responsive Design**

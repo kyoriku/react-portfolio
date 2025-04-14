@@ -2,14 +2,14 @@ import { Helmet } from 'react-helmet';
 
 export const MetaTags = () => (
   <Helmet>
-    <title>Austin Graham - Full Stack Developer</title>
+    <title>Austin Graham - Software Engineer</title>
     <meta
       name="description"
-      content="Full Stack Developer based in Toronto, creating secure, scalable web applications with React, Node.js, Express, MySQL, and MongoDB. Delivering accessible, responsive solutions through clean, user-centred design. View my projects and get in touch."
+      content="Software Engineer based in Toronto, specializing in full stack web development. Building secure, scalable applications with React, Node.js, and efficient database architecture. Delivering solutions that transform ideas into impactful digital experiences."
     />
     <meta
       name="keywords"
-      content="Full Stack Developer, Web Developer, Software Engineer, JavaScript, React, Node.js, Express, MySQL, MongoDB, Python, SQL, Toronto Developer, Web Application Development, Responsive Design, Accessible Web Design, Front-end Development, Back-end Development, API Development, Database Design, HTML5, CSS3, Agile Development, MERN Stack, REST APIs, AWS, Sequelize, Mongoose, Bootstrap, Tailwind CSS, Scrum, Secure Web Applications, Scalable Applications, User-Centered Design, Git, Vite, DevOps"
+      content="Software Engineer, Full Stack Engineer, Web Developer, JavaScript, React, Node.js, Express, MySQL, MongoDB, Python, SQL, Toronto Developer, Web Application Development, Responsive Design, Accessible Web Design, Front-end Development, Back-end Development, API Development, Database Design, HTML5, CSS3, Agile Development, REST APIs, AWS, Sequelize, Git, DevOps, Tailwind CSS, Bootstrap, Cloud Computing, Authentication Systems, UX/UI, Performance Optimization"
     />
     <link rel="canonical" href="https://austingraham.ca" />
 
@@ -18,10 +18,10 @@ export const MetaTags = () => (
     <meta property="og:url" content="https://austingraham.ca" />
     <meta property="og:locale" content="en_CA" />
     <meta property="og:site_name" content="Austin Graham" />
-    <meta property="og:title" content="Austin Graham - Full Stack Developer" />
+    <meta property="og:title" content="Austin Graham - Software Engineer" />
     <meta
       property="og:description"
-      content="Full Stack Developer based in Toronto, creating secure, scalable web applications with React, Node.js, Express, MySQL, and MongoDB. Delivering accessible, responsive solutions through clean, user-centred design. View my projects and get in touch."
+      content="Software Engineer based in Toronto, specializing in full stack web development. Building secure, scalable applications with React, Node.js, and efficient database architecture. Delivering solutions that transform ideas into impactful digital experiences."
     />
     <meta property="og:image" content="https://austingraham.ca/screenshots/about.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -30,12 +30,11 @@ export const MetaTags = () => (
     {/* Twitter */}
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://austingraham.ca" />
-    <meta property="twitter:title" content="Austin Graham - Full Stack Developer" />
+    <meta property="twitter:title" content="Austin Graham - Software Engineer" />
     <meta
       property="twitter:description"
-      content="Full Stack Developer based in Toronto, creating secure, scalable web applications with React, Node.js, Express, MySQL, and MongoDB. Delivering accessible, responsive solutions through clean, user-centred design. View my projects and get in touch."
+      content="Software Engineer based in Toronto, specializing in full stack web development. Building secure, scalable applications with React, Node.js, and efficient database architecture. Delivering solutions that transform ideas into impactful digital experiences."
     />
     <meta property="twitter:image" content="https://austingraham.ca/screenshots/about.jpg" />
   </Helmet>
 );
-

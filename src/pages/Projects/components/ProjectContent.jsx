@@ -1,6 +1,6 @@
 import { ProjectLinks } from './ProjectLinks';
 import { TechStack } from './TechStack';
-import { ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 /**
  * ProjectContent component renders the main content area of a project card
@@ -33,7 +33,7 @@ export const ProjectContent = ({
           className="view-details-button"
           aria-label={`Read more about ${title}`}
         >
-          More Details <span><ChevronRight size={18} aria-hidden="true" /></span>
+          Read More<span><ArrowRight size={18} aria-hidden="true" /></span>
         </button>
       </section>
 
