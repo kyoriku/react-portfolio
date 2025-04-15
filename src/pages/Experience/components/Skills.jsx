@@ -8,10 +8,10 @@ export const Skills = () => {
   const animations = useAnimations();
 
   const sections = [
-    { title: "Frontend Development", data: skillsData.frontend, id: "frontend-skills" },
-    { title: "Backend Development", data: skillsData.backend, id: "backend-skills" },
-    { title: "Database Technologies", data: skillsData.databases, id: "database-skills" },
-    { title: "Tools & Infrastructure", data: skillsData.infrastructure, id: "tools-skills" }
+    { title: "Programming Languages", data: skillsData.languages, id: "languages-skills" },
+    { title: "Frameworks & Libraries", data: skillsData.frameworks, id: "frameworks-skills" },
+    { title: "Databases", data: skillsData.databases, id: "database-skills" },
+    { title: "Tools & Infrastructure", data: skillsData.tools, id: "tools-skills" }
   ];
 
   return (
