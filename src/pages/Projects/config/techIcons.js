@@ -27,4 +27,5 @@ export const techIcons = {
   'Gunicorn': '/icons/gunicorn.webp',
   'Redis': '/icons/redis.webp',
   'TanStack Query': '/icons/react-query.webp',
+  'SQL': '/icons/sql.webp',
 };
