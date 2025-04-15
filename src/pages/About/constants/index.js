@@ -1,5 +1,5 @@
 import { Terminal, Database, Layout, GitBranch } from 'lucide-react';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 export const techStack = [
@@ -23,6 +23,11 @@ export const socialLinks = [
     label: "Connect with me on LinkedIn"
   },
   {
+    href: "https://www.youtube.com/@arcaneviva",
+    icon: faYoutube,
+    label: "Subscribe to my YouTube channel"
+  },
+  {
     href: "mailto:hello@austingraham.ca",
     icon: faEnvelope,
     label: "Send me an email"
@@ -32,17 +37,17 @@ export const socialLinks = [
 export const expertiseData = [
   {
     title: "Frontend Development",
-    description: "JavaScript, React, Responsive Design, UI/UX Best Practices",
+    description: "React, JavaScript, Responsive Design, UI/UX Best Practices",
     icon: Layout,
   },
   {
     title: "Backend Development",
-    description: "Node.js, Express, RESTful APIs, Database Design",
+    description: "Node.js, Express, RESTful APIs, Authentication Systems",
     icon: Terminal,
   },
   {
     title: "Database Management",
-    description: "MySQL, MongoDB, Sequelize ORM, Data Modeling",
+    description: "MySQL, MongoDB, Redis, Efficient Data Modeling",
     icon: Database,
   },
   {
