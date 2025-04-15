@@ -10,7 +10,7 @@ export const SocialLinks = ({ animations }) => (
     animate="visible"
     variants={animations?.staggerContainer}
   >
-    <ul className="list-unstyled d-flex align-items-center gap-3 mb-0">
+    <ul className="list-unstyled d-flex align-items-center gap-4 mb-0">
       {socialLinks.map((link) => (
         <motion.li
           key={link.href}

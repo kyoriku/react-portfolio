@@ -35,7 +35,7 @@ export const ProfileImage = ({ animations }) => (
         </div>
 
         <div className="technical-stack-section mt-3 d-none d-lg-block">
-          <h3 className="h5 text-start">Technical Stack</h3>
+          <h3 className="h5 text-start">Tech Stack</h3>
           <hr className="skill-divider mt-0 mb-2" aria-hidden="true" />
           <StackIcons animations={animations} />
         </div>
