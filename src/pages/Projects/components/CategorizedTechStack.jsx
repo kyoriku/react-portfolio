@@ -2,10 +2,10 @@ import { techIcons } from '../config/techIcons';
 
 // Predefined categories for organizing different types of technologies
 const categories = {
-  'Frontend': ['HTML', 'CSS', 'JavaScript', 'jQuery', 'React', 'Bootstrap', 'Tailwind', 'Handlebars', 'Jinja', 'TanStack Query'],
+  'Frontend': ['HTML', 'CSS', 'JavaScript', 'jQuery', 'React', 'Bootstrap', 'Tailwind CSS', 'Handlebars', 'Jinja', 'React Query'],
   'Backend': ['Node.js', 'Express', 'Python', 'Flask', 'Gunicorn'],
-  'Database': ['MySQL', 'MongoDB', 'Sequelize', 'SQLAlchemy', 'DynamoDB', 'Redis'],
-  'Cloud': ['AWS', 'S3', 'EC2'],
+  'Database': ['MySQL', 'MongoDB', 'Sequelize', 'SQLAlchemy', 'Redis'],
+  'Cloud': ['AWS', 'EC2', 'S3', 'DynamoDB'],
   'APIs': ['TMDb API', 'Watchmode API', 'OpenWeather API']
 };
 

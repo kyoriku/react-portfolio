@@ -4,7 +4,7 @@ export const projectsData = [
     image: '/images/stacknova.webp',
     deployedLink: 'https://stacknova.ca',
     githubLink: 'https://github.com/kyoriku/stacknova',
-    technologies: ['JavaScript', 'React', 'Node.js', 'Express', 'MySQL'],
+    technologies: ['React', 'Node.js', 'Redis', 'React Query', 'MySQL'],
     description: 'A full-stack Q&A platform where developers can ask questions, share knowledge, and engage in technical discussions with support for code formatting and syntax highlighting.'
   },
   {
@@ -12,7 +12,7 @@ export const projectsData = [
     image: '/images/adminaccess.webp',
     deployedLink: 'https://adminaccess-f697b23e85fa.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/AdminAccess',
-    technologies: ['JavaScript', 'React', 'Node.js', 'Express', 'MySQL'],
+    technologies: ['React', 'Node.js', 'Express', 'MySQL', 'Sequelize'],
     description: 'A full-stack MERN application that provides administrators with a secure and intuitive platform for managing employee data, roles, and departments.'
   },
   {
@@ -20,7 +20,7 @@ export const projectsData = [
     image: '/images/rendezview.webp',
     deployedLink: 'https://rendezviews-6983bdd1f9ce.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/RendezView',
-    technologies: ['JavaScript', 'Handlebars', 'Node.js', 'Express', 'MySQL'],
+    technologies: [ 'Node.js', 'Express', 'MySQL', 'Sequelize', 'Handlebars'],
     description: 'A full-stack event planning platform built with MVC architecture, featuring event creation, RSVP functionality, and personalized dashboards.'
   },
   // {
@@ -36,7 +36,7 @@ export const projectsData = [
     image: '/images/cloudshare.webp',
     deployedLink: '',
     githubLink: 'https://github.com/kyoriku/CloudShare',
-    technologies: ['JavaScript', 'React', 'Node.js', 'AWS', 'DynamoDB'],
+    technologies: ['React', 'Node.js', 'EC2', 'S3', 'DynamoDB'],
     description: 'A full-stack application leveraging AWS cloud services for content sharing and image management, utilizing S3 for storage and DynamoDB for data persistence.'
   },
   {
@@ -44,7 +44,7 @@ export const projectsData = [
     image: '/images/pythonpress.webp',
     deployedLink: 'https://pythonpress-64ffcf772c54.herokuapp.com/',
     githubLink: 'https://github.com/kyoriku/PythonPress',
-    technologies: ['Python', 'Flask', 'Jinja', 'SQLAlchemy', 'JavaScript'],
+    technologies: ['Python', 'Flask', 'MySQL', 'SQLAlchemy', 'Jinja'],
     description: 'A full-stack web application built with Python and Flask that enables users to create, share, and interact with news content in a social platform format.'
   },
   {
@@ -69,7 +69,7 @@ export const projectExperienceData = [
       'Secure authentication system with HTTP-only cookies and protected routes',
       'Full Markdown support with code syntax highlighting via prism-react-renderer',
       'Server-side caching with Redis resulting in 74% faster query times',
-      'Client-side optimizations with TanStack Query for efficient data fetching',
+      'Client-side optimizations with React Query for efficient data fetching',
       'Responsive UI with light/dark mode powered by Tailwind CSS',
       'Input validation and sanitization to prevent XSS attacks',
       'RESTful API architecture with efficient indexing and query optimization',
@@ -79,8 +79,8 @@ export const projectExperienceData = [
       // Frontend
       { name: 'JavaScript', icon: 'javascript' },
       { name: 'React', icon: 'react' },
-      { name: 'TanStack Query', icon: 'react-query' },
-      { name: 'Tailwind', icon: 'tailwind css' },
+      { name: 'Tailwind CSS', icon: 'tailwind css' },
+      { name: 'React Query', icon: 'react-query' },
       // Backend
       { name: 'Node.js', icon: 'nodejs' },
       { name: 'Express', icon: 'express' },
@@ -204,17 +204,15 @@ export const projectExperienceData = [
       // Frontend
       { name: 'JavaScript', icon: 'javascript' },
       { name: 'React', icon: 'react' },
-      { name: 'CSS', icon: 'css3' },
       { name: 'Bootstrap', icon: 'bootstrap' },
       // Backend
       { name: 'Node.js', icon: 'nodejs' },
       { name: 'Express', icon: 'express' },
-      // Database
-      { name: 'DynamoDB', icon: 'dynamodb' },
       // Cloud
       { name: 'AWS', icon: 'aws' },
-      { name: 'S3', icon: 's3' },
       { name: 'EC2', icon: 'ec2' },
+      { name: 'S3', icon: 's3' },
+      { name: 'DynamoDB', icon: 'dynamodb' },
     ]
   },
   {
