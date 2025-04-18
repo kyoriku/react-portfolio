@@ -4,7 +4,7 @@ export const projectsData = [
     image: '/images/stacknova.webp',
     deployedLink: 'https://stacknova.ca',
     githubLink: 'https://github.com/kyoriku/stacknova',
-    technologies: ['React', 'Node.js', 'Redis', 'React Query', 'MySQL'],
+    technologies: ['React', 'React Query', 'Node.js', 'MySQL', 'Redis'],
     description: 'A full-stack Q&A platform where developers can ask questions, share knowledge, and engage in technical discussions with support for code formatting and syntax highlighting.'
   },
   {
