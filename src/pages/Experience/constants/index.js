@@ -46,7 +46,7 @@ export const certificatesData = [
     name: 'Google Project Management',
     issuer: 'Coursera',
     date: 'September 2024',
-    link: 'https://www.credly.com/badges/99d4db78-4a6b-477a-9c6b-af69572aa11b/public_url',
+    link: 'https://www.coursera.org/account/accomplishments/specialization/certificate/GP5HV3DQZC3L',
     id: 'cert2'
   }
 ];
