@@ -13,7 +13,7 @@ export const ProfileImage = ({ animations }) => (
         className="profile-image-container mb-4"
       >
         <img
-          src="/images/armoredcore.webp"
+          src="/images/austin.webp"
           alt="Austin Graham"
           className="about-image"
           width="280"
