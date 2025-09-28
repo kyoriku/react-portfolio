@@ -1,14 +1,14 @@
-import { Terminal, Database, Layout, GitBranch } from 'lucide-react';
+import { Terminal, Database, Layout, GitBranch, Cog } from 'lucide-react';
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 export const techStack = [
   'JavaScript',
+  'Python',
   'React',
   'Node.js',
-  'Express',
   'MySQL',
-  'MongoDB'
+  'MongoDB',
 ];
 
 export const socialLinks = [
@@ -22,11 +22,11 @@ export const socialLinks = [
     icon: faLinkedin,
     label: "Connect with me on LinkedIn"
   },
-  {
-    href: "https://www.youtube.com/@arcaneviva",
-    icon: faYoutube,
-    label: "Subscribe to my YouTube channel"
-  },
+  // {
+  //   href: "https://www.youtube.com/@arcaneviva",
+  //   icon: faYoutube,
+  //   label: "Subscribe to my YouTube channel"
+  // },
   {
     href: "mailto:hello@austingraham.ca",
     icon: faEnvelope,
@@ -37,22 +37,22 @@ export const socialLinks = [
 export const expertiseData = [
   {
     title: "Frontend Development",
-    description: "React, JavaScript, Responsive Design, UI/UX Best Practices",
+    description: "React, JavaScript, Tailwind CSS, Responsive Design, Performance Optimization",
     icon: Layout,
   },
   {
-    title: "Backend Development",
-    description: "Node.js, Express, RESTful APIs, Authentication Systems",
+    title: "Backend Development", 
+    description: "Node.js, Express, RESTful APIs, Authentication, Caching Strategies",
     icon: Terminal,
   },
   {
-    title: "Database Management",
-    description: "MySQL, MongoDB, Redis, Efficient Data Modeling",
-    icon: Database,
+    title: "Business Automation",
+    description: "Python, API Integration, Email Processing, Workflow Automation, CLI Tools",
+    icon: Cog,
   },
   {
-    title: "Development Practices",
-    description: "Agile Methodologies, Version Control, CI/CD, Code Review",
-    icon: GitBranch,
+    title: "Database & Systems",
+    description: "MySQL, MongoDB, Redis, Embedded Systems, Shell Scripting",
+    icon: Database,
   }
 ];
