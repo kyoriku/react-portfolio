@@ -28,11 +28,11 @@ export const ProfileImage = ({ animations }) => (
       </motion.figure>
 
       <div className="text-center tablet-sizes">
-        <div className="profile-social mb-3">
+        {/* <div className="profile-social mb-3">
           <h3 className="h5 text-start">Contact & Connect</h3>
           <hr className="skill-divider mt-0 mb-2" aria-hidden="true" />
           <SocialLinks animations={animations} />
-        </div>
+        </div> */}
 
         <div className="technical-stack-section mt-3 d-none d-lg-block">
           <h3 className="h5 text-start">Tech Stack</h3>

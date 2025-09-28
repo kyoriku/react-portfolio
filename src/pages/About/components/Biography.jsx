@@ -29,13 +29,10 @@ export const Biography = ({ animations }) => (
       <section className="bio" aria-label="Biography">
         <div className="card-text">
           <BiographyText animations={animations}>
-            As a software engineer specializing in full stack web development, I create elegant technical solutions that solve real-world problems. I leverage React, Node.js, and efficient database architecture to build secure, scalable applications with a strong focus on performance and user experience.
-          </BiographyText>
-          <BiographyText animations={animations}>
-            My technical expertise includes implementing authentication systems, optimizing API efficiency, and designing responsive interfaces. I've developed systems ranging from employee management dashboards to cloud-native platforms with AWS infrastructure, consistently delivering solutions that enhance operational efficiency and drive measurable outcomes.
+            Software engineer specializing in full stack web development and business process automation. I create technical solutions that bridge modern web applications and automated workflows. Currently working at Instacart, deploying applications to embedded production devices and managing automated processes across 100+ systems.
           </BiographyText>
           <BiographyText animations={animations} className="mb-0">
-            With experience in high-pressure environments, I bring a unique blend of technical skill and practical problem-solving to software development. This combination enables me to build applications that not only function flawlessly but also address genuine business needs—creating technology that makes a meaningful difference for users and stakeholders alike.
+            My expertise spans React/Node.js applications with advanced caching strategies, Python automation systems, and embedded device integration. I focus on building secure, scalable solutions with enterprise-level features like OAuth2 authentication, rate limiting, and comprehensive API integrations that solve real business problems.
           </BiographyText>
         </div>
       </section>
