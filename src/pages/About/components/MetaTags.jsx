@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { projectsData } from '../../projects/constants/index.js';
+import { projectsData } from '../../Projects/constants';
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -54,7 +54,8 @@ export const MetaTags = () => (
       content="Software Engineer based in Toronto, specializing in full stack web development. Building secure, scalable applications with React, Node.js, and efficient database architecture. Delivering solutions that transform ideas into impactful digital experiences."
     />
     <meta property="twitter:image" content="https://austingraham.ca/screenshots/about.jpg" />
-        <script type="application/ld+json">
+
+    <script type="application/ld+json">
       {JSON.stringify(structuredData)}
     </script>
   </Helmet>
