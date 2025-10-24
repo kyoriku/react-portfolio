@@ -17,6 +17,7 @@ const About = () => {
         className="container"
         aria-labelledby="about-heading"
         aria-description="Professional overview and background information"
+        id="about"
       >
         <motion.div
           className="about-section container py-5"

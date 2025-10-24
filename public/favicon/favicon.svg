@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <!-- Enhanced gradient background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="50%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0f2847"/>
+    </linearGradient>
+    
+    <!-- Text gradient -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#64ffda"/>
+      <stop offset="100%" stop-color="#4dd4ac"/>
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow for depth -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background rounded rectangle with gradient -->
+  <rect width="256" height="256" rx="60" fill="url(#bgGradient)"/>
+  
+  <!-- Subtle inner border for depth -->
+  <rect x="4" y="4" width="248" height="248" rx="56" fill="none" stroke="#1e3a5f" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Text with gradient and effects -->
+  <text x="128" y="168" 
+    font-family="'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" 
+    font-size="110" 
+    font-weight="bold" 
+    text-anchor="middle" 
+    fill="url(#textGradient)"
+    filter="url(#glow)"
+    letter-spacing="-2">
+    AG
+  </text>
+  
+  <!-- Subtle highlight on top for 3D effect -->
+  <ellipse cx="128" cy="70" rx="90" ry="30" fill="white" opacity="0.03"/>
+</svg>

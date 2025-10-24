@@ -103,7 +103,7 @@ select:focus {
 
 .spacing {
   padding-top: 1rem;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
 }
 
 .mb-med {
@@ -111,11 +111,11 @@ select:focus {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .spacing {
     padding-bottom: 6rem !important;
   }
-}
+} */
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {

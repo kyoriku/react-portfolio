@@ -15,9 +15,9 @@ export const Skills = () => {
   ];
 
   return (
-    <section className="mt-3" aria-labelledby="skills-heading">
+    <section className="" aria-labelledby="skills-heading">
       <motion.h1
-        className="text-start gradient-text my-0 mt-4"
+        className="text-start gradient-text my-0"
         variants={animations?.heading}
         initial="hidden"
         animate="visible"
@@ -28,7 +28,7 @@ export const Skills = () => {
       <div className="skill-divider" aria-hidden="true" />
 
       <motion.div
-        className="skills-container mb-med"
+        className="skills-container mb-5"
         variants={animations?.container}
         initial="hidden"
         animate="visible"

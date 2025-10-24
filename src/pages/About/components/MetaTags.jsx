@@ -1,4 +1,22 @@
 import { Helmet } from 'react-helmet';
+import { projectsData } from '../../projects/constants';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Collection",
+  "name": "Austin Graham's Software Engineering Portfolio",
+  "description": "Collection of full stack web applications showcasing software engineering expertise",
+  "itemListElement": projectsData.map((project, index) => ({
+    "@type": "SoftwareSourceCode",
+    "name": project.title,
+    "description": project.description,
+    "programmingLanguage": project.technologies,
+    "codeRepository": project.githubLink,
+    "url": project.deployedLink,
+    "image": `https://austingraham.ca${project.image}`,
+    "position": index + 1
+  }))
+};
 
 export const MetaTags = () => (
   <Helmet>
@@ -36,5 +54,8 @@ export const MetaTags = () => (
       content="Software Engineer based in Toronto, specializing in full stack web development. Building secure, scalable applications with React, Node.js, and efficient database architecture. Delivering solutions that transform ideas into impactful digital experiences."
     />
     <meta property="twitter:image" content="https://austingraham.ca/screenshots/about.jpg" />
+        <script type="application/ld+json">
+      {JSON.stringify(structuredData)}
+    </script>
   </Helmet>
 );

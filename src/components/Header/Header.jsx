@@ -1,9 +1,10 @@
 import React from 'react';
 import Navigation from './Navigation';
+import './styles/Header.css';
 
 const Header = () => {
   return (
-    <header role="banner" aria-label="Site header">
+    <header className="site-header" role="banner" aria-label="Site header">
       <Navigation />
     </header>
   );

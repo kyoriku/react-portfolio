@@ -9,7 +9,7 @@ export const FormTextarea = ({
   onMouseDown,
   onKeyDown,
   placeholder,
-  rows = 5
+  rows = 8
 }) => (
   <div className="form-group">
     <div className="label-container">

@@ -2,7 +2,7 @@
 .navbar {
   background: linear-gradient(to right, #0a192f 0%, #112240 100%);
   padding: 1rem 0;
-  position: relative;
+  /* position: relative; */
   z-index: 1000;
 }
 

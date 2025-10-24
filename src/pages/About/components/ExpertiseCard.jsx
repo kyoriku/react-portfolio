@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export const ExpertiseCard = ({ title, description, icon: Icon, index, animations }) => (
   <motion.div
-    className="col-md-6 col-lg-3 mb-3"
+    className="col-md-6 col-lg-3 expertise-card"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, margin: "-100px" }}

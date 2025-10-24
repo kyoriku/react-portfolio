@@ -212,4 +212,8 @@
   .technical-stack-section .stack-icons-gap {
     justify-content: flex-start;
   }
+
+  .expertise-card:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }
