@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { projectsData } from '../../projects/constants';
+import { projectsData } from '../../projects/constants/index.js';
 
 const structuredData = {
   "@context": "https://schema.org",
