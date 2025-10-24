@@ -12,7 +12,7 @@ const About = () => {
 
   return (
     <>
-      <MetaTags />
+      {/* <MetaTags /> */}
       <section
         className="container"
         aria-labelledby="about-heading"
