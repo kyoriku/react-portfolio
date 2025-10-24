@@ -31,30 +31,30 @@ export const projectsData = [
   //   technologies: ['JavaScript', 'Handlebars', 'Node.js', 'Express', 'MySQL'],
   //   description: 'A full-stack blog application built with MVC architecture, featuring user authentication, commenting system, and post management capabilities.'
   // },
-  {
-    title: 'CloudShare',
-    image: '/images/cloudshare.webp',
-    deployedLink: '',
-    githubLink: 'https://github.com/kyoriku/CloudShare',
-    technologies: ['React', 'Node.js', 'EC2', 'S3', 'DynamoDB'],
-    description: 'A full-stack application leveraging AWS cloud services for content sharing and image management, utilizing S3 for storage and DynamoDB for data persistence.'
-  },
-  {
-    title: 'PythonPress',
-    image: '/images/pythonpress.webp',
-    deployedLink: 'https://pythonpress-64ffcf772c54.herokuapp.com/',
-    githubLink: 'https://github.com/kyoriku/PythonPress',
-    technologies: ['Python', 'Flask', 'MySQL', 'SQLAlchemy', 'Jinja'],
-    description: 'A full-stack web application built with Python and Flask that enables users to create, share, and interact with news content in a social platform format.'
-  },
-  {
-    title: 'FilmFinder',
-    image: '/images/filmfinder.webp',
-    deployedLink: 'https://kyoriku.github.io/FilmFinder/',
-    githubLink: 'https://github.com/kyoriku/FilmFinder',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'TMDb API', 'Watchmode API'],
-    description: 'A movie discovery platform integrating TMDb and Watchmode APIs to help users find films, access streaming information, and maintain personal watchlists.'
-  }
+  // {
+  //   title: 'CloudShare',
+  //   image: '/images/cloudshare.webp',
+  //   deployedLink: '',
+  //   githubLink: 'https://github.com/kyoriku/CloudShare',
+  //   technologies: ['React', 'Node.js', 'EC2', 'S3', 'DynamoDB'],
+  //   description: 'A full-stack application leveraging AWS cloud services for content sharing and image management, utilizing S3 for storage and DynamoDB for data persistence.'
+  // },
+  // {
+  //   title: 'PythonPress',
+  //   image: '/images/pythonpress.webp',
+  //   deployedLink: 'https://pythonpress-64ffcf772c54.herokuapp.com/',
+  //   githubLink: 'https://github.com/kyoriku/PythonPress',
+  //   technologies: ['Python', 'Flask', 'MySQL', 'SQLAlchemy', 'Jinja'],
+  //   description: 'A full-stack web application built with Python and Flask that enables users to create, share, and interact with news content in a social platform format.'
+  // },
+  // {
+  //   title: 'FilmFinder',
+  //   image: '/images/filmfinder.webp',
+  //   deployedLink: 'https://kyoriku.github.io/FilmFinder/',
+  //   githubLink: 'https://github.com/kyoriku/FilmFinder',
+  //   technologies: ['HTML', 'CSS', 'JavaScript', 'TMDb API', 'Watchmode API'],
+  //   description: 'A movie discovery platform integrating TMDb and Watchmode APIs to help users find films, access streaming information, and maintain personal watchlists.'
+  // }
 ];
 
 export const projectExperienceData = [

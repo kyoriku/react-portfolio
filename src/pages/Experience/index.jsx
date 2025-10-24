@@ -1,4 +1,4 @@
-import { MetaTags } from './components/MetaTags';
+// import { MetaTags } from './components/MetaTags';
 import { Skills } from './components/Skills';
 import { Credentials } from './components/Credentials';
 import { Resume } from './components/Resume';
@@ -8,10 +8,11 @@ import './styles/Experience.css';
 const Experience = () => {
   return (
     <>
-      <MetaTags />
+      {/* <MetaTags /> */}
       <section
         className="experience-section"
         aria-labelledby="experience-heading"
+        id="experience"
       >
         <div className="container spacing pt-0">
           <article className="experience-content">

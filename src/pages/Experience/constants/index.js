@@ -16,13 +16,17 @@ export const skillsData = {
   ],
   databases: [
     { name: 'MySQL', icon: '/icons/mysql.webp', description: 'Relational database management system' },
+    // { name: 'PostgreSQL', icon: 'https://img.icons8.com/external-tal-revivo-color-tal-revivo/96/external-postgre-sql-a-free-and-open-source-relational-database-management-system-logo-color-tal-revivo.png', description: 'Advanced open-source relational database system' },
     { name: 'MongoDB', icon: '/icons/mongodb.webp', description: 'NoSQL database for flexible data storage' },
     { name: 'Redis', icon: '/icons/redis.webp', description: 'In-memory data structure store for caching and performance optimization' }
   ],
   tools: [
     { name: 'AWS', icon: '/icons/aws.webp', description: 'Amazon Web Services cloud computing platform' },
     { name: 'Git', icon: '/icons/git.webp', description: 'Version control system for tracking code changes' },
-    { name: 'Vite', icon: '/icons/vite.webp', description: 'Next generation frontend build tool' }
+    { name: 'Vite', icon: '/icons/vite.webp', description: 'Next generation frontend build tool' },
+    // { name: 'Google APIs', icon: 'https://img.icons8.com/color/480/google-cloud.png', description: 'Google API integration including Gmail and Sheets APIs for automation workflows' },
+    // { name: 'Shell Scripting', icon: 'https://img.icons8.com/fluency/96/bash.png', description: 'Command-line scripting for system automation and deployment' },
+    // { name: 'SMTP/IMAP', icon: 'https://img.icons8.com/external-solidglyph-m-oki-orlando/64/external-smtp-email-marketing-solid-solidglyph-m-oki-orlando.png', description: 'Email protocols for automated email processing and delivery' }
   ]
 };
 

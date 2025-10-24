@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MetaTags } from './components/MetaTags';
+// import { MetaTags } from './components/MetaTags';
 import { ContactForm } from './components/ContactForm';
 import { StatusMessage } from './components/StatusMessage';
 import { BackToTop } from '../../components/BackToTop/BackToTop';
@@ -14,14 +14,14 @@ const Contact = () => {
 
   return (
     <>
-      <MetaTags />
-      <section className="contact-section" aria-labelledby="contact-heading">
-        <div className="container py-3 pt-0">
+      {/* <MetaTags /> */}
+      <section className="contact-section" aria-labelledby="contact-heading" id="contact">
+        <div className="container ">
           <div className="contact-container">
             <div variants={animations.heading}>
               <motion.h1
                 id="contact-heading"
-                className="text-start gradient-text my-0 mt-4"
+                className="text-start gradient-text my-0"
                 variants={animations.heading}
                 initial="hidden"
                 animate="visible"
@@ -32,7 +32,6 @@ const Contact = () => {
             <div className="skill-divider" aria-hidden="true" />
 
             <motion.div
-              className="contact-container"
               variants={animations.form}
               initial="hidden"
               animate="visible"

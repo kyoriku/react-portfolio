@@ -7,7 +7,7 @@ export const Resume = () => {
   const animations = useAnimations();
 
   return (
-    <section className="mt-3 mb-med" aria-labelledby="experience-title">
+    <section className="mt-3" aria-labelledby="experience-title">
       <motion.h1
         variants={animations?.heading}
         initial="hidden"
@@ -32,7 +32,7 @@ export const Resume = () => {
           Browse my technical background, certifications, and evolving skillset in modern web technologies.
         </motion.p>
         <motion.div
-          className="hero-actions d-flex justify-content-center"
+          className="hero-actions d-flex"
           variants={animations.item}
         >
           <a

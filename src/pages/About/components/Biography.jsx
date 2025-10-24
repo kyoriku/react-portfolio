@@ -28,6 +28,9 @@ export const Biography = ({ animations }) => (
       </header>
       <section className="bio" aria-label="Biography">
         <div className="card-text">
+          {/* <BiographyText animations={animations} className='mb-2'>
+            Software engineer specializing in full stack web development and business automation. I build secure, scalable solutions with React/Node.js and Python, focusing on performance optimization and enterprise-level integrations that solve real business problems.
+          </BiographyText> */}
           <BiographyText animations={animations}>
             Software engineer specializing in full stack web development and business process automation. I create technical solutions that bridge modern web applications and automated workflows. Currently working at Instacart, deploying applications to embedded production devices and managing automated processes across 100+ systems.
           </BiographyText>

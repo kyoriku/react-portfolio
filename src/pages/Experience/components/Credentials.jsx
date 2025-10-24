@@ -23,7 +23,7 @@ export const Credentials = () => {
         <div className="skill-divider" aria-hidden="true" />
 
         <motion.div
-          className="mb-med"
+          className="mb-5"
           variants={animations?.container}
           initial="hidden"
           animate="visible"
@@ -40,7 +40,7 @@ export const Credentials = () => {
       </section>
 
       {/* Certificates Section */}
-      <section className="skill-card mt-3" aria-labelledby="certificates-heading">
+      {/* <section className="skill-card mt-3" aria-labelledby="certificates-heading">
         <motion.h1
           variants={animations?.heading}
           initial="hidden"
@@ -53,7 +53,7 @@ export const Credentials = () => {
         <div className="skill-divider" aria-hidden="true" />
 
         <motion.div
-          className="mb-med"
+          className="mb-5"
           variants={animations?.container}
           initial="hidden"
           animate="visible"
@@ -67,7 +67,7 @@ export const Credentials = () => {
             />
           </motion.div>
         </motion.div>
-      </section>
+      </section> */}
     </>
   );
 };

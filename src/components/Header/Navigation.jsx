@@ -1,27 +1,102 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/Navigation.css';
 
 const Navigation = () => {
   const [expanded, setExpanded] = useState(false);
+  const [activeSection, setActiveSection] = useState('about');
   const location = useLocation();
+  const navigate = useNavigate();
   const menuRef = useRef(null);
   const toggleRef = useRef(null);
   const firstNavItemRef = useRef(null);
 
-  // Handle back to top functionality
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 86;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      setActiveSection(sectionId);
+
+      window.history.pushState(null, '', `#${sectionId}`);
+    } else {
+      // Section doesn't exist (probably on error page), navigate to home with hash
+      navigate(`/#${sectionId}`);
+    }
+  };
+
+  const handleBrandClick = (e) => {
+    e.preventDefault();
+    setExpanded(false);
+
+    // Check if we're already on home page
+    if (location.pathname === '/') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+
+      setActiveSection('about');
+
+      window.history.pushState('', document.title, window.location.pathname);
+    } else {
+      // Navigate to home page
+      navigate('/');
+    }
+  };
+
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault();
+    setExpanded(false);
+    scrollToSection(sectionId);
+  };
+
+  useEffect(() => {
+    const sections = ['about', 'projects', 'experience', 'contact'];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          setActiveSection(visibleEntries[0].target.id);
+        }
+      },
+      {
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+        rootMargin: '-74px 0px -66% 0px'
+      }
+    );
+
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     const handleHashChange = () => {
-      if (window.location.hash === '#back-to-nav') {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && hash !== 'back-to-nav') {
+        setTimeout(() => scrollToSection(hash), 100);
+      } else if (hash === 'back-to-nav') {
         window.scrollTo(0, 0);
         const isMobileView = window.matchMedia('(max-width: 767.98px)').matches;
 
         if (isMobileView) {
-          // Expand the menu first
           setExpanded(true);
-
-          // Focus the active nav link after menu animation
           setTimeout(() => {
             const activeNavItem = document.querySelector('.nav-link.active');
             if (activeNavItem) {
@@ -29,23 +104,24 @@ const Navigation = () => {
             }
           }, 300);
         } else {
-          // Desktop behavior - just focus the active nav link
           const activeNavItem = document.querySelector('.nav-link.active');
           if (activeNavItem) {
             activeNavItem.focus();
           }
         }
-
-        // Clear the hash without jumping
-        history.pushState('', document.title, window.location.pathname + window.location.search);
+        window.history.pushState('', document.title, window.location.pathname + window.location.search);
       }
     };
 
     window.addEventListener('hashchange', handleHashChange);
+
+    if (window.location.hash) {
+      handleHashChange();
+    }
+
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // Handle clicks outside the menu
   useEffect(() => {
     const handleClick = (e) => {
       if (!expanded) return;
@@ -62,12 +138,6 @@ const Navigation = () => {
     return () => document.removeEventListener('click', handleClick);
   }, [expanded]);
 
-  // Close menu on route change
-  useEffect(() => {
-    setExpanded(false);
-  }, [location.pathname]);
-
-  // Handle keyboard navigation
   const handleKeyDown = (e) => {
     if (e.key === 'Escape' && expanded) {
       setExpanded(false);
@@ -75,7 +145,6 @@ const Navigation = () => {
     }
   };
 
-  // Move focus to first nav item when menu opens on mobile
   useEffect(() => {
     if (expanded && firstNavItemRef.current && window.innerWidth < 768) {
       firstNavItemRef.current.focus();
@@ -88,10 +157,10 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { name: 'About', path: '/' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Experience', path: '/experience' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'About', sectionId: 'about' },
+    { name: 'Projects', sectionId: 'projects' },
+    { name: 'Experience', sectionId: 'experience' },
+    { name: 'Contact', sectionId: 'contact' }
   ];
 
   return (
@@ -102,17 +171,17 @@ const Navigation = () => {
       onKeyDown={handleKeyDown}
     >
       <div className="container">
-        <Link
-          className={`navbar-brand ${location.pathname === '/' ? 'active' : ''}`}
-          to="/"
-          onClick={() => setExpanded(false)}
-          aria-current={location.pathname === '/' ? 'page' : undefined}
+        <a
+          href="/"
+          className={`navbar-brand ${activeSection === 'about' ? 'active' : ''}`}
+          onClick={handleBrandClick}
+          aria-current={activeSection === 'about' ? 'page' : undefined}
         >
           Austin Graham
-          {location.pathname === '/' && (
-            <span className="visually-hidden"> (current page)</span>
+          {activeSection === 'about' && (
+            <span className="visually-hidden"> (current section)</span>
           )}
-        </Link>
+        </a>
 
         <button
           ref={toggleRef}
@@ -147,20 +216,20 @@ const Navigation = () => {
                 className="nav-item"
                 role="none"
               >
-                <Link
+                <a
                   ref={index === 0 ? firstNavItemRef : null}
-                  className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                  to={item.path}
-                  onClick={() => setExpanded(false)}
+                  href={`#${item.sectionId}`}
+                  className={`nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
+                  onClick={(e) => handleNavClick(e, item.sectionId)}
                   role="menuitem"
-                  aria-current={location.pathname === item.path ? 'page' : undefined}
-                  id={location.pathname === item.path ? 'active-nav-link' : undefined}
+                  aria-current={activeSection === item.sectionId ? 'page' : undefined}
+                  id={activeSection === item.sectionId ? 'active-nav-link' : undefined}
                 >
                   {item.name}
-                  {location.pathname === item.path && (
-                    <span className="visually-hidden"> (current page)</span>
+                  {activeSection === item.sectionId && (
+                    <span className="visually-hidden"> (current section)</span>
                   )}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
