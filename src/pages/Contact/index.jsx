@@ -26,7 +26,7 @@ const Contact = () => {
                 initial="hidden"
                 animate="visible"
               >
-                Contact Me
+                Contact
               </motion.h1>
             </div>
             <div className="skill-divider" aria-hidden="true" />
