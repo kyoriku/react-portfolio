@@ -3,12 +3,11 @@ import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-ic
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 export const techStack = [
-  'JavaScript',
-  'Python',
   'React',
+  'JavaScript',
   'Node.js',
   'MySQL',
-  'MongoDB',
+  'Python'
 ];
 
 export const socialLinks = [
@@ -22,11 +21,6 @@ export const socialLinks = [
     icon: faLinkedin,
     label: "Connect with me on LinkedIn"
   },
-  // {
-  //   href: "https://www.youtube.com/@arcaneviva",
-  //   icon: faYoutube,
-  //   label: "Subscribe to my YouTube channel"
-  // },
   {
     href: "mailto:hello@austingraham.ca",
     icon: faEnvelope,
@@ -36,23 +30,23 @@ export const socialLinks = [
 
 export const expertiseData = [
   {
-    title: "Frontend Development",
-    description: "React, JavaScript, Tailwind CSS, Responsive Design, Performance Optimization",
+    title: "Frontend",
+    description: "React, JavaScript, Tailwind CSS, Responsive Design",
     icon: Layout,
   },
   {
-    title: "Backend Development", 
-    description: "Node.js, Express, RESTful APIs, Authentication, Caching Strategies",
+    title: "Backend",
+    description: "Node.js, Express, RESTful APIs, Authentication, Redis Caching",
     icon: Terminal,
   },
-  {
-    title: "Business Automation",
-    description: "Python, API Integration, Email Processing, Workflow Automation, CLI Tools",
-    icon: Cog,
+    {
+    title: "Database",
+    description: "MySQL, MongoDB, Redis",
+    icon: Database,
   },
   {
-    title: "Database & Systems",
-    description: "MySQL, MongoDB, Redis, Embedded Systems, Shell Scripting",
-    icon: Database,
+    title: "Automation",
+    description: "Python, API Integration, Email Processing, CLI Tools",
+    icon: Cog,
   }
 ];
