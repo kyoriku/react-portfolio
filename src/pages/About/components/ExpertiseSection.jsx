@@ -18,7 +18,7 @@ export const ExpertiseSection = ({ animations }) => (
           initial="hidden"
           animate="visible"
         >
-          Technical Specializations
+          Expertise
         </motion.h2>
         <hr className="skill-divider" aria-hidden="true" />
       </header>
