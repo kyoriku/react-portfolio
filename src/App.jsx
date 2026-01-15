@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Instagram, MapPin, ExternalLink, ArrowRight, Award, GraduationCap, FileText, Send, CheckCircle, XCircle } from 'lucide-react';
+import { label } from 'framer-motion/client';
 
 const projectsData = [
   {
@@ -153,7 +154,7 @@ const skillsData = {
 
     { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
     { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-    { name: 'SQL', icon: 'https://img.icons8.com/fluency/144/sql.png' },
+    { name: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' }
   ],
   frameworks: [
     { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
@@ -225,14 +226,14 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-900/95 shadow-lg shadow-black/10' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           <button onClick={() => scrollToSection('about')} className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent hover:from-cyan-300 hover:to-blue-400 transition-all cursor-pointer">
             Austin Graham
           </button>
 
           <div className="hidden md:flex items-center gap-1 bg-slate-800/80 border border-slate-700/50 rounded-full px-2 py-2">
             {navItems.map((item) => (
-              <button key={item.id} onClick={() => scrollToSection(item.id)} className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${activeSection === item.id ? 'text-white' : 'text-slate-400 hover:text-white'}`}>
+              <button key={item.id} onClick={() => scrollToSection(item.id)} className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${activeSection === item.id ? 'text-white' : 'text-slate-300 hover:text-white'}`}>
                 {activeSection === item.id && (
                   <span className="absolute inset-0 bg-slate-700 rounded-full" />
                 )}
@@ -275,11 +276,11 @@ const HeroSection = () => {
                 Austin Graham
               </h1>
 
-              <p className="text-xl text-slate-400 leading-relaxed max-w-xl">
+              <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
                 Software developer. Building web applications with React, Node.js, and Python.
               </p>
 
-              <div className="flex items-center gap-3 text-slate-400">
+              <div className="flex items-center gap-3 text-slate-300">
                 <MapPin size={20} className="text-cyan-400" />
                 <span>Toronto, Canada</span>
               </div>
@@ -304,12 +305,12 @@ const HeroSection = () => {
 
             <div className="flex gap-4">
               {[
-                { href: 'https://github.com/kyoriku', icon: Github },
-                { href: 'https://linkedin.com/in/austingraham1', icon: Linkedin },
-                { href: 'https://instagram.com/kyoriku.exe', icon: Instagram },
-                { href: 'mailto:hello@austingraham.ca', icon: Mail }
+                { href: 'https://github.com/kyoriku', icon: Github, label: 'GitHub' },
+                { href: 'https://linkedin.com/in/austingraham1', icon: Linkedin, label: 'LinkedIn' },
+                { href: 'https://instagram.com/kyoriku.exe', icon: Instagram, label: 'Instagram' },
+                { href: 'mailto:hello@austingraham.ca', icon: Mail, label: 'Email' }
               ].map((social, idx) => (
-                <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800/80 border border-slate-700 rounded-xl text-slate-400 hover:text-cyan-400 hover:border-cyan-500 transition-all">
+                <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="p-3 bg-slate-800/80 border border-slate-700 rounded-xl text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-all">
                   <social.icon size={20} />
                 </a>
               ))}
@@ -351,7 +352,7 @@ const ProjectsSection = () => {
             <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">
               Projects
             </h2>
-            <p className="text-xl text-slate-400">
+            <p className="text-xl text-slate-300">
               Source code and live demos where available.
             </p>
           </div>
@@ -385,7 +386,7 @@ const ProjectsSection = () => {
                     <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                   </button>
 
-                  <div className="flex gap-3 pt-4 border-t border-slate-800">
+                  <div className="flex gap-3 pt-4 border-t border-slate-700">
                     {project.deployedLink ? (
                       <a href={project.deployedLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-medium rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all">
                         <ExternalLink size={14} />
@@ -419,25 +420,25 @@ const ProjectsSection = () => {
       {selectedProject && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedProject(null)}>
           <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-slate-800 border border-slate-700 rounded-3xl shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setSelectedProject(null)} className="sticky top-6 right-6 ml-auto flex items-center justify-center w-10 h-10 bg-slate-700 hover:bg-slate-600 border border-slate-600 rounded-xl text-white transition-all z-10 float-right mr-6 cursor-pointer">
+            <button onClick={() => setSelectedProject(null)} className="sticky top-4 right-4 ml-auto flex items-center justify-center w-10 h-10 bg-slate-700 hover:bg-slate-600 border border-slate-600 rounded-xl text-white transition-all z-10 float-right mr-4 cursor-pointer">
               <X size={20} />
             </button>
 
-            <div className="p-6">
-              <h3 className="text-4xl font-bold text-white mb-6">{selectedProject.title}</h3>
+            <div className="p-4">
+              <h3 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6 mt-1">{selectedProject.title}</h3>
               <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-contain bg-slate-800 rounded-2xl mb-8" />
 
               <div className="space-y-8">
                 <div>
-                  <h4 className="text-xl font-semibold text-white mb-4">Description</h4>
+                  <h4 className="text-xl font-semibold text-cyan-400 mb-4">Description</h4>
                   <div className="space-y-4 text-slate-300 leading-relaxed">
                     {selectedProject.description.split('\n\n').map((p, i) => <p key={i}>{p}</p>)}
                   </div>
                 </div>
-
+                <hr className="border-slate-700" />
                 {selectedProject.highlights && (
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">Features</h4>
+                    <h4 className="text-xl font-semibold text-cyan-400 mb-4">Features</h4>
                     <ul className="space-y-2">
                       {selectedProject.highlights.map((h, i) => (
                         <li key={i} className="flex gap-3 text-slate-300">
@@ -448,9 +449,9 @@ const ProjectsSection = () => {
                     </ul>
                   </div>
                 )}
-
+                <hr className="border-slate-700" />
                 <div>
-                  <h4 className="text-xl font-semibold text-white mb-4">Stack</h4>
+                  <h4 className="text-xl font-semibold text-cyan-400 mb-4">Stack</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech, i) => (
                       <span key={i} className="px-4 py-2 bg-slate-700 border border-slate-600 text-cyan-400 rounded-lg">
@@ -459,10 +460,10 @@ const ProjectsSection = () => {
                     ))}
                   </div>
                 </div>
-
-                <div className="flex gap-4 pt-6 border-t border-slate-800">
+                <hr className="border-slate-700" />
+                <div className="flex gap-4  border-t border-slate-800">
                   {selectedProject.deployedLink ? (
-                    <a href={selectedProject.deployedLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition-all">
+                    <a href={selectedProject.deployedLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 p-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition-all">
                       <ExternalLink size={18} />
                       Live Site
                     </a>
@@ -473,12 +474,12 @@ const ProjectsSection = () => {
                     </button>
                   )}
                   {selectedProject.githubLink ? (
-                    <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-slate-800 backdrop-blur-sm border border-slate-700 text-slate-300 font-semibold rounded-xl hover:border-cyan-500 hover:text-cyan-400 transition-all">
+                    <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 p-4 bg-slate-800 backdrop-blur-sm border border-slate-700 text-slate-300 font-semibold rounded-xl hover:border-cyan-500 hover:text-cyan-400 transition-all">
                       <Github size={18} />
                       Source Code
                     </a>
                   ) : (
-                    <button disabled className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-slate-800 border border-slate-700 text-slate-600 font-semibold rounded-xl cursor-not-allowed">
+                    <button disabled className="flex-1 flex items-center justify-center gap-2 p-4 bg-slate-800 border border-slate-700 text-slate-600 font-semibold rounded-xl cursor-not-allowed">
                       <Github size={18} />
                       N/A
                     </button>
@@ -514,13 +515,13 @@ const ExperienceSection = () => {
           <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">
             Experience
           </h2>
-          <p className="text-xl text-slate-400">
+          <p className="text-xl text-slate-300">
             Work history and technical skills.
           </p>
         </div>
 
         <div className="mb-6">
-          <div className="bg-slate-800/80 border border-slate-700/50 rounded-2xl p-8 hover:border-slate-600 transition-all">
+          <div className="bg-slate-800/80 border border-slate-700/50 rounded-2xl p-6 hover:border-slate-600 transition-all">
             <h3 className="text-lg font-semibold text-white mb-6">
               Work
             </h3>
@@ -531,7 +532,7 @@ const ExperienceSection = () => {
                     <h4 className="text-xl font-bold text-white">{job.title}</h4>
                     <p className="text-cyan-400 font-medium">{job.company} • {job.location}</p>
                   </div>
-                  <span className="text-slate-400 text-sm md:text-base whitespace-nowrap">{job.period}</span>
+                  <span className="text-slate-300 text-sm md:text-base whitespace-nowrap">{job.period}</span>
                 </div>
                 <ul className="space-y-2 mt-4">
                   {job.responsibilities.map((resp, i) => (
@@ -563,7 +564,7 @@ const ExperienceSection = () => {
                           <img src={skill.icon} alt="" loading="lazy" className="w-10 h-10 object-contain" onError={() => handleImageError(skill.name)} />
                         )}
                       </div>
-                      <span className="text-xs text-slate-400 text-center font-medium">{skill.name}</span>
+                      <span className="text-xs text-slate-300 text-center font-medium">{skill.name}</span>
                     </div>
                   ))}
                 </div>
@@ -583,7 +584,7 @@ const ExperienceSection = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mb-1">{edu.name}</h4>
-                    <p className="text-slate-400 text-sm">{edu.issuer} • {edu.date}</p>
+                    <p className="text-slate-300 text-sm">{edu.issuer} • {edu.date}</p>
                   </div>
                 </div>
               ))}
@@ -609,7 +610,7 @@ const ExperienceSection = () => {
                     ) : (
                       <h4 className="text-white font-semibold mb-1">{cert.name}</h4>
                     )}
-                    <p className="text-slate-400 text-sm">{cert.issuer} • {cert.date}</p>
+                    <p className="text-slate-300 text-sm">{cert.issuer} • {cert.date}</p>
                   </div>
                 </div>
               ))}
@@ -617,13 +618,13 @@ const ExperienceSection = () => {
           </div> */}
         </div>
 
-        <div className="bg-slate-800/80 border border-slate-700/50 rounded-2xl p-8 hover:border-slate-600 transition-all">
+        <div className="bg-slate-800/80 border border-slate-700/50 rounded-2xl p-6 hover:border-slate-600 transition-all">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex-1">
-              <h3 className="text-2xl font-semibold text-white mb-3">
+              <h3 className="text-lg font-semibold text-white mb-3">
                 Resume
               </h3>
-              <p className="text-slate-300 leading-relaxed mb-4">
+              <p className="text-slate-300 leading-relaxed sm:mb-0 md:mb-4">
                 PDF with full work history and project details.
               </p>
             </div>
@@ -723,7 +724,7 @@ const ContactSection = () => {
               <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">
                 Contact
               </h2>
-              <p className="text-xl text-slate-400 leading-relaxed">
+              <p className="text-xl text-slate-300 leading-relaxed">
                 Available for work.
               </p>
             </div>
@@ -735,7 +736,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="text-white font-semibold mb-1">Email</h3>
-                  <a href="mailto:hello@austingraham.ca" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  <a href="mailto:hello@austingraham.ca" className="text-slate-300 hover:text-cyan-400 transition-colors">
                     hello@austingraham.ca
                   </a>
                 </div>
@@ -747,7 +748,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="text-white font-semibold mb-1">Location</h3>
-                  <p className="text-slate-400">Toronto, Canada</p>
+                  <p className="text-slate-300">Toronto, Canada</p>
                 </div>
               </div>
 
@@ -759,11 +760,11 @@ const ContactSection = () => {
                   <h3 className="text-white font-semibold mb-1">Links</h3>
                   <div className="flex gap-3 mt-2">
                     {[
-                      { href: 'https://github.com/kyoriku', icon: Github },
-                      { href: 'https://linkedin.com/in/austingraham1', icon: Linkedin },
-                      { href: 'https://instagram.com/kyoriku.exe', icon: Instagram }
+                      { href: 'https://github.com/kyoriku', icon: Github, label: 'GitHub' },
+                      { href: 'https://linkedin.com/in/austingraham1', icon: Linkedin, label: 'LinkedIn' },
+                      { href: 'https://instagram.com/kyoriku.exe', icon: Instagram, label: 'Instagram' }
                     ].map((social, idx) => (
-                      <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                      <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="text-slate-300 hover:text-cyan-400 transition-colors">
                         <social.icon size={20} />
                       </a>
                     ))}
@@ -779,20 +780,29 @@ const ContactSection = () => {
             method="POST"
             data-netlify="true"
             netlify-honeypot="subject"
-            className="bg-slate-800/80 border border-slate-700/50 rounded-2xl p-8 space-y-6"
+            className="bg-slate-800/80 border border-slate-700/50 rounded-2xl p-6 space-y-6"
           >
             <input type="hidden" name="form-name" value="contact" />
 
             <div className="sr-only">
-              <input type="text" name="subject" value={botField} onChange={(e) => setBotField(e.target.value)} tabIndex={-1} />
+              <label htmlFor="subject">Don't fill this out</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                value={botField}
+                onChange={(e) => setBotField(e.target.value)}
+                tabIndex={-1}
+                aria-label="Leave this field empty"
+              />
             </div>
 
             <div>
               <div className="flex justify-between mb-2">
-                <label htmlFor="name" className="text-sm font-medium text-slate-300">Name</label>
+                <label htmlFor="name" className="=font-medium text-slate-300">Name</label>
                 {errors.name && <span className="text-sm text-red-400">{errors.name.visual}</span>}
               </div>
-              <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 focus:border-cyan-500 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all" />
+              <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required autoComplete='name' className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 focus:border-cyan-500 rounded-xl text-white placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all" />
             </div>
 
             <div>
@@ -800,7 +810,7 @@ const ContactSection = () => {
                 <label htmlFor="email" className="text-sm font-medium text-slate-300">Email</label>
                 {errors.email && <span className="text-sm text-red-400">{errors.email.visual}</span>}
               </div>
-              <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 focus:border-cyan-500 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all" />
+              <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required autoComplete='email' className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 focus:border-cyan-500 rounded-xl text-white placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all" />
             </div>
 
             <div>
@@ -808,7 +818,7 @@ const ContactSection = () => {
                 <label htmlFor="message" className="text-sm font-medium text-slate-300">Message</label>
                 {errors.message && <span className="text-sm text-red-400">{errors.message.visual}</span>}
               </div>
-              <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={6} required className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 focus:border-cyan-500 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none" />
+              <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={6} required className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 focus:border-cyan-500 rounded-xl text-white placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none" />
             </div>
 
             <button type="submit" disabled={isSubmitting} className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all disabled:opacity-50 cursor-pointer">
@@ -834,17 +844,17 @@ const Footer = () => {
     <footer className="bg-slate-950 border-t border-slate-800/50 py-12">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-slate-400 text-sm">
+          <div className="text-slate-300 text-sm">
             © 2025 Austin Graham
           </div>
           <div className="flex gap-6">
             {[
-              { href: 'https://github.com/kyoriku', icon: Github },
-              { href: 'https://linkedin.com/in/austingraham1', icon: Linkedin },
-              { href: 'https://instagram.com/kyoriku.exe', icon: Instagram },
-              { href: 'mailto:hello@austingraham.ca', icon: Mail }
+              { href: 'https://github.com/kyoriku', icon: Github, label: 'GitHub' },
+              { href: 'https://linkedin.com/in/austingraham1', icon: Linkedin, label: 'LinkedIn' },
+              { href: 'https://instagram.com/kyoriku.exe', icon: Instagram, label: 'Instagram' },
+              { href: 'mailto:hello@austingraham.ca', icon: Mail, label: 'Email' }
             ].map((social, idx) => (
-              <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+              <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="text-slate-300 hover:text-cyan-400 transition-colors">
                 <social.icon size={20} />
               </a>
             ))}
