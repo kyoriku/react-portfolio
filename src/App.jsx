@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Instagram, MapPin, ExternalLink, ArrowRight, Award, GraduationCap, FileText, Send, CheckCircle, XCircle } from 'lucide-react';
-import { label } from 'framer-motion/client';
 
 const projectsData = [
   {
