@@ -32,10 +32,10 @@ export const Biography = ({ animations }) => (
             Software engineer specializing in full stack web development and business automation. I build secure, scalable solutions with React/Node.js and Python, focusing on performance optimization and enterprise-level integrations that solve real business problems.
           </BiographyText> */}
           <BiographyText animations={animations}>
-            Software engineer specializing in full stack web development and business process automation. I create technical solutions that bridge modern web applications and automated workflows. Currently working at Instacart, deploying applications to embedded production devices and managing automated processes across 100+ systems.
+            Software engineer building web applications and automation systems with React, Node.js, and Python.
           </BiographyText>
           <BiographyText animations={animations} className="mb-0">
-            My expertise spans React/Node.js applications with advanced caching strategies, Python automation systems, and embedded device integration. I focus on building secure, scalable solutions with enterprise-level features like OAuth2 authentication, rate limiting, and comprehensive API integrations that solve real business problems.
+            Work includes Redis caching, OAuth2, RESTful APIs, and third-party API integrations.
           </BiographyText>
         </div>
       </section>

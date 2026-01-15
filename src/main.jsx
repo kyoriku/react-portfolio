@@ -41,36 +41,34 @@
 // //   <RouterProvider router={router} />
 // // )
 
-// import { StrictMode } from 'react'
-// import { createRoot } from 'react-dom/client'
+// import React from 'react'
+// import ReactDOM from 'react-dom/client'
+// import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-// import './index.css'
-// import App from './App.jsx'
+// import './index.css';
+// import App from './AppCopy.jsx'
+// import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 
-// createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-//     <App />
-//   </StrictMode>,
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <App />,
+//     errorElement: <ErrorPage />,
+//   },
+// ]);
+
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   <RouterProvider router={router} />
 // )
 
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import './index.css';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
 import App from './App.jsx'
-import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    errorElement: <ErrorPage />,
-  },
-]);
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
 )
