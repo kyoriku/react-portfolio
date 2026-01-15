@@ -271,7 +271,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div className="space-y-6">
-              <h1 className="text-6xl lg:text-7xl font-bold text-white leading-tight">
+              <h1 className="text-6xl lg:text-7xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent leading-tight">
                 Austin Graham
               </h1>
 
