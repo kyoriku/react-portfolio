@@ -9,10 +9,10 @@ Personal portfolio built with React showcasing web development projects.
 <details>
 <summary><b>Built With</b></summary>
 
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)](https://react.dev/)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=TailwindCSS&logoColor=white)](https://tailwindcss.com/docs/installation/using-vite)
 
 </details>
 
@@ -26,31 +26,27 @@ Personal portfolio built with React showcasing web development projects.
 ## Technical Details
 
 **Frontend**
-- React with hooks (useState, useEffect, useRef)
-- React Router for client-side routing
+- React with hooks (useState, useEffect)
 - Vite for build tooling
-- Bootstrap for UI components and utilities
-- Custom CSS for styling
-- Framer Motion for animations
-- Lucide React and Font Awesome for icons
-- React Helmet for per-route meta tags
+- Tailwind CSS for styling
+- Lucide React for icons
 
 **Features**
-- Mobile-responsive with hamburger navigation
-- Fully keyboard navigable with ARIA attributes
+- Single-page application with smooth scroll navigation
+- Mobile-responsive with hamburger menu
 - Contact form with validation and honeypot spam prevention
-- Project showcase with modals, tech stack icons, and links
-- Back-to-top button for keyboard users
-- SEO meta tags and semantic HTML
+- Project showcase with modals and tech stack display
+- SEO optimized with structured data
 
 **Accessibility**
-- ARIA attributes for screen readers
+- ARIA labels for screen readers
 - Keyboard navigation support
-- Focus management with useRef
-- Short animation durations (0.3s) to avoid usability issues
+- Form autocomplete attributes
+- 100/100 Lighthouse accessibility score
 
 **Security**
-- Honeypot field in contact form - hidden via CSS, catches bots that fill all form fields
+- Content Security Policy headers
+- Honeypot spam prevention in contact form
 
 ## Screenshots
 <details>
