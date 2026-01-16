@@ -2,16 +2,15 @@
 
 Personal portfolio built with React showcasing web development projects.
 
-**[Live Site](https://austingraham.ca)** | **Tech Stack:** React, Bootstrap, Framer Motion
+**[Live Site](https://austingraham.ca)** | **Tech Stack:**  React, Tailwind CSS
 
 ![about](public/readme-screenshots/about.png)
 
 <details>
 <summary><b>Built With</b></summary>
 
-[![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)](https://react.dev/)
-
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=TailwindCSS&logoColor=white)](https://tailwindcss.com/docs/installation/using-vite)
 
 </details>
