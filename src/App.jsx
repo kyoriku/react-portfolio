@@ -352,7 +352,7 @@ const ProjectsSection = () => {
               Projects
             </h2>
             <p className="text-xl text-slate-300">
-              Source code and live demos where available.
+              Source code and live demos.
             </p>
           </div>
 
@@ -389,7 +389,7 @@ const ProjectsSection = () => {
                     {project.deployedLink ? (
                       <a href={project.deployedLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-medium rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all">
                         <ExternalLink size={14} />
-                        Live
+                        Live Site
                       </a>
                     ) : (
                       <button disabled className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-slate-800 border border-slate-700 text-slate-600 text-sm font-medium rounded-lg cursor-not-allowed">
@@ -400,7 +400,7 @@ const ProjectsSection = () => {
                     {project.githubLink ? (
                       <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium rounded-lg hover:border-cyan-500 hover:text-cyan-400 transition-all">
                         <Github size={14} />
-                        Code
+                        Source Code
                       </a>
                     ) : (
                       <button disabled className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-slate-800 border border-slate-700 text-slate-600 text-sm font-medium rounded-lg cursor-not-allowed">
