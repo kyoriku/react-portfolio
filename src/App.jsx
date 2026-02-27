@@ -8,18 +8,42 @@ const projectsData = [
     deployedLink: 'https://stellarbladeguide.com',
     githubLink: 'https://github.com/kyoriku/stellar-blade-guide',
     keyTechnologies: ['React', 'Python', 'PostgreSQL', 'Redis'],
-    technologies: ['TypeScript', 'React', 'Tailwind CSS', 'React Query', 'Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Redis', 'Cloudinary'],
-    shortDescription: 'Gaming guide with 800+ collectibles and 1000+ screenshots. Multi-tier caching, image CDN, clean ad-free interface.',
-    description: `Gaming guide for Stellar Blade with 800+ collectibles, full location details, and screenshots. React/TypeScript frontend, Python/FastAPI backend, PostgreSQL database.
+    technologies: ['TypeScript', 'React', 'Tailwind CSS', 'TanStack Query', 'Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Redis', 'Cloudinary'],
+    shortDescription: 'Gaming guide with 800+ collectibles and 1000+ screenshots. User auth, OAuth, threaded comments, multi-tier caching, ad-free.',
+    description: `Unofficial fan guide for Stellar Blade with 800+ collectibles, full location details, and 1000+ curated screenshots — built as a clean, ad-free alternative to existing guide sites.
 
-Multi-tier Redis caching, Cloudinary CDN for image delivery, async SQLAlchemy with junction tables. React Query for client-side caching and prefetching. JSON-based data management workflow.`,
+JWT authentication with HttpOnly cookie session management and refresh token rotation, Argon2 password hashing, OAuth sign-in via Google and Discord, password reset via email, and threaded comments with AI-powered moderation. Fully async FastAPI backend with multi-tier caching achieving sub-100ms API response times. Role-based access control with moderator and admin capabilities.`,
     highlights: [
-      'Multi-tier Redis caching',
+      'JWT auth with refresh token rotation',
+      'Argon2 password hashing',
+      'OAuth integration (Google, Discord)',
+      'Threaded comments with AI moderation',
+      'Role-based access control',
+      'Pydantic validation and CSP for XSS prevention',
+      'Multi-tier Redis + TanStack Query caching',
       'Cloudinary CDN for 1000+ images',
-      'Async SQLAlchemy with junction tables',
-      'React Query prefetching',
-      'JSON seed file workflow',
-      'Bot detection and rate limiting'
+      'Rate limiting and bot detection',
+    ],
+  },
+  {
+    title: 'StackNova',
+    image: '/images/stacknova.webp',
+    deployedLink: 'https://stacknova.ca',
+    githubLink: 'https://github.com/kyoriku/stacknova',
+    keyTechnologies: ['React', 'Node.js', 'MySQL', 'Redis'],
+    technologies: ['JavaScript', 'React', 'Tailwind CSS', 'TanStack Query', 'Node.js', 'Express', 'MySQL', 'Sequelize', 'Redis'],
+    shortDescription: 'Q&A platform for developers. Markdown editor, syntax highlighting, user auth. Redis caching cut query times by 70%.',
+    description: `Developer Q&A platform where users post questions and answers with Markdown formatting and code syntax highlighting. Includes search by title, content, author, date, or comments, pagination, and user profiles with activity tracking.
+
+HTTP-only cookie authentication with Google OAuth, bcrypt password hashing, Redis-backed sessions, and input sanitization for XSS prevention. Multi-tier caching with Redis server-side and TanStack Query client-side — load tested with k6 at 50 concurrent users.`,
+    highlights: [
+      'HTTP-only cookie auth with Google OAuth',
+      'Markdown support with syntax highlighting',
+      'Redis caching — 70% faster query times',
+      'Multi-tier Redis + TanStack Query caching',
+      'Search by title, content, author, date, or comments',
+      'Input sanitization for XSS prevention',
+      'Light/dark mode',
     ]
   },
   {
@@ -30,104 +54,18 @@ Multi-tier Redis caching, Cloudinary CDN for image delivery, async SQLAlchemy wi
     keyTechnologies: ['Python', 'Gmail API', 'Sheets', 'OAuth2'],
     technologies: ['Python', 'Gmail IMAP/SMTP', 'Google Sheets API', 'Google Drive API', 'OAuth2', 'JSON', 'PDF Generation', 'Excel Export'],
     shortDescription: 'Python CLI that parses work schedule emails, tracks pay periods, generates invoices with HST. Reduced invoicing time by 80%.',
-    description: `Automated invoicing for contract work. Connects to Gmail via IMAP to extract shift data from schedule emails, tracks bi-weekly pay periods, calculates hours and HST, generates invoices through Google Sheets API.
+    description: `Python CLI tool that automates bi-weekly invoice generation for contract work — replacing a manual process of copying shifts, calculating hours, updating spreadsheets, and sending emails.
 
-CLI interface for adding/editing shifts, viewing tax summaries, sending invoices via SMTP with PDF and Excel attachments. Data persists in JSON files.`,
+Connects to Gmail via IMAP to parse schedule emails with regex, extracts shifts with duplicate detection, calculates hours and HST, and generates invoices using the Google Sheets API with template copying via Google Drive. Delivers invoices via SMTP with PDF and Excel attachments.`,
     highlights: [
-      'Gmail IMAP parsing for schedule emails',
-      'Bi-weekly pay period tracking',
+      'Gmail IMAP parsing with regex for shift extraction',
+      'Duplicate shift detection',
       'Google Sheets API for invoice generation',
       'OAuth2 authentication',
       'PDF/Excel export and SMTP delivery',
-      'Persistent JSON storage',
+      'Interactive CLI with shift review before sending',
     ]
   },
-  {
-    title: 'StackNova',
-    image: '/images/stacknova.webp',
-    deployedLink: 'https://stacknova.ca',
-    githubLink: 'https://github.com/kyoriku/stacknova',
-    keyTechnologies: ['React', 'Node.js', 'MySQL', 'Redis'],
-    technologies: ['JavaScript', 'React', 'Tailwind CSS', 'TanStack Query', 'Node.js', 'Express', 'MySQL', 'Sequelize', 'Redis'],
-    shortDescription: 'Q&A platform for developers. Markdown editor, syntax highlighting, user auth. Redis caching cut query times by 70%.',
-    description: `Developer Q&A platform where users post questions and answers with Markdown formatting and code syntax highlighting. React frontend, Node.js/Express API, MySQL database.
-
-HTTP-only cookie authentication, input sanitization for XSS prevention, server-side caching with Redis. React Query for client-side data management.`,
-    highlights: [
-      'HTTP-only cookie auth with protected routes',
-      'Markdown support with syntax highlighting',
-      'Redis caching - 70% faster query times',
-      'TanStack Query for data fetching',
-      'Input sanitization for XSS prevention',
-      'Light/dark mode'
-    ]
-  },
-  // {
-  //   title: 'AdminAccess',
-  //   image: '/images/adminaccess.webp',
-  //   deployedLink: 'https://adminaccess-f697b23e85fa.herokuapp.com/',
-  //   githubLink: 'https://github.com/kyoriku/AdminAccess',
-  //   keyTechnologies: ['React', 'Node.js', 'MySQL', 'Sequelize'],
-  //   technologies: ['JavaScript', 'React', 'Bootstrap', 'Node.js', 'Express', 'MySQL', 'Sequelize'],
-  //   shortDescription: 'Employee management dashboard. CRUD for employees, departments, roles. Session-based auth.',
-  //   description: `Admin dashboard for managing employee records. React frontend with Bootstrap, Node.js API, MySQL database with Sequelize ORM. Handles employee data, department assignments, role management.`,
-  //   highlights: [
-  //     'Session-based authentication',
-  //     'CRUD for employees and departments',
-  //     'Form validation',
-  //     'Confirmation dialogs for deletions'
-  //   ]
-  // },
-  // {
-  //   title: 'CloudShare',
-  //   image: '/images/cloudshare.webp',
-  //   deployedLink: '',
-  //   githubLink: 'https://github.com/kyoriku/CloudShare',
-  //   keyTechnologies: ['React', 'Node.js', 'S3', 'DynamoDB'],
-  //   technologies: ['JavaScript', 'React', 'Bootstrap', 'Node.js', 'Express', 'AWS', 'EC2', 'S3', 'DynamoDB'],
-  //   shortDescription: 'Image sharing app on AWS. S3 for storage, DynamoDB for data, EC2 deployment.',
-  //   description: `Content sharing platform on AWS. Users upload images to S3, metadata stored in DynamoDB, application runs on EC2.`,
-  //   highlights: [
-  //     'S3 image storage',
-  //     'DynamoDB data persistence',
-  //     'EC2 deployment'
-  //   ]
-  // },
-  // {
-  //   title: 'PythonPress',
-  //   image: '/images/pythonpress.webp',
-  //   deployedLink: 'https://pythonpress-64ffcf772c54.herokuapp.com/',
-  //   githubLink: 'https://github.com/kyoriku/PythonPress',
-  //   keyTechnologies: ['Python', 'Flask', 'MySQL', 'SQLAlchemy'],
-  //   technologies: ['JavaScript', 'CSS', 'Jinja', 'Python', 'Flask', 'Gunicorn', 'SQLAlchemy'],
-  //   shortDescription: 'Blog platform with Flask. SQLAlchemy ORM, Jinja templates, user auth.',
-  //   description: `Blog/news platform in Python. Flask backend with SQLAlchemy for database operations, Jinja2 for templating, session-based user authentication.`,
-  //   highlights: [
-  //     'Flask backend',
-  //     'SQLAlchemy ORM',
-  //     'Jinja2 templating',
-  //     'User authentication'
-  //   ]
-  // },
-  //   {
-  //     title: 'RendezView',
-  //     image: '/images/rendezview.webp',
-  //     deployedLink: 'https://rendezviews-6983bdd1f9ce.herokuapp.com/',
-  //     githubLink: 'https://github.com/kyoriku/RendezView',
-  //     keyTechnologies: ['JavaScript', 'Node.js', 'Express', 'MySQL'],
-  //     technologies: ['JavaScript', 'Handlebars', 'CSS', 'Bootstrap', 'Node.js', 'Express', 'MySQL', 'Sequelize'],
-  //     shortDescription: 'Event planning platform. Create and manage events, track RSVPs, view locations on interactive maps with OpenStreetMap.',
-  //     description: `Event management platform where users create events, track RSVPs, and view locations on interactive maps. Node.js/Express backend, MySQL database with Sequelize ORM, Handlebars templating.
-
-  // Session-based authentication for user accounts. OpenStreetMap API integration for event locations.`,
-  //     highlights: [
-  //       'Event CRUD operations',
-  //       'RSVP tracking system',
-  //       'OpenStreetMap integration',
-  //       'Session-based authentication',
-  //       'User dashboards'
-  //     ]
-  //   }
 ];
 
 const workExperienceData = [
@@ -627,7 +565,7 @@ const ExperienceSection = () => {
                 PDF with full work history and project details.
               </p>
             </div>
-            <a href="/documents/Austin_Graham_Resume_2025.pdf" target="_blank" rel="noopener noreferrer" className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all">
+            <a href="/documents/Austin_Graham_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all">
               <FileText size={20} />
               View Resume
             </a>
@@ -844,7 +782,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-slate-300 text-sm">
-            © 2025 Austin Graham
+            © {new Date().getFullYear()} Austin Graham
           </div>
           <div className="flex gap-6">
             {[
