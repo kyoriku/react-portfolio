@@ -8,7 +8,7 @@ const projectsData = [
     deployedLink: 'https://stellarbladeguide.com',
     githubLink: 'https://github.com/kyoriku/stellar-blade-guide',
     keyTechnologies: ['React', 'Python', 'PostgreSQL', 'Redis'],
-    technologies: ['TypeScript', 'React', 'Tailwind CSS', 'TanStack Query', 'Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Redis', 'Cloudinary'],
+    technologies: ['TypeScript', 'React', 'Tailwind CSS', 'TanStack Query', 'Python', 'FastAPI', 'Pydantic', 'SQLAlchemy', 'PostgreSQL', 'Redis', 'Argon2', 'JWT', 'OAuth2', 'Cloudinary', 'OpenAI', 'Resend'],
     shortDescription: 'Gaming guide with 800+ collectibles and 1000+ screenshots. User auth, OAuth, threaded comments, multi-tier caching, ad-free.',
     description: `Unofficial fan guide for Stellar Blade with 800+ collectibles, full location details, and 1000+ curated screenshots — built as a clean, ad-free alternative to existing guide sites.
 
@@ -31,7 +31,7 @@ JWT authentication with HttpOnly cookie session management and refresh token rot
     deployedLink: 'https://stacknova.ca',
     githubLink: 'https://github.com/kyoriku/stacknova',
     keyTechnologies: ['React', 'Node.js', 'MySQL', 'Redis'],
-    technologies: ['JavaScript', 'React', 'Tailwind CSS', 'TanStack Query', 'Node.js', 'Express', 'MySQL', 'Sequelize', 'Redis'],
+    technologies: ['JavaScript', 'React', 'Tailwind CSS', 'TanStack Query', 'Node.js', 'Express', 'Sequelize', 'MySQL', 'Redis', 'bcrypt', 'OAuth2', 'Helmet', 'DOMPurify', 'k6'],
     shortDescription: 'Q&A platform for developers. Markdown editor, syntax highlighting, user auth. Redis caching cut query times by 70%.',
     description: `Developer Q&A platform where users post questions and answers with Markdown formatting and code syntax highlighting. Includes search by title, content, author, date, or comments, pagination, and user profiles with activity tracking.
 
@@ -52,13 +52,13 @@ HTTP-only cookie authentication with Google OAuth, bcrypt password hashing, Redi
     deployedLink: '',
     githubLink: 'https://github.com/kyoriku/invoice-automation',
     keyTechnologies: ['Python', 'Gmail API', 'Sheets', 'OAuth2'],
-    technologies: ['Python', 'Gmail IMAP/SMTP', 'Google Sheets API', 'Google Drive API', 'OAuth2', 'JSON', 'PDF Generation', 'Excel Export'],
+    technologies: ['Python', 'Gmail IMAP/SMTP', 'Google Sheets API', 'Google Drive API', 'OAuth2', 'BeautifulSoup4', 'JSON', 'PDF Generation', 'Excel Export'],
     shortDescription: 'Python CLI that parses work schedule emails, tracks pay periods, generates invoices with HST. Reduced invoicing time by 80%.',
     description: `Python CLI tool that automates bi-weekly invoice generation for contract work — replacing a manual process of copying shifts, calculating hours, updating spreadsheets, and sending emails.
 
-Connects to Gmail via IMAP to parse schedule emails with regex, extracts shifts with duplicate detection, calculates hours and HST, and generates invoices using the Google Sheets API with template copying via Google Drive. Delivers invoices via SMTP with PDF and Excel attachments.`,
+Connects to Gmail via IMAP to parse schedule emails using a dual parsing strategy — regex for the legacy format and BeautifulSoup4 for the current HTML format with automatic fallback. Extracts shifts with duplicate detection, calculates hours and HST, and generates invoices using the Google Sheets API with template copying via Google Drive. Delivers invoices via SMTP with PDF and Excel attachments.`,
     highlights: [
-      'Gmail IMAP parsing with regex for shift extraction',
+      'Dual parsing strategy: regex for legacy format, BeautifulSoup4 for current HTML format with automatic fallback',
       'Duplicate shift detection',
       'Google Sheets API for invoice generation',
       'OAuth2 authentication',
@@ -71,14 +71,14 @@ Connects to Gmail via IMAP to parse schedule emails with regex, extracts shifts 
 const workExperienceData = [
   {
     title: 'Technician',
-    company: 'Instacart',
+    company: 'Instacart (Caper AI)',
     location: 'Burlington, ON',
     period: 'June 2025 – Present',
     responsibilities: [
-      'Deploy applications to embedded devices using CLI and automated scripts',
-      'Configure smart cart systems - software/firmware validation, network setup',
-      'Run deployment scripts across 100+ serialized systems',
-      'Debug hardware-software integration issues'
+      'Deploy and validate applications to embedded smart cart systems using command line interfaces, debugging tools, and automated scripting workflows across 100+ serialized devices',
+      'Configure and test smart cart systems for production deployment, including software and firmware validation, network setup, and hardware integration testing',
+      'Execute and maintain automated deployment scripts and system updates for ongoing maintenance and feature rollouts across the device fleet',
+      'Diagnose and resolve complex hardware-software integration issues using systematic debugging and root cause analysis, collaborating with engineering teams to provide technical feedback on performance and product improvement'
     ]
   }
 ];
@@ -214,7 +214,7 @@ const HeroSection = () => {
               </h1>
 
               <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
-                Software developer. Building web applications with React, Node.js, and Python.
+                Software developer. Building secure, performant web applications with React, Node.js, and Python.
               </p>
 
               <div className="flex items-center gap-3 text-slate-300">
@@ -232,10 +232,10 @@ const HeroSection = () => {
             </div>
 
             <div className="flex gap-4 pt-4">
-              <button onClick={() => scrollToSection('projects')} className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all cursor-pointer">
+              <button onClick={() => scrollToSection('projects')} className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all cursor-pointer">
                 View projects
               </button>
-              <button onClick={() => scrollToSection('contact')} className="px-8 py-4 bg-slate-800/80 border border-slate-700 text-white font-semibold rounded-xl hover:border-cyan-500 transition-all cursor-pointer">
+              <button onClick={() => scrollToSection('contact')} className="px-6 py-3 bg-slate-800/80 border border-slate-700 text-white font-semibold rounded-xl hover:border-cyan-500 transition-all cursor-pointer">
                 Contact
               </button>
             </div>
@@ -391,7 +391,7 @@ const ProjectsSection = () => {
                   <h4 className="text-xl font-semibold text-cyan-400 mb-4">Stack</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech, i) => (
-                      <span key={i} className="px-4 py-2 bg-slate-700 border border-slate-600 text-cyan-400 rounded-lg">
+                      <span key={i} className="px-4 py-2 bg-slate-700 border border-slate-600 text-cyan-400 rounded-lg text-sm">
                         {tech}
                       </span>
                     ))}
@@ -400,23 +400,23 @@ const ProjectsSection = () => {
                 <hr className="border-slate-700" />
                 <div className="flex gap-4  border-t border-slate-800">
                   {selectedProject.deployedLink ? (
-                    <a href={selectedProject.deployedLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 p-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition-all">
+                    <a href={selectedProject.deployedLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition-all">
                       <ExternalLink size={18} />
                       Live Site
                     </a>
                   ) : (
-                    <button disabled className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-slate-800 border border-slate-700 text-slate-600 font-semibold rounded-xl cursor-not-allowed">
+                    <button disabled className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 border border-slate-700 text-slate-600 font-semibold rounded-xl cursor-not-allowed">
                       <ExternalLink size={18} />
                       N/A
                     </button>
                   )}
                   {selectedProject.githubLink ? (
-                    <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 p-4 bg-slate-800 backdrop-blur-sm border border-slate-700 text-slate-300 font-semibold rounded-xl hover:border-cyan-500 hover:text-cyan-400 transition-all">
+                    <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 backdrop-blur-sm border border-slate-700 text-slate-300 font-semibold rounded-xl hover:border-cyan-500 hover:text-cyan-400 transition-all">
                       <Github size={18} />
                       Source Code
                     </a>
                   ) : (
-                    <button disabled className="flex-1 flex items-center justify-center gap-2 p-4 bg-slate-800 border border-slate-700 text-slate-600 font-semibold rounded-xl cursor-not-allowed">
+                    <button disabled className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 border border-slate-700 text-slate-600 font-semibold rounded-xl cursor-not-allowed">
                       <Github size={18} />
                       N/A
                     </button>
@@ -565,7 +565,7 @@ const ExperienceSection = () => {
                 PDF with full work history and project details.
               </p>
             </div>
-            <a href="/documents/Austin_Graham_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all">
+            <a href="/documents/Austin_Graham_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all">
               <FileText size={20} />
               View Resume
             </a>
@@ -758,7 +758,7 @@ const ContactSection = () => {
               <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={6} required className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 focus:border-cyan-500 rounded-xl text-white placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none" />
             </div>
 
-            <button type="submit" disabled={isSubmitting} className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all disabled:opacity-50 cursor-pointer">
+            <button type="submit" disabled={isSubmitting} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all disabled:opacity-50 cursor-pointer">
               <Send size={18} />
               <span>{isSubmitting ? 'Sending...' : 'Send'}</span>
             </button>
