@@ -400,23 +400,23 @@ const ProjectsSection = () => {
                 <hr className="border-slate-700" />
                 <div className="flex gap-4  border-t border-slate-800">
                   {selectedProject.deployedLink ? (
-                    <a href={selectedProject.deployedLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition-all">
+                    <a href={selectedProject.deployedLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition-all">
                       <ExternalLink size={18} />
                       Live Site
                     </a>
                   ) : (
-                    <button disabled className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 border border-slate-700 text-slate-600 font-semibold rounded-xl cursor-not-allowed">
+                    <button disabled className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-800 border border-slate-700 text-slate-600 font-semibold rounded-xl cursor-not-allowed">
                       <ExternalLink size={18} />
                       N/A
                     </button>
                   )}
                   {selectedProject.githubLink ? (
-                    <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 backdrop-blur-sm border border-slate-700 text-slate-300 font-semibold rounded-xl hover:border-cyan-500 hover:text-cyan-400 transition-all">
+                    <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-800 backdrop-blur-sm border border-slate-700 text-slate-300 font-semibold rounded-xl hover:border-cyan-500 hover:text-cyan-400 transition-all">
                       <Github size={18} />
                       Source Code
                     </a>
                   ) : (
-                    <button disabled className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 border border-slate-700 text-slate-600 font-semibold rounded-xl cursor-not-allowed">
+                    <button disabled className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-800 border border-slate-700 text-slate-600 font-semibold rounded-xl cursor-not-allowed">
                       <Github size={18} />
                       N/A
                     </button>
