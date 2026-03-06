@@ -209,7 +209,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div className="space-y-6">
-              <h1 className="text-6xl lg:text-7xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent leading-tight">
+              <h1 className="md:text-6xl lg:text-7xl text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent leading-tight">
                 Austin Graham
               </h1>
 
@@ -286,7 +286,7 @@ const ProjectsSection = () => {
       <section id="projects" className="min-h-screen bg-slate-950 py-24">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">
+            <h2 className="md:text-5xl text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">
               Projects
             </h2>
             <p className="text-xl text-slate-300">
@@ -449,7 +449,7 @@ const ExperienceSection = () => {
     <section id="experience" className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 py-24">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="mb-16">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">
+          <h2 className="md:text-5xl text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">
             Experience
           </h2>
           <p className="text-xl text-slate-300">
@@ -658,7 +658,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div className="space-y-8">
             <div>
-              <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">
+              <h2 className="md:text-5xl text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">
                 Contact
               </h2>
               <p className="text-xl text-slate-300 leading-relaxed">
