@@ -8,21 +8,21 @@ const projectsData = [
     deployedLink: 'https://stellarbladeguide.com',
     githubLink: 'https://github.com/kyoriku/stellar-blade-guide',
     keyTechnologies: ['React', 'Python', 'PostgreSQL', 'Redis'],
-    technologies: ['TypeScript', 'React', 'Tailwind CSS', 'TanStack Query', 'Python', 'FastAPI', 'Pydantic', 'SQLAlchemy', 'PostgreSQL', 'Redis', 'Argon2', 'JWT', 'OAuth2', 'Cloudinary', 'OpenAI', 'Resend'],
-    shortDescription: 'Gaming guide with 800+ collectibles and 1000+ screenshots. User auth, OAuth, threaded comments, multi-tier caching, ad-free.',
-    description: `Unofficial fan guide for Stellar Blade with 800+ collectibles, full location details, and 1000+ curated screenshots — built as a clean, ad-free alternative to existing guide sites.
+    technologies: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'TanStack Query', 'Python', 'FastAPI', 'Pydantic', 'SQLAlchemy', 'PostgreSQL', 'Redis', 'pytest', 'Argon2', 'JWT', 'OAuth2', 'Cloudinary', 'OpenAI', 'Resend', 'Fastly'],
+    shortDescription: 'Ad-free fan guide for Stellar Blade. Full-text search, 1000+ collectibles, 1500+ screenshots. Sub-100ms perceived navigation.',
+    description: `Unofficial fan guide for Stellar Blade with 1000+ collectibles, complete location details, and 1500+ curated screenshots — built as a clean, ad-free alternative to existing guide sites. Pages rank on page 1 of Google for several Stellar Blade collectible queries, with Google pulling site screenshots as SERP thumbnails.
 
-JWT authentication with HttpOnly cookie session management and refresh token rotation, Argon2 password hashing, OAuth sign-in via Google and Discord, password reset via email, and threaded comments with AI-powered moderation. Fully async FastAPI backend with multi-tier caching achieving sub-100ms API response times. Role-based access control with moderator and admin capabilities.`,
+Postgres full-text search with tsvector and pg_trgm for typo tolerance, combined ranking across collectibles, walkthroughs, and levels. Sub-100ms perceived navigation through Redis server-side caching, TanStack Query hover-prefetching, and predictive srcSet image preloading matched to layout breakpoints. Cycle filtering for NG+, NG++, and DLC content. Comments are gated behind JWT auth with refresh token rotation, Argon2 password hashing, OAuth (Google, Discord), and AI-powered moderation.`,
     highlights: [
-      'JWT auth with refresh token rotation',
-      'Argon2 password hashing',
-      'OAuth integration (Google, Discord)',
-      'Threaded comments with AI moderation',
-      'Role-based access control',
-      'Pydantic validation and CSP for XSS prevention',
-      'Multi-tier Redis + TanStack Query caching',
-      'Cloudinary CDN for 1000+ images',
-      'Rate limiting and bot detection',
+      'Full-text search with tsvector + pg_trgm typo tolerance',
+      'Sub-100ms perceived navigation via Redis caching and predictive prefetching',
+      'Responsive image system with srcSet matching layout breakpoints',
+      'Cloudinary CDN for 1500+ images with content-aware upload pipeline',
+      'Cycle filtering for NG+, NG++, and DLC content',
+      'JWT auth with refresh token rotation and OAuth (Google, Discord)',
+      'Argon2 password hashing and AI-powered comment moderation',
+      'Pytest backend coverage with SQLite in-memory and fakeredis',
+      'Page 1 Google rankings for several Stellar Blade collectible queries',
     ],
   },
   {
@@ -75,10 +75,10 @@ const workExperienceData = [
     location: 'Burlington, ON',
     period: 'June 2025 – Present',
     responsibilities: [
-      'Deploy and validate applications to embedded smart cart systems using command line interfaces, debugging tools, and automated scripting workflows across 100+ serialized devices',
-      'Configure and test smart cart systems for production deployment, including software and firmware validation, network setup, and hardware integration testing',
-      'Execute and maintain automated deployment scripts and system updates for ongoing maintenance and feature rollouts across the device fleet',
-      'Diagnose and resolve complex hardware-software integration issues using systematic debugging and root cause analysis, collaborating with engineering teams to provide technical feedback on performance and product improvement'
+      'Execute multi-device deployment scripts to install APKs, load Docker images, and configure embedded systems across 100+ serialized smart cart devices via ADB and SSH — managing IP lists, monitoring per-device output, and verifying successful installation across each unit',
+      'Configure and validate software, firmware, and network settings for production deployment using CLI tools and internal provisioning workflows, ensuring devices meet requirements before entering the field',
+      'Diagnose hardware-software integration issues through systematic debugging and root cause analysis — interpreting error logs, testing network connectivity, and escalating to engineering teams with detailed documentation to support faster resolution',
+      'Document device statuses, test results, and issue resolution; collaborate directly with engineers for triage and escalation, serving as the operational link between field hardware and software teams'
     ]
   }
 ];
