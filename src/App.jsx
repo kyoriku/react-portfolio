@@ -7,7 +7,7 @@ const projectsData = [
     image: '/images/stellarbladeguide.webp',
     deployedLink: 'https://stellarbladeguide.com',
     githubLink: 'https://github.com/kyoriku/stellar-blade-guide',
-    keyTechnologies: ['React', 'Python', 'PostgreSQL', 'Redis'],
+    keyTechnologies: ['TypeScript', 'React', 'Python', 'PostgreSQL'],
     technologies: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'TanStack Query', 'Python', 'FastAPI', 'Pydantic', 'SQLAlchemy', 'PostgreSQL', 'Redis', 'pytest', 'Argon2', 'JWT', 'OAuth2', 'Cloudinary', 'OpenAI', 'Resend', 'Fastly'],
     shortDescription: 'Ad-free fan guide for Stellar Blade. Full-text search, 1000+ collectibles, 1500+ screenshots. Sub-100ms perceived navigation.',
     description: `Unofficial fan guide for Stellar Blade with 1000+ collectibles, complete location details, and 1500+ curated screenshots — built as a clean, ad-free alternative to existing guide sites. Pages rank on page 1 of Google for several Stellar Blade collectible queries, with Google pulling site screenshots as SERP thumbnails.
@@ -30,7 +30,7 @@ Postgres full-text search with tsvector and pg_trgm for typo tolerance, combined
     image: '/images/stacknova.webp',
     deployedLink: 'https://stacknova.ca',
     githubLink: 'https://github.com/kyoriku/stacknova',
-    keyTechnologies: ['React', 'Node.js', 'MySQL', 'Redis'],
+    keyTechnologies: ['JavaScript', 'React', 'Node.js', 'MySQL'],
     technologies: ['JavaScript', 'React', 'Tailwind CSS', 'TanStack Query', 'Node.js', 'Express', 'Sequelize', 'MySQL', 'Redis', 'bcrypt', 'OAuth2', 'Helmet', 'DOMPurify', 'k6'],
     shortDescription: 'Q&A platform for developers. Markdown editor, syntax highlighting, user auth. Redis caching cut query times by 70%.',
     description: `Developer Q&A platform where users post questions and answers with Markdown formatting and code syntax highlighting. Includes search by title, content, author, date, or comments, pagination, and user profiles with activity tracking.
@@ -214,7 +214,7 @@ const HeroSection = () => {
               </h1>
 
               <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
-                Software developer. Building secure, performant web applications with React, Node.js, and Python.
+                Software developer. Building secure, performant web applications with React, Python, and SQL.
               </p>
 
               <div className="flex items-center gap-3 text-slate-300">
@@ -224,7 +224,7 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              {['React', 'JavaScript', 'Python', 'SQL'].map((tech) => (
+              {['TypeScript', 'React', 'Python', 'SQL'].map((tech) => (
                 <span key={tech} className="px-4 py-2 bg-slate-800/80 border border-slate-700 rounded-xl text-slate-300 text-sm hover:border-cyan-500/50 transition-all">
                   {tech}
                 </span>
