@@ -7,22 +7,45 @@ const projectsData = [
     image: '/images/stellarbladeguide.webp',
     deployedLink: 'https://stellarbladeguide.com',
     githubLink: 'https://github.com/kyoriku/stellar-blade-guide',
-    keyTechnologies: ['TypeScript', 'React', 'Python', 'PostgreSQL'],
-    technologies: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'TanStack Query', 'Python', 'FastAPI', 'Pydantic', 'SQLAlchemy', 'PostgreSQL', 'Redis', 'pytest', 'Argon2', 'JWT', 'OAuth2', 'Cloudinary', 'OpenAI', 'Resend', 'Fastly'],
-    shortDescription: 'Ad-free fan guide for Stellar Blade. Full-text search, 1000+ collectibles, 1500+ screenshots. Sub-100ms perceived navigation.',
-    description: `Unofficial fan guide for Stellar Blade with 1000+ collectibles, complete location details, and 1500+ curated screenshots — built as a clean, ad-free alternative to existing guide sites. Pages rank on page 1 of Google for several Stellar Blade collectible queries, with Google pulling site screenshots as SERP thumbnails.
+    keyTechnologies: ['TypeScript', 'React', 'FastAPI', 'PostgreSQL'],
+    technologies: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'TanStack Query', 'React Router', 'Python', 'FastAPI', 'Uvicorn', 'Pydantic', 'slowapi', 'httpx', 'Argon2', 'OAuth2', 'Pillow', 'boto3', 'SQLAlchemy', 'asyncpg', 'PostgreSQL', 'Redis', 'Vitest', 'Playwright', 'pytest', 'uv', 'ESLint', 'Docker', 'Railway', 'Cloudflare', 'Cloudflare R2', 'GitHub Actions', 'OpenAI', 'Resend', 'Cloudinary'],
+    shortDescription: 'Stellar Blade game guide: 1,078 collectibles, 95 walkthrough pages, 2,800+ screenshots, Postgres search, edge-cached API.',
+    description: `An unofficial guide to Stellar Blade: 1,078 collectibles across 21 types, 95 walkthrough pages (main story, side quests, Bulletin Board requests, the NieR and NIKKE DLC, and fishing) and 2,800+ original PS5 screenshots, with written directions and a screenshot for every collectible. Google web search sends it about 2,000 clicks a month, and its top eight queries average positions 1.6 to 7.4 over three months. Search covers collectibles, walkthrough sections, levels and type pages and tolerates typos, collectibles filter by game cycle (NG, NG+, NG++, DLC), and progress tracking works without an account and merges into one on sign-in.
 
-Postgres full-text search with tsvector and pg_trgm for typo tolerance, combined ranking across collectibles, walkthroughs, and levels. Sub-100ms perceived navigation through Redis server-side caching, TanStack Query hover-prefetching, and predictive srcSet image preloading matched to layout breakpoints. Cycle filtering for NG+, NG++, and DLC content. Comments are gated behind JWT auth with refresh token rotation, Argon2 password hashing, OAuth (Google, Discord), and AI-powered moderation.`,
+Live since November 2025 on a FastAPI and PostgreSQL stack that replaced a MERN build once the data proved relational. It runs as one Docker service on Railway's Hobby plan behind Cloudflare Pro, with FastAPI serving both the API and the built React app, and Railway-hosted PostgreSQL and Redis that take no public connections. Content is versioned as JSON in its own repository and reaches production through a content pipeline that commits each content type in one transaction and purges only the edge URLs that changed, so API responses stay cached in Redis and at Cloudflare's edge for up to 30 days. Tested by 1,899 pytest, 222 Vitest and 192 Playwright end-to-end tests.`,
     highlights: [
-      'Full-text search with tsvector + pg_trgm typo tolerance',
-      'Sub-100ms perceived navigation via Redis caching and predictive prefetching',
-      'Responsive image system with srcSet matching layout breakpoints',
-      'Cloudinary CDN for 1500+ images with content-aware upload pipeline',
-      'Cycle filtering for NG+, NG++, and DLC content',
-      'JWT auth with refresh token rotation and OAuth (Google, Discord)',
-      'Argon2 password hashing and AI-powered comment moderation',
-      'Pytest backend coverage with SQLite in-memory and fakeredis',
-      'Page 1 Google rankings for several Stellar Blade collectible queries',
+      'Content pipeline from versioned JSON: each content type commits in one transaction, and change detection limits each Cloudflare purge to the API URLs that changed, a median 10 of about 130 across 27 deploys',
+      'Every purge is recorded before COMMIT and stays owed until one succeeds; any doubt widens it to every API URL, and Redis must answer before COMMIT and is cleared after it',
+      'Images are pre-generated WebP on Cloudflare R2, five sizes each with srcSet matched to the layout at each breakpoint; a changed image gets a new key, so content deploys never purge the image cache, and deletes pass a two-stage gate',
+      'Typo-tolerant search over collectibles, walkthrough sections, levels and type pages: one ranked PostgreSQL query over stored, weighted tsvector columns and pg_trgm, plus an edit-distance fallback, checked against a 4,804-query baseline',
+      'Google and Discord OAuth bind a single-use state to an HttpOnly cookie and a 10-minute Redis record against login CSRF, and link accounts only on a provider-verified email, never into an account with a password',
+      'The origin answers only Cloudflare traffic, through a secret header that a Railway Edge Rule and the app both require; PostgreSQL and Redis take no public connections, and content deploys reach them over SSH tunnels',
+      "Workers stay responsive under hostile URLs and Redis stalls: the bot filter's path check is linear-time, capped at 512 characters and held by a subprocess-timeout test, and Redis connects and reads time out after 2 seconds, falling back to memory for rate limits and to PostgreSQL for cache reads",
+      'User-submitted avatar URLs are fetched once (https only, every redirect hop checked against private, loopback and metadata ranges, a 10 MB cap enforced mid-stream), so OpenAI moderates the exact bytes uploaded',
+      'FastAPI splices per-route titles, descriptions and Open Graph tags into the built React shell, from one JSON file the client also imports and from database rows for walkthroughs, so link previews and non-JS crawlers get real heads without SSR',
+    ],
+  },
+  {
+    title: 'Expedition 33dle',
+    image: '/images/expedition33dle.webp',
+    deployedLink: 'https://expedition33dle.com',
+    githubLink: 'https://github.com/kyoriku/expedition-33dle',
+    keyTechnologies: ['TypeScript', 'React', 'FastAPI', 'PostgreSQL'],
+    technologies: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'TanStack Query', 'React Router', 'Python', 'FastAPI', 'Pydantic', 'SQLAlchemy', 'asyncpg', 'Alembic', 'PostgreSQL', 'Vitest', 'Testing Library', 'pytest', 'uv', 'Docker', 'Railway', 'Cloudflare', 'GitHub Actions', 'Sentry'],
+    shortDescription: 'Daily guessing game for Clair Obscur: Expedition 33. Four modes, 400-entry roster, server-side answers, CI-gated deploys.',
+    description: `Daily guessing game for Clair Obscur: Expedition 33, live at expedition33dle.com since August 2026. Four modes (Classic, Pictos, Weapons, Bosses) compare each guess against a hidden daily answer across six to eight typed attributes with match, partial, and directional feedback, over a hand-curated 400-entry roster. The answer never leaves the server before the game ends: each day's puzzle is a pure function of the date, the roster, and a frozen seed, the daily endpoint carries no answer field, and the reveal endpoint requires server-validated proof of a win or a spent guess cap, so the answer cannot be pulled from the network tab.
+
+Runs as a single Docker service on Railway behind Cloudflare, with deploys gated on 264 tests and a healthcheck cutover; predeploy applies Alembic migrations and a count-and-prune-guarded seed. A scheduling fingerprint asserted at import makes any change that would reshuffle past answers fail the healthcheck, holding the previous release live. Operations are part of the project: deploy failures diagnosed from container logs, WAF and rate-limit rules written from observed scanner traffic, over 60% of requests blocked or challenged at the edge, pure-ASGI security headers, injection-escaped access logging with real client IPs, and a deploy runbook with a false-signals triage table.`,
+    highlights: [
+      'Daily answers derived server-side as a pure function of date, roster, and seed; never sent to the client until a server-validated win or loss',
+      'Import-time scheduling fingerprint guard: a deploy that would reshuffle past answers fails the healthcheck and the previous release stays live',
+      'Cloudflare WAF and rate-limit rules written from observed scanner traffic; over 60% of requests blocked or challenged at the edge',
+      'Four modes on one generic typed rendering core; a grid column referencing a missing feedback field fails compilation',
+      'UI tests query only by ARIA role and accessible name (133 role queries, zero test ids); Lighthouse desktop: Accessibility 100, Performance 96, Best Practices 100, SEO 100',
+      'CI-gated deploys: 264 tests block the release; predeploy runs Alembic migrations and a count-and-prune-guarded seed',
+      'Pure-ASGI middleware for security headers and injection-escaped access logging with real client IPs via CF-Connecting-IP',
+      'Four production deploy failures diagnosed from container logs and fixed in the pipeline, each named in its commit message',
+      "Long-open tabs roll over cleanly at UTC midnight: a timer plus a visibilitychange refetch remounts the game by puzzle number, re-deriving state from storage so guesses never score against the next day's answer",
     ],
   },
   {
@@ -70,16 +93,21 @@ Connects to Gmail via IMAP to parse schedule emails using a dual parsing strateg
 
 const workExperienceData = [
   {
-    title: 'Technician',
+    title: 'Systems Technician (Hardware-Software Integration)',
     company: 'Instacart (Caper AI)',
     location: 'Burlington, ON',
     period: 'June 2025 – Present',
+    summary: "Bridge between field hardware and software teams for Instacart's Caper smart carts, which run on NVIDIA Jetson edge AI hardware: provisioning devices, debugging failures across Android, Linux, and Kubernetes, and testing internal tooling on live carts before release.",
     responsibilities: [
-      'Execute multi-device deployment scripts to install APKs, load Docker images, and configure embedded systems across 100+ serialized smart cart devices via ADB and SSH — managing IP lists, monitoring per-device output, and verifying successful installation across each unit',
-      'Configure and validate software, firmware, and network settings for production deployment using CLI tools and internal provisioning workflows, ensuring devices meet requirements before entering the field',
-      'Diagnose hardware-software integration issues through systematic debugging and root cause analysis — interpreting error logs, testing network connectivity, and escalating to engineering teams with detailed documentation to support faster resolution',
-      'Document device statuses, test results, and issue resolution; collaborate directly with engineers for triage and escalation, serving as the operational link between field hardware and software teams'
-    ]
+      "Prepared 100+ smart carts for production deployment by running multi-device Bash scripts over ADB and SSH to install APKs, load Docker images, and configure embedded Android and Linux (NVIDIA Jetson) systems",
+      "Traced repeat failures in an internal CLI pipeline to a cleanup step that removed a Kubernetes deployment without restoring it, then recovered affected carts using the tool's own diagnostics until the fix shipped in the next release",
+      "Partnered with the pipeline's developers through 19 release candidates, testing each build on live carts (186 total), reporting reproducible defects with JSON run logs and repro steps, and verifying fixes on hardware",
+      "As the warehouse's only technical resource since February 2026, owned 200+ field device replacements end to end, catching units marked complete that were still mid-update or stuck syncing before they shipped",
+      "Diagnosed device faults from the Android shell (adb, pm, dumpsys, getprop, ip link, ARP), recovering stuck units and isolating a failed internal network link at layer 2",
+      "Isolated a cart battery-reading fault to firmware rather than hardware by cross-testing batteries across carts, routing the fix to the right team",
+      "Trained the team's first backup technician on replacement workflows to cover during an absence"
+    ],
+    technologies: ['Bash', 'ADB', 'SSH', 'Docker', 'Kubernetes', 'Android', 'Linux', 'NVIDIA Jetson']
   }
 ];
 
@@ -88,29 +116,32 @@ const skillsData = {
     { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
     { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
     { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-
     { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
     { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
     { name: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' }
   ],
   frameworks: [
     { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-    { name: 'Express', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
+    { name: 'Tailwind', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
     { name: 'FastAPI', icon: 'https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png' },
-    { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
-    { name: 'Tailwind', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' }
+    { name: 'SQLAlchemy', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-plain.svg' },
+    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+    { name: 'Express', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' }
   ],
   databases: [
     { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
     { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-    // { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
     { name: 'Redis', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg' }
   ],
   tools: [
-    { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
+    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
     { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' }
+    { name: 'Kubernetes', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg' },
+    { name: 'Cloudflare', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-plain.svg' },
+    { name: 'Sentry', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sentry/sentry-original.svg' },
+    { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+    { name: 'pytest', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-plain.svg' },
+    { name: 'Vitest', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitest/vitest-plain.svg' }
   ]
 };
 
@@ -214,17 +245,17 @@ const HeroSection = () => {
               </h1>
 
               <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
-                Software developer. Building secure, performant web applications with React, Python, and SQL.
+                Software developer building secure, performant web applications with React, TypeScript, Python, and PostgreSQL.
               </p>
 
               <div className="flex items-center gap-3 text-slate-300">
                 <MapPin size={20} className="text-cyan-400" />
-                <span>Toronto, Canada</span>
+                <span>Toronto, ON, Canada</span>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              {['TypeScript', 'React', 'Python', 'SQL'].map((tech) => (
+              {['TypeScript', 'React', 'Python', 'FastAPI', 'PostgreSQL'].map((tech) => (
                 <span key={tech} className="px-4 py-2 bg-slate-800/80 border border-slate-700 rounded-xl text-slate-300 text-sm hover:border-cyan-500/50 transition-all">
                   {tech}
                 </span>
@@ -243,7 +274,7 @@ const HeroSection = () => {
             <div className="flex gap-4">
               {[
                 { href: 'https://github.com/kyoriku', icon: Github, label: 'GitHub' },
-                { href: 'https://linkedin.com/in/austingraham1', icon: Linkedin, label: 'LinkedIn' },
+                { href: 'https://linkedin.com/in/austinmrgraham', icon: Linkedin, label: 'LinkedIn' },
                 { href: 'https://instagram.com/kyoriku.exe', icon: Instagram, label: 'Instagram' },
                 { href: 'mailto:hello@austingraham.ca', icon: Mail, label: 'Email' }
               ].map((social, idx) => (
@@ -312,7 +343,7 @@ const ProjectsSection = () => {
 
                   <div className="flex flex-wrap gap-2">
                     {project.keyTechnologies.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 bg-slate-700/80 border border-slate-600 text-cyan-300 text-xs rounded-lg">
+                      <span key={i} className="px-3 py-1 font-medium text-cyan-300 bg-slate-700/80 border border-slate-600 text-xs rounded-lg">
                         {tech}
                       </span>
                     ))}
@@ -471,6 +502,9 @@ const ExperienceSection = () => {
                   </div>
                   <span className="text-slate-300 text-sm md:text-base whitespace-nowrap">{job.period}</span>
                 </div>
+                {job.summary && (
+                  <p className="text-slate-200 leading-relaxed">{job.summary}</p>
+                )}
                 <ul className="space-y-2 mt-4">
                   {job.responsibilities.map((resp, i) => (
                     <li key={i} className="flex gap-3 text-slate-300">
@@ -479,6 +513,15 @@ const ExperienceSection = () => {
                     </li>
                   ))}
                 </ul>
+                {job.technologies && (
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {job.technologies.map((tech) => (
+                      <span key={tech} className="px-3 py-1 font-medium text-cyan-300 bg-slate-700/80 border border-slate-600 text-xs rounded-lg">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -685,7 +728,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="text-white font-semibold mb-1">Location</h3>
-                  <p className="text-slate-300">Toronto, Canada</p>
+                  <p className="text-slate-300">Toronto, ON, Canada</p>
                 </div>
               </div>
 
@@ -698,7 +741,7 @@ const ContactSection = () => {
                   <div className="flex gap-3 mt-2">
                     {[
                       { href: 'https://github.com/kyoriku', icon: Github, label: 'GitHub' },
-                      { href: 'https://linkedin.com/in/austingraham1', icon: Linkedin, label: 'LinkedIn' },
+                      { href: 'https://linkedin.com/in/austinmrgraham', icon: Linkedin, label: 'LinkedIn' },
                       { href: 'https://instagram.com/kyoriku.exe', icon: Instagram, label: 'Instagram' }
                     ].map((social, idx) => (
                       <a key={idx} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="text-slate-300 hover:text-cyan-400 transition-colors">
@@ -787,7 +830,7 @@ const Footer = () => {
           <div className="flex gap-6">
             {[
               { href: 'https://github.com/kyoriku', icon: Github, label: 'GitHub' },
-              { href: 'https://linkedin.com/in/austingraham1', icon: Linkedin, label: 'LinkedIn' },
+              { href: 'https://linkedin.com/in/austinmrgraham', icon: Linkedin, label: 'LinkedIn' },
               { href: 'https://instagram.com/kyoriku.exe', icon: Instagram, label: 'Instagram' },
               { href: 'mailto:hello@austingraham.ca', icon: Mail, label: 'Email' }
             ].map((social, idx) => (
