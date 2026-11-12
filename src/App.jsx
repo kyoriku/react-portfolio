@@ -97,17 +97,17 @@ const workExperienceData = [
     company: 'Instacart (Caper AI)',
     location: 'Burlington, ON',
     period: 'June 2025 – Present',
-    summary: "Bridge between field hardware and software teams for Instacart's Caper smart carts, which run on NVIDIA Jetson edge AI hardware: provisioning devices, debugging failures across Android, Linux, and Kubernetes, and testing internal tooling on live carts before release.",
+    summary: "Bridge between field hardware and software teams for Instacart's Caper smart carts, which run on NVIDIA Jetson edge AI hardware: building Python and Bash tools for on-site operations, debugging failures across Android, Linux, and Kubernetes, and testing internal tooling on live carts before release.",
     responsibilities: [
-      "Prepared 100+ smart carts for production deployment by running multi-device Bash scripts over ADB and SSH to install APKs, load Docker images, and configure embedded Android and Linux (NVIDIA Jetson) systems",
-      "Traced repeat failures in an internal CLI pipeline to a cleanup step that removed a Kubernetes deployment without restoring it, then recovered affected carts using the tool's own diagnostics until the fix shipped in the next release",
-      "Partnered with the pipeline's developers through 19 release candidates, testing each build on live carts (186 total), reporting reproducible defects with JSON run logs and repro steps, and verifying fixes on hardware",
-      "As the warehouse's only technical resource since February 2026, owned 200+ field device replacements end to end, catching units marked complete that were still mid-update or stuck syncing before they shipped",
-      "Diagnosed device faults from the Android shell (adb, pm, dumpsys, getprop, ip link, ARP), recovering stuck units and isolating a failed internal network link at layer 2",
-      "Isolated a cart battery-reading fault to firmware rather than hardware by cross-testing batteries across carts, routing the fix to the right team",
-      "Trained the team's first backup technician on replacement workflows to cover during an absence"
+      "Built a Python tool that has run 1,000+ smart carts through an internal CLI pipeline in parallel, resumable batches of up to 100 instead of one half-hour run at a time. It validates each barcode scan as it happens, checks every IP against its serial with a read-only probe before anything runs, and stops after repeated failures. End-to-end tests run it against a fake CLI.",
+      "Root-caused refurbished-cart failures in the CLI pipeline, from a missing agent behind most of them to a Kubernetes deployment the pipeline deleted but never restored. Recovered affected carts with the CLI's own diagnostics in the meantime, and as fixes shipped, completion more than doubled.",
+      "Partnered with the CLI pipeline's developers through 20+ release candidates, testing on 175+ live carts and reporting defects with JSON logs and repro steps that led to 10+ fixes, each verified on hardware.",
+      "As the only on-site technical resource since February 2026, owned 200+ field device replacements across dozens of stores end to end, stopping units marked complete from shipping while still mid-update or stuck syncing.",
+      "Prepared 100+ smart carts for production deployment by running multi-device Bash scripts over ADB and SSH to install APKs, load Docker images, and configure embedded Android and Linux (NVIDIA Jetson) systems.",
+      "Isolated a cart battery-reading fault to firmware rather than hardware by cross-testing batteries across carts, routing the fix to the right team.",
+      "Trained the team's first backup technician on replacement workflows to cover during an absence."
     ],
-    technologies: ['Bash', 'ADB', 'SSH', 'Docker', 'Kubernetes', 'Android', 'Linux', 'NVIDIA Jetson']
+    technologies: ['Python', 'Bash', 'ADB', 'SSH', 'Docker', 'Kubernetes', 'Android', 'Linux', 'NVIDIA Jetson'],
   }
 ];
 
